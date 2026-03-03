@@ -3,6 +3,8 @@
 Professor Curious — Street Interview Ad Generator
 Generates raw-footage-style school street interview clips via Azure Sora API.
 Clips: establishing shot + N kid interviews + outro → stitched final video.
+
+Time-of-day modes: golden_hour (post-exam) | night (coaching exit) | early_morning (exam day arrival)
 """
 
 import argparse
@@ -28,10 +30,10 @@ HEADERS  = {"api-key": API_KEY}
 SKILL_DIR    = Path(__file__).parent.parent
 DIALOGUE_DB  = SKILL_DIR / "references" / "dialogue-bank.yaml"
 
-# ── Prompt builders ────────────────────────────────────────────────────────────
+# ── Time-of-day settings ───────────────────────────────────────────────────────
 
-# Every clip shares these locked elements for visual continuity
-SETTING_LOCK = """
+SETTINGS = {
+    "golden_hour": """
 Raw handheld smartphone vlog footage, 9:16 vertical. Late afternoon natural daylight,
 warm golden-hour light, slightly hazy. Outside a busy Indian school iron gate. Dozens
 of Indian school kids in white shirts and grey pants or skirts with heavy backpacks
@@ -41,9 +43,77 @@ a chai stall visible in the far background. Organic, slightly chaotic Indian str
 energy. Absolutely no color grading, no cinematic lighting, no stabilization —
 raw iPhone-style handheld footage with natural subtle shake and slight exposure
 variation. Feels like one continuous real shoot, not staged.
-""".strip()
+""".strip(),
 
-# Vlogger appearance locked identically across all clips
+    "night": """
+Raw handheld smartphone vlog footage, 9:16 vertical. Night time, approximately 8 PM.
+Outside a busy Indian coaching institute building under warm orange street lights.
+Indian school kids in uniforms and casual clothes emerging after an evening coaching
+batch — tired, chatty, bags heavy. Lit chai stall at the corner, motorbikes and
+scooters parked along the road, neon shop signs and headlights in the background.
+Natural grain in low light, slight handheld shake — no artificial lighting, no
+stabilization. Real street night energy, completely authentic, not staged.
+""".strip(),
+
+    "early_morning": """
+Raw handheld smartphone vlog footage, 9:16 vertical. Early morning, approximately
+6:30 AM. Pale golden-pink dawn sky, light mist in the air. Outside an Indian school
+iron gate on exam day. Kids in crisp white uniforms arriving with heavy backpacks —
+some looking nervous, some revising from notebooks at the gate. Parents on scooters
+and bikes dropping off children. A chai stall just opening, steam rising from cups.
+Cool blue-gold morning light, no stabilization, natural iPhone-style shake and
+slight exposure variation. Feels like the start of a high-stakes exam morning —
+quiet focused energy, not staged.
+""".strip(),
+}
+
+# Per-time establishing + outro lines (used when not reading from YAML)
+TIME_SCRIPTS = {
+    "golden_hour": {
+        "establishing_vlogger": "Bhai, aaj exams khatam hue hain — chalo seedha bacchon se poochte hain, kaisi rahi taiyari!",
+        "establishing_action": (
+            "Vlogger walks energetically toward the school gate in selfie-cam mode, "
+            "points at the crowd of kids pouring out behind him, grins wide at camera, "
+            "eyebrows raised, excited and spontaneous."
+        ),
+        "outro_vlogger": "Sunaa bhai? Ye bacche Professor Curious ki baat kar rahe hain — koi bhi nahi chod raha! Link neeche diya hai, dekh lo khud.",
+        "outro_action": (
+            "Vlogger switches to selfie-cam and walks away from the school gate, "
+            "kids still streaming out in the background. He looks directly into camera, "
+            "raises eyebrows knowingly, gives a relaxed thumbs up, slight grin."
+        ),
+    },
+    "night": {
+        "establishing_vlogger": "Bhai, coaching khatam hua abhi — raat ke 8 baj rahe hain, bacchon se poochte hain kya chal raha hai taiyari mein!",
+        "establishing_action": (
+            "Vlogger walks toward the coaching institute gate in selfie-cam mode under orange "
+            "street lights at night, gestures at kids streaming out with heavy bags, grinning "
+            "at camera, energy still high despite the late hour. Chai stall glowing behind him."
+        ),
+        "outro_vlogger": "Raat ko bhi yahi kar rahe hain — Professor Curious. Neend ke pehle ek baar zaroor dekho, link neeche hai.",
+        "outro_action": (
+            "Vlogger turns to selfie-cam under the street light, coaching building lit up behind him, "
+            "kids dispersing in the background. Relaxed knowing smile, thumbs up into camera. "
+            "Real night street energy — orange glow, neon signs, motorbikes."
+        ),
+    },
+    "early_morning": {
+        "establishing_vlogger": "Bhai, aaj exam hai — subah subah school gate pe aa gaya main. Dekho bacchon ka kya haal hai!",
+        "establishing_action": (
+            "Vlogger walks toward the school gate in selfie-cam mode in early morning dawn light, "
+            "points at kids arriving with heavy bags and nervous faces, grins at camera with raised "
+            "eyebrows, excited morning energy. Mist visible, pale pink sky behind the school building."
+        ),
+        "outro_vlogger": "Exam day ki subah — aur sab ek hi app ki baat kar rahe hain. Professor Curious. Download karo, link neeche hai.",
+        "outro_action": (
+            "Vlogger switches to selfie-cam in the pale dawn light, school gate and arriving kids "
+            "in background. Looks directly into camera with a knowing confident smile, gives thumbs up. "
+            "Morning mist, cool light, chai stall steam visible in the background."
+        ),
+    },
+}
+
+# Vlogger appearance locked identically across all clips and all time modes
 VLOGGER_LOCK = """
 CONTINUITY — SAME PERSON IN EVERY CLIP: Young Indian male, late 20s, slim build,
 medium-brown skin, short neat black hair, clean-shaven. Wearing a navy blue
@@ -53,26 +123,28 @@ edge of frame, visible from chest up, shot from a slightly low angle.
 """.strip()
 
 
-def build_establishing_prompt(visual_action: str) -> str:
-    return f"""{SETTING_LOCK}
+# ── Prompt builders ────────────────────────────────────────────────────────────
+
+def build_establishing_prompt(visual_action: str, setting: str, vlogger_line: str) -> str:
+    return f"""{SETTINGS[setting]}
 
 {VLOGGER_LOCK}
 
 Scene: {visual_action}
-The vlogger is speaking in Hindi directly to camera, mouth moving expressively.
-Camera bobs slightly as he walks. Kids in uniforms visibly pouring out behind him.
+The vlogger is speaking in Hindi directly to camera: "{vlogger_line}"
+Mouth moving expressively. Camera bobs slightly as he walks.
 Start of a street vlog interview segment — energetic, spontaneous, unscripted feel.
 """
 
 
-def build_kid_prompt(kid: dict) -> str:
+def build_kid_prompt(kid: dict, setting: str) -> str:
     gender_word  = "boy" if kid["gender"] == "boy" else "girl"
     age          = kid["age_range"]
     visual       = kid["visual_action"].strip()
     question_hi  = kid["vlogger_question_hindi"].strip()
     response_hi  = kid["kid_response_hindi"].strip()
 
-    return f"""{SETTING_LOCK}
+    return f"""{SETTINGS[setting]}
 
 {VLOGGER_LOCK}
 
@@ -93,16 +165,16 @@ same vlogger outfit.
 """
 
 
-def build_outro_prompt(visual_action: str, line_hindi: str) -> str:
-    return f"""{SETTING_LOCK}
+def build_outro_prompt(visual_action: str, line_hindi: str, setting: str) -> str:
+    return f"""{SETTINGS[setting]}
 
 {VLOGGER_LOCK}
 
 Scene: {visual_action}
 Vlogger speaks in Hindi to camera: "{line_hindi}"
-Mouth moving, eyebrows raised, knowing smile, thumbs up. School gate and streaming
-kids visible behind him. Natural motion blur from walking. End of street interview —
-same continuous shoot, same vlogger, same location.
+Mouth moving, eyebrows raised, knowing smile, thumbs up.
+Natural motion blur from walking. End of street interview —
+same continuous shoot, same vlogger, same location, same time of day.
 """
 
 
@@ -191,20 +263,28 @@ def stitch_clips(clip_paths: list[Path], output_path: Path) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Professor Curious street interview ad generator")
-    parser.add_argument("--run-id",     default="run_001",      help="Unique run identifier")
-    parser.add_argument("--num-kids",   type=int, default=3,    help="Number of kid interview clips (1-8)")
-    parser.add_argument("--kid-ids",    nargs="*",              help="Specific kid IDs from dialogue bank (optional)")
-    parser.add_argument("--seconds",    type=int, default=8,    help="Seconds per clip (4/8/12)")
-    parser.add_argument("--output-dir", default="",             help="Override output directory")
-    parser.add_argument("--no-stitch",  action="store_true",    help="Skip final stitching step")
-    parser.add_argument("--grade",      choices=["10", "12"],   help="Board grade — uses dialogue-bank-10th.yaml or dialogue-bank-12th.yaml")
+    parser.add_argument("--run-id",     default="run_001",           help="Unique run identifier")
+    parser.add_argument("--num-kids",   type=int, default=3,         help="Number of kid interview clips (1–8)")
+    parser.add_argument("--kid-ids",    nargs="*",                   help="Specific kid IDs from dialogue bank (optional)")
+    parser.add_argument("--seconds",    type=int, default=8,         help="Seconds per clip (4/8/12)")
+    parser.add_argument("--output-dir", default="",                  help="Override output directory")
+    parser.add_argument("--no-stitch",  action="store_true",         help="Skip final stitching step")
+    parser.add_argument("--grade",      choices=["10", "12"],        help="Board grade — uses dialogue-bank-10th.yaml or dialogue-bank-12th.yaml")
+    parser.add_argument("--time",       default="golden_hour",
+                        choices=["golden_hour", "night", "early_morning"],
+                        help="Time of day for the shoot (default: golden_hour)")
+    parser.add_argument("--hook",       default="default",
+                        help="Hook variant from dialogue bank hook_variants section (default: uses establishing_shot + outro from YAML)")
     args = parser.parse_args()
 
     # Validate
     if not API_KEY or not ENDPOINT:
         sys.exit("ERROR: Set AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT environment variables.")
 
-    num_kids = max(1, min(8, args.num_kids))
+    num_kids = max(1, args.num_kids)
+    tod      = args.time
+    ts       = TIME_SCRIPTS[tod]
+    hook     = args.hook
 
     # Output directory
     if args.output_dir:
@@ -235,25 +315,40 @@ def main():
 
     print(f"\n=== Professor Curious Street Interview ===")
     print(f"Run ID    : {args.run_id}")
+    print(f"Time mode : {tod}")
+    print(f"Hook      : {hook}")
     print(f"Clips     : establishing + {len(kids)} kids + outro = {len(kids) + 2} total")
     print(f"Duration  : ~{args.seconds}s per clip → ~{args.seconds * (len(kids) + 2)}s total")
     print(f"Output    : {out_dir}")
     print()
 
     manifest = {
-        "run_id":   args.run_id,
-        "model":    MODEL,
-        "endpoint": ENDPOINT,
-        "clips":    [],
+        "run_id":    args.run_id,
+        "time_mode": tod,
+        "hook":      hook,
+        "model":     MODEL,
+        "endpoint":  ENDPOINT,
+        "clips":     [],
     }
 
     clip_paths = []
 
     # ── Clip 1: Establishing shot ──────────────────────────────────────────────
-    print("[1/{}] Establishing shot".format(len(kids) + 2))
+    print("[1/{}] Establishing shot ({} / hook={})".format(len(kids) + 2, tod, hook))
     clip_id  = "establishing"
     out_path = clips_dir / f"clip_01_{clip_id}.mp4"
-    prompt   = build_establishing_prompt(db["establishing_shot"]["visual_action"])
+    # Hook variant overrides establishing/outro; TIME_SCRIPTS override YAML for non-golden_hour
+    hook_data = db.get("hook_variants", {}).get(hook)
+    if hook_data:
+        e_action  = hook_data["establishing"]["visual_action"]
+        e_vlogger = hook_data["establishing"]["vlogger_line_hindi"]
+    elif tod == "golden_hour" and "establishing_shot" in db:
+        e_action  = db["establishing_shot"]["visual_action"]
+        e_vlogger = db["establishing_shot"]["vlogger_line_hindi"]
+    else:
+        e_action  = ts["establishing_action"]
+        e_vlogger = ts["establishing_vlogger"]
+    prompt = build_establishing_prompt(e_action, tod, e_vlogger)
     generate_clip(prompt, clip_id, out_path, args.seconds)
     clip_paths.append(out_path)
     manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": args.seconds})
@@ -264,17 +359,26 @@ def main():
         print(label)
         clip_id  = kid["id"]
         out_path = clips_dir / f"clip_{i:02d}_{clip_id}.mp4"
-        prompt   = build_kid_prompt(kid)
+        prompt   = build_kid_prompt(kid, tod)
         generate_clip(prompt, clip_id, out_path, args.seconds)
         clip_paths.append(out_path)
         manifest["clips"].append({"clip": clip_id, "kid": kid, "file": out_path.name, "seconds": args.seconds})
 
     # ── Outro ─────────────────────────────────────────────────────────────────
     outro_idx = len(kids) + 2
-    print(f"[{outro_idx}/{outro_idx}] Outro")
+    print(f"[{outro_idx}/{outro_idx}] Outro ({tod} / hook={hook})")
     clip_id  = "outro"
     out_path = clips_dir / f"clip_{outro_idx:02d}_{clip_id}.mp4"
-    prompt   = build_outro_prompt(db["outro"]["visual_action"], db["outro"]["vlogger_line_hindi"])
+    if hook_data:
+        o_action  = hook_data["outro"]["visual_action"]
+        o_vlogger = hook_data["outro"]["vlogger_line_hindi"]
+    elif tod == "golden_hour" and "outro" in db:
+        o_action  = db["outro"]["visual_action"]
+        o_vlogger = db["outro"]["vlogger_line_hindi"]
+    else:
+        o_action  = ts["outro_action"]
+        o_vlogger = ts["outro_vlogger"]
+    prompt = build_outro_prompt(o_action, o_vlogger, tod)
     generate_clip(prompt, clip_id, out_path, args.seconds)
     clip_paths.append(out_path)
     manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": args.seconds})

@@ -2,6 +2,28 @@
 # Script-first format. Each entry maps to one Sora clip.
 # Sora generates silent footage — dialogue here drives visual emotion/action in the prompt.
 
+# ── Hook variants — swap establishing + outro tone without changing kids ─────────
+# Use --hook <key> in run.py. Default hook uses establishing_shot + outro below.
+
+hook_variants:
+  emotional_fear:
+    establishing:
+      vlogger_line_hindi: "Yaar... aaj kuch alag dekhne ko mila. Dekho in bacchon ko — ye haath nahi uthate class mein, doubt nahi poochh paate teacher se. Sharam aati hai. Darr lagta hai. Rote hain ghar pe akele. Lekin Professor Curious ne kuch badla hai inke liye. Chalo poochte hain."
+      visual_action: >
+        Vlogger walks slowly toward the school gate, selfie-cam mode, but his energy
+        is different — softer, genuinely concerned. He looks at the kids around him
+        with empathy, not excitement. Points slowly at a few students who look stressed
+        or downcast near the gate. Voice is low and sincere. No big grin — just real
+        human concern. This sets a completely different emotional tone from the opening frame.
+    outro:
+      vlogger_line_hindi: "Koi bhi baccha stupid nahi hota — bas unhe ek safe jagah chahiye poochne ki, bina darr ke, bina sharam ke. Woh jagah hai Professor Curious. Apne bachche ko aaj hi share karo — link neeche hai."
+      visual_action: >
+        Vlogger turns to selfie-cam, walking slowly away from the school gate.
+        Speaks directly and earnestly into camera — no thumbs up, no big smile.
+        Just steady eye contact and genuine conviction. His voice is warm but serious.
+        Kids in background, some looking stressed, some relieved. The contrast with
+        the usual upbeat outro is intentional — this is a call to action from the heart.
+
 establishing_shot:
   vlogger_line_hindi: "Bhai, aaj exams khatam hue hain — chalo seedha bacchon se poochte hain, kaisi rahi taiyari!"
   visual_action: >
@@ -96,3 +118,143 @@ kids:
     visual_action: >
       Girl giggles covering mouth, friends behind her also start laughing.
       Then speaks directly into mic enthusiastically, bouncing slightly on heels.
+
+  # ── HIGH-CONVERSION BATCH v2 — Emotional / Aspirational arcs ─────────────────
+
+
+  - id: kid_09
+    gender: girl
+    age_range: "13-14"
+    emotion: tearfully_grateful
+    vlogger_question_hindi: "Arey, aankhon mein aansu kyun hain? Paper bura gaya kya?"
+    kid_response_hindi: "Nahi bhaiya — achha gaya! Main ro rahi hoon kyunki... pichle exam mein bahut bura gaya tha. Papa bahut upset hue the. Is baar raat raat bhar Professor Curious se padhti rahi — aaj paper dekha toh sab kuch pata tha. Pehli baar aisa hua!"
+    visual_action: >
+      Girl wipes a real tear from her eye mid-sentence, voice slightly catches with
+      genuine emotion. Then takes a deep breath and breaks into a radiant, relieved smile.
+      Backpack clutched tightly in front of her. The vlogger leans in, genuinely moved.
+      Friends behind her smile warmly and one pats her on the shoulder. Raw, completely
+      unscripted emotional release — this is not performed, it is real post-exam relief.
+
+  - id: kid_10
+    gender: boy
+    age_range: "12-13"
+    emotion: proud_underdog
+    vlogger_question_hindi: "Kahan se ho bhai? Yahan ki school mein naye ho?"
+    kid_response_hindi: "Haan bhaiya, hum chote shehar se aaye hain — wahan itne achhe teachers nahi milte. Tuition ka bhi paisa nahi hai ghar pe. But Professor Curious app se padha — wahi mera teacher tha. Aaj exam mein jinke paas bade coaching centers the, unse bhi achha hua mera!"
+    visual_action: >
+      Boy speaks with quiet, burning pride — not arrogant, genuinely moved by his own
+      journey. Stands straight, chin slightly up. Clothes are simple, school bag worn
+      and old. Eyes shine with the pride of someone who fought hard. The vlogger nods
+      slowly, clearly impressed. Other kids in background from wealthier families —
+      the contrast is natural and powerful.
+
+  - id: kid_11
+    gender: girl
+    age_range: "13-14"
+    emotion: dramatic_relief_then_joy
+    vlogger_question_hindi: "Raat ko paper ki taiyari kaisi thi? Neend aayi ya nahi?"
+    kid_response_hindi: "Bhaiya, raat 2 baje ro rahi thi main! Kuch samajh nahi aa raha tha — chapter open tha, dimaag band tha. Mummy so gayi thi. Tab Professor Curious app khola — usne ek ek cheez itne pyaar se samjhaya... raat bhar padhi, subah confident hokar gayi exam mein. Aaj sab aaya!"
+    visual_action: >
+      Girl first makes a dramatic 'I was crying' face — eyes wide, hands on cheeks —
+      then bursts into uncontrollable happy laughter at how it all turned out.
+      Speaks with the breathless energy of someone who genuinely couldn't believe
+      the 180-degree turnaround. Tucks hair behind ear, looks straight at camera.
+      Friends beside her gasp and then laugh along. Completely authentic, high-energy.
+
+  - id: kid_12
+    gender: boy
+    age_range: "14-15"
+    emotion: coolly_competitive
+    vlogger_question_hindi: "Class mein top karte ho? Itna confident kyun lag raha hai?"
+    kid_response_hindi: "Is exam mein top karunga — pakka. Mere doston ne bade bade coaching liye, main sirf Professor Curious pe dependent tha. Har concept scan karta, woh explain karta. Ab result aane do — phir dekhna."
+    visual_action: >
+      Boy is effortlessly cool — arms slightly crossed, faint competitive smile, speaks
+      with total calm conviction. Not boastful, just quietly certain. Friends around him
+      react with playful 'ooh' expressions, one shoves him on the shoulder jokingly.
+      He barely flinches, just keeps looking at the vlogger steadily. The kind of quiet
+      confidence that is deeply convincing on camera. Lets the pause work.
+
+  - id: kid_13
+    gender: girl
+    age_range: "12-13"
+    emotion: dreamy_determined
+    vlogger_question_hindi: "Badi hokar kya banna chahti ho?"
+    kid_response_hindi: "Doctor banna hai bhaiya. NEET deni hai. Isliye Science bahut important hai — aur mujhe pata hai kahan se padh rahi hoon main. Professor Curious ne pichle 3 mahine mein meri Science itni strong kar di... Mummy kehti hain ab main khud hi padh leti hoon, poochti nahi. Yeh app mera teacher hai!"
+    visual_action: >
+      Girl speaks with a faraway dreaming look that quickly snaps into focused intensity.
+      Eyes bright with genuine ambition — this is a child who has a plan. Points upward
+      when she says 'doctor.' Voice is clear and strong. One hand holds her school bag
+      strap, the other gestures purposefully. The vlogger is visibly struck by her
+      confidence. Other kids in background seem younger by comparison — she carries
+      herself like someone who is already on their way.
+
+  # ── EMOTIONAL FEAR BATCH v3 — "Bachche doubt poochne se darte hain" arc ──────
+  # Hook: Vlogger is concerned/sad. Kids reveal shame, fear, loneliness around doubts.
+  # Resolution: Professor Curious is a safe, judgment-free teacher always available.
+
+  - id: kid_14
+    gender: girl
+    age_range: "12-13"
+    emotion: ashamed_then_liberated
+    vlogger_question_hindi: "Class mein teacher se doubt poochne mein darr lagta hai kya?"
+    kid_response_hindi: "Haan bhaiya... bahut darr lagta tha. Ek baar maine poochha toh madam ne bola 'ye toh basic hai, tumhe nahi pata?' — uske baad maine kabhi haath nahi uthaya. Ghar pe roti thi. But Professor Curious pe koi judge nahi karta — main wahi poochh sakti hoon jo mujhe nahi aata. Ab mujhe samajh aata hai!"
+    visual_action: >
+      Girl starts with her head slightly down, voice quiet and honest — this is a real
+      confession, not performance. Then slowly lifts her head as she talks about Professor
+      Curious, voice getting stronger. Eyes well up slightly when recalling being shamed,
+      then clear with genuine relief. Vlogger listens silently, nodding — does not interrupt.
+      The weight of the shame she carried is visible before it lifts.
+
+  - id: kid_15
+    gender: boy
+    age_range: "13-14"
+    emotion: quietly_broken_then_hopeful
+    vlogger_question_hindi: "Marks kyun gir rahe the pichle semester mein?"
+    kid_response_hindi: "Teacher ne ek baar class mein mujhe uthake poochha — main jawab nahi de paya. Sab hanse. Uske baad maine poochhna band kar diya. Chup rehta tha — samjhe bina copy karta tha doston se. Marks girte gaye. Phir Professor Curious app mili — wahan koi nahi hansa. Maine wahi sawal 5 baar poochhe. 5 baar usne samjhaya. Marks wapas aa gaye."
+    visual_action: >
+      Boy speaks slowly, each word carrying real weight. Looks down briefly when describing
+      being laughed at — genuine pain visible on his face. Then a slow, quiet smile when
+      he describes asking the same question 5 times safely. Not a big dramatic moment —
+      just a boy who found safety in learning again. The vlogger places a hand briefly
+      on his shoulder. Other kids walking past glance over.
+
+  - id: kid_16
+    gender: girl
+    age_range: "11-12"
+    emotion: tearful_and_relieved
+    vlogger_question_hindi: "Ghar pe koi padhne mein help karta hai kya tumhare?"
+    kid_response_hindi: "Nahi bhaiya... Mummy ne 5th ke baad school chhod diya tha apna. Papa raat ko late aate hain kaam se. Main akeli hoti thi — doubt hota tha toh roti thi. Kisi ko batati nahi thi ki mujhe nahi aata... sharam aati thi. Ek din teacher ne Professor Curious ka naam liya — tab se wahi app meri teacher hai. Ab nahi roti."
+    visual_action: >
+      Girl's eyes fill with tears almost immediately — real, quiet tears, not dramatic sobbing.
+      She blinks hard trying to hold them back, voice stays steady but barely. Holds her school
+      bag strap tightly with both hands. When she says 'ab nahi roti' a small, brave smile
+      breaks through. The vlogger is visibly affected, leans in, speaks softly. This is the
+      most emotionally raw clip — utterly real, no performance at all.
+
+  - id: kid_17
+    gender: boy
+    age_range: "12-13"
+    emotion: frustrated_then_grateful
+    vlogger_question_hindi: "School mein padhai mein kya problem aati thi?"
+    kid_response_hindi: "Sir poochhte the — ek baar samjhate the, phir bol dete the 'samajh gaye?' Koi bol nahi sakta 'nahi samjha'... sab bol dete hain haan. Main bhi bol deta tha haan — lekin samjha nahi hota tha. Ghar pe khud try karta tha, galat karta tha. Professor Curious ne pehli baar feel karaya ki doubt poochhna galat nahi hai — woh toh chahta hai ki main poochhun!"
+    visual_action: >
+      Boy speaks with quiet, suppressed frustration — the frustration of someone who was
+      forced to pretend to understand for years. Hands clench slightly when describing
+      the forced 'haan.' Then opens up, face relaxing completely when describing
+      Professor Curious. Gestures freely for the first time. Voice rises naturally —
+      not performing, just finally free to say what he actually felt. A few kids
+      behind him nod in recognition.
+
+  - id: kid_18
+    gender: girl
+    age_range: "13-14"
+    emotion: shy_confession_to_confidence
+    vlogger_question_hindi: "Aap bahut chup chup lagti ho — class mein bolti nahi ho?"
+    kid_response_hindi: "Main bahut shy hoon bhaiya. Kabhi haath nahi uthaya class mein — darr lagta hai ki log kya sochenge. Isliye main samjhe bina copy karti thi dosto se. Marks theek the — but andar se pata tha ki mujhe kuch nahi aata. Professor Curious pe — wahan koi nahi dekh raha. Akele poochh sakti hoon. Pehli baar feel hua ki main bhi padh sakti hoon!"
+    visual_action: >
+      Girl is visibly shy even in this moment — speaks softly, barely makes eye contact
+      at first. When she says 'darr lagta hai ki log kya sochenge' she glances sideways
+      at the other kids around her. Then when she describes Professor Curious — something
+      shifts. She looks directly at the camera for the first time. Voice gets just slightly
+      louder. Small but enormous transformation. The vlogger smiles warmly and nods slowly.
+      This is the quiet ones — the ones nobody notices — finally being seen.
