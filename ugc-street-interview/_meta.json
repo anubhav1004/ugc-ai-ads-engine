@@ -1,0 +1,7 @@
+{
+  "name": "ugc-street-interview",
+  "version": "1.0.0",
+  "author": "anubhav",
+  "source": "ugc-ai-ads-engine",
+  "description": "UGC-style post-exam street interview ad generator. Any edtech product, Hindi dialogue, 9:16, Azure Sora. Supports Class 10/12 boards."
+}
