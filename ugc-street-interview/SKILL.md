@@ -43,14 +43,24 @@ python3 /home/node/.openclaw/workspace/skills/ugc-street-interview/scripts/run.p
 ## Arguments
 | Arg | Required | Default | Description |
 |-----|----------|---------|-------------|
-| `--product` | YES | — | Product/app name injected into kid dialogue |
-| `--run-id` | YES | `run_001` | Unique name for this batch |
-| `--grade` | no | general | `10` or `12` for board-specific dialogue and age group |
-| `--num-kids` | no | `3` | Number of kid interview clips (1–5) |
-| `--kid-ids` | no | random | Pick specific kids: `k01 k03` |
+| `--product` | YES | — | Product/app name injected into every interview response |
+| `--scene` | no | `school-gate` | Scene type — see scenes table below |
+| `--run-id` | no | `run_001` | Unique name for this batch |
+| `--num-people` | no | `3` | Number of interview clips (1–5) |
+| `--person-ids` | no | random | Pick specific interviewees: `p01 p03` |
 | `--seconds` | no | `8` | Seconds per clip (4 / 8 / 12) |
 | `--output-dir` | no | `~/.openclaw/workspace/output/ugc-street-interview/` | Override output path |
 | `--no-stitch` | no | false | Skip final merge |
+
+## Scenes
+| `--scene` | Setting | Who's interviewed | Tone |
+|-----------|---------|-------------------|------|
+| `school-gate` | Outside school after exam | School kids 11-14 | Happy, relieved, excited |
+| `coaching-centre` | JEE/NEET coaching gate, evening | Aspirants 17-19 | Intense, driven, honest |
+| `results-day` | School on board results morning | Students + parents | Emotional, raw, overwhelmed |
+| `chai-stall` | Roadside chai stall near school | Students decompressing | Casual, candid, funny |
+| `college-gate` | College gate after semester exam | 18-20 yr olds | Nostalgic, confident, aspirational |
+| `parent-pickup` | Parent pickup zone outside school | Parents + kids together | Warm, proud, family energy |
 
 ## Output
 `~/.openclaw/workspace/output/ugc-street-interview/<run-id>/`
