@@ -1,0 +1,76 @@
+# Professor Curious — 12th Boards Street Interview Dialogue Bank
+# Class 12 CBSE board exams. Age 17-18. Ultra-high stakes — college admissions.
+# Subjects referenced: Physics, Chemistry, Maths, Biology, Accounts, Business Studies.
+# Tone: more intense relief, higher stakes, mature reactions.
+
+establishing_shot:
+  vlogger_line_hindi: "Bhai, aaj Class 12 ke board exams khatam hue hain — yaar, inke chehre dekho. Chalo poochte hain!"
+  visual_action: >
+    Vlogger walks toward the school gate in selfie-cam mode, gestures widely at the
+    crowd of older students behind him — 17-18 year olds, some hugging friends,
+    some on phones, all visibly drained but relieved. Vlogger grins at camera,
+    eyebrows raised, slightly overwhelmed by the energy around him.
+
+outro:
+  vlogger_line_hindi: "12th boards ke baad yahi bol rahe hain sab — Professor Curious. Tumhara bhi college dream clear karna ho toh link neeche hai."
+  visual_action: >
+    Vlogger walks away from school gate toward camera in selfie-cam mode.
+    Older students visible behind — some celebrating, some on phones calling parents.
+    Vlogger looks into camera with a knowing smile and slow thumbs up,
+    slightly exhausted himself as if he too just gave the exam.
+
+kids:
+  - id: kid_01
+    gender: boy
+    age_range: "17-18"
+    emotion: deeply_relieved_emotional
+    vlogger_question_hindi: "Bhai, kaisa gaya — Physics ka paper?"
+    kid_response_hindi: "Yaar... bahut achha gaya. Seriously. Mujhe lagta tha Physics mein marenge — but Professor Curious pe roz numerical practice kiye, concepts clear kiye. Aaj paper dekha toh sab aaya. Maa ko abhi call karunga!"
+    visual_action: >
+      Boy is visibly emotional, eyes slightly watery with relief. Takes a deep breath,
+      then breaks into a huge smile. Speaks with genuine gratitude, voice slightly shaky
+      with relief. Other boys around him nodding in agreement.
+
+  - id: kid_02
+    gender: girl
+    age_range: "17-18"
+    emotion: confident_composed
+    vlogger_question_hindi: "Chemistry kaisi gayi? NEET ki bhi preparation hai kya?"
+    kid_response_hindi: "Haan NEET bhi dena hai. Chemistry mein Organic bahut difficult hota hai — reactions yaad hi nahi rehte. Professor Curious pe topic-wise scan kiya, usne ek dum pattern se samjha diya. Aaj paper mein Organic mein full marks aane chahiye!"
+    visual_action: >
+      Girl is calm and precise, speaks like she's already in exam mode — confident,
+      analytical. Adjusts dupatta, makes eye contact steadily. Very composed for
+      someone who just gave 12th boards. Clearly a serious student.
+
+  - id: kid_03
+    gender: boy
+    age_range: "17-18"
+    emotion: exhausted_but_happy
+    vlogger_question_hindi: "JEE ki taiyari bhi chal rahi hai? 12th boards ke saath kaise manage kiya?"
+    kid_response_hindi: "Bhai, bahut mushkil tha dono saath manage karna. Coaching ke baad raat ko Professor Curious pe doubts clear karta tha — koi wait nahi, turant answer milta tha. Ussi ne bachaya honestly!"
+    visual_action: >
+      Boy looks genuinely tired but happy, dark circles visible, speaks candidly.
+      Leans against the school wall slightly, backpack on the ground. Very honest
+      and relatable exhausted-student energy.
+
+  - id: kid_04
+    gender: girl
+    age_range: "17-18"
+    emotion: joyful_jumping
+    vlogger_question_hindi: "Accounts ka paper kaisa gaya? Commerce wali ho?"
+    kid_response_hindi: "Haan Commerce! Accounts mein balance sheet ki entries bahut confuse karti thi — Professor Curious pe step by step samjha, practice kiya. Aaj exam mein sab ek dum set tha! Bahut khushi ho rahi hai!"
+    visual_action: >
+      Girl is visibly overjoyed, claps hands together, friends behind her cheering.
+      Speaks fast and excitedly, pointing to herself proudly. Genuine joy —
+      not performed, completely real post-12th-boards relief.
+
+  - id: kid_05
+    gender: boy
+    age_range: "17-18"
+    emotion: reflective_proud
+    vlogger_question_hindi: "Boards ke liye koi ek cheez jo sabse zyada kaam aayi?"
+    kid_response_hindi: "Professor Curious. Seriously. Raat 11 baje bhi doubt aata tha — koi teacher available nahi hota. Woh app thi. Usne kabhi hua nahi kaha — bas samjhata raha. Maths aur Physics dono clear ho gaye ussi se."
+    visual_action: >
+      Boy speaks reflectively and sincerely, slightly slower pace, looks directly
+      at the vlogger with genuine eye contact. Older-student composure —
+      more measured than the younger kids, but clearly moved. Nods slowly at the end.

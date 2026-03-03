@@ -1,0 +1,98 @@
+# Professor Curious — Street Interview Dialogue Bank (Hindi, v2)
+# Script-first format. Each entry maps to one Sora clip.
+# Sora generates silent footage — dialogue here drives visual emotion/action in the prompt.
+
+establishing_shot:
+  vlogger_line_hindi: "Bhai, aaj exams khatam hue hain — chalo seedha bacchon se poochte hain, kaisi rahi taiyari!"
+  visual_action: >
+    Vlogger walks energetically toward the school gate in selfie-cam mode,
+    points at the crowd of kids pouring out behind him, grins wide at camera,
+    eyebrows raised, excited and spontaneous.
+
+outro:
+  vlogger_line_hindi: "Sunaa bhai? Teeno bacche Professor Curious ki baat kar rahe hain — koi bhi nahi chod raha! Link neeche diya hai, dekh lo khud."
+  visual_action: >
+    Vlogger switches to selfie-cam and walks away from the school gate,
+    kids still streaming out in the background. He looks directly into camera,
+    raises eyebrows knowingly, gives a relaxed thumbs up, slight grin.
+
+kids:
+  - id: kid_01
+    gender: boy
+    age_range: "13-14"
+    emotion: excited_happy
+    vlogger_question_hindi: "Bhaiya, exam kaisa gaya?"
+    kid_response_hindi: "Bhaiya, bahut achha gaya! Maine Professor Curious app use ki thi — jo bhi doubt aata tha, seedha scan karo, ek dum clear ho jaata tha. Paper ekdum easy laga yaar!"
+    visual_action: >
+      Kid is very excited, animated, speaking fast with wide eyes and big hand gestures,
+      backpack bouncing, smiling ear to ear. Looks at vlogger then at camera.
+
+  - id: kid_02
+    gender: girl
+    age_range: "12-13"
+    emotion: confident_relieved
+    vlogger_question_hindi: "Aur aapka? Taiyari kaise ki?"
+    kid_response_hindi: "Exam se pehle bahut saare doubts the... Professor Curious app use ki, usne sab kuch itna clearly samjha diya — paper mein jo bhi aaya, sab pehle se pata tha!"
+    visual_action: >
+      Girl is calm and confident, smiles and nods while speaking, adjusts school bag strap,
+      gestures with one hand to explain, makes eye contact steadily with vlogger.
+
+  - id: kid_03
+    gender: girl
+    age_range: "13-14"
+    emotion: enthusiastic_giggly
+    vlogger_question_hindi: "Koi secret bataao preparation ka!"
+    kid_response_hindi: "Haan bhaiya! Raat ko bhi akele padhti thi — koi teacher nahi, koi bhaiya nahi — bas Professor Curious app thi... jo bhi samajh nahi aaya, woh bata deti thi. Bahut kaam aayi!"
+    visual_action: >
+      Girl giggles first, then speaks enthusiastically, friends visible giggling behind her.
+      She counts points on her fingers while talking, animated and expressive.
+
+  - id: kid_04
+    gender: boy
+    age_range: "12-13"
+    emotion: relieved_proud
+    vlogger_question_hindi: "Kya laga — mushkil tha paper?"
+    kid_response_hindi: "Pehle dar lag raha tha, but Professor Curious pe raat bhar doubt clear kiye — subah tak sab ready tha. Aaj paper dekha toh sab aaya tha!"
+    visual_action: >
+      Boy wipes forehead dramatically (phew gesture), then grins wide and gives thumbs up.
+      Speaks with pride, chest slightly out, nodding confidently.
+
+  - id: kid_05
+    gender: boy
+    age_range: "11-12"
+    emotion: shy_then_happy
+    vlogger_question_hindi: "Bhaiya, kisi app se taiyari ki kya?"
+    kid_response_hindi: "Haan... Professor Curious. Mummy ne bataya tha. Maine scan kiya apna question — usne ek dum simply samjha diya. Achha gaya exam!"
+    visual_action: >
+      Boy is initially shy, looks down then up, then opens up with a genuine smile.
+      Speaks softly at first then gets more confident, slight shrug and happy nod at end.
+
+  - id: kid_06
+    gender: girl
+    age_range: "12-13"
+    emotion: matter_of_fact_smart
+    vlogger_question_hindi: "Koi app use ki kya padhai ke liye?"
+    kid_response_hindi: "Professor Curious. Teacher se poochne mein time lagta hai — yahan bas scan karo aur turant answer. Bohot time bachaa mera!"
+    visual_action: >
+      Girl is composed and articulate, pushes glasses up, makes precise hand gestures
+      like she's explaining something logical. Very matter-of-fact, confident.
+
+  - id: kid_07
+    gender: boy
+    age_range: "13-14"
+    emotion: proud_confident
+    vlogger_question_hindi: "Best exam kab hua tha tumhara?"
+    kid_response_hindi: "Aaj! Kyunki is baar Professor Curious se properly prepare kiya tha. Har concept step by step — kuch bhi miss nahi hua. Best paper diya aaj tak!"
+    visual_action: >
+      Boy stands straight, arms crossed first then opens up while speaking,
+      very confident posture. Smiles broadly at the end, points finger upward for emphasis.
+
+  - id: kid_08
+    gender: girl
+    age_range: "11-12"
+    emotion: giggly_happy
+    vlogger_question_hindi: "Koi secret bata do bacchon ko — exam easy kaise kiya?"
+    kid_response_hindi: "Professor Curious app! Main daily use karti thi — lagta tha jaise revision chal raha ho. Aaj paper mein sab pehle se pata tha!"
+    visual_action: >
+      Girl giggles covering mouth, friends behind her also start laughing.
+      Then speaks directly into mic enthusiastically, bouncing slightly on heels.

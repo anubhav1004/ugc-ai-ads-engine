@@ -1,0 +1,71 @@
+# Professor Curious — 10th Boards Street Interview Dialogue Bank
+# Class 10 CBSE board exams. Age 15-16. High pressure first major board.
+# Subjects referenced: Maths, Science, Social Science, English, Hindi.
+
+establishing_shot:
+  vlogger_line_hindi: "Bhai, aaj Class 10 ke board exams khatam hue hain — chalo dekhte hain bacchon ka kya haal hai!"
+  visual_action: >
+    Vlogger walks energetically toward the school gate in selfie-cam mode,
+    points at the crowd of relieved Class 10 students pouring out behind him,
+    grin wide at camera, eyebrows raised, excited and spontaneous.
+    Students look slightly older than junior school — 15-16 years old.
+
+outro:
+  vlogger_line_hindi: "Sunaa? 10th boards ke baad yahi baat kar rahe hain sab — Professor Curious. Link neeche hai, dekh lo."
+  visual_action: >
+    Vlogger turns selfie-cam on himself walking away from the school gate,
+    older students still streaming out behind him. Looks directly into camera,
+    raises eyebrows knowingly, gives a thumbs up with a confident grin.
+
+kids:
+  - id: kid_01
+    gender: boy
+    age_range: "15-16"
+    emotion: relieved_and_proud
+    vlogger_question_hindi: "Bhaiya, kaisa gaya paper? Boards tha aaj?"
+    kid_response_hindi: "Haan bhaiya, Maths tha aaj. Bahut achha gaya! Main roz raat ko Professor Curious pe practice karta tha — jo bhi step samajh nahi aata, turant clear ho jaata tha. Aaj sab sahi se aaya!"
+    visual_action: >
+      Boy is visibly relieved, wipes forehead dramatically then breaks into a huge grin.
+      Speaks with pride, counts on fingers the subjects he prepared. Backpack hanging
+      off one shoulder. Other Class 10 students celebrating behind him.
+
+  - id: kid_02
+    gender: girl
+    age_range: "15-16"
+    emotion: confident_happy
+    vlogger_question_hindi: "Boards ki tension thi? Taiyari kaise ki?"
+    kid_response_hindi: "Bahut tension thi bhaiya — pehle boards jo hai. But Professor Curious app ne bahut help kiya. Science mein itne saare concepts the — usne ekdum seedha samjha diya. Marks pakke aane chahiye!"
+    visual_action: >
+      Girl smiles warmly and confidently, pushes hair back, speaks clearly looking
+      at the vlogger then at camera. Friends visible behind her, one gives a thumbs up.
+      School bag with multiple keychains hanging off it.
+
+  - id: kid_03
+    gender: boy
+    age_range: "15-16"
+    emotion: excited_energetic
+    vlogger_question_hindi: "Koi secret tha preparation ka — boards mein itna confidence kahan se aaya?"
+    kid_response_hindi: "Professor Curious bhaiya! Social Science ke itne chapters the — kuch bhi yaad nahi hota. Uspe scan karo question, woh ek dum clearly samjha deta hai. Raat ko bhi padhta tha uspe. Aaj paper ekdum easy laga!"
+    visual_action: >
+      Boy is very energetic, speaks fast with big gestures, almost jumping with excitement.
+      Bumps fist with a friend walking past. Very animated, genuine post-exam relief energy.
+
+  - id: kid_04
+    gender: girl
+    age_range: "15-16"
+    emotion: emotional_happy
+    vlogger_question_hindi: "10th boards ke liye kitne mahine se taiyari kar rahi thi?"
+    kid_response_hindi: "6 mahine se bhaiya... lekin last month Professor Curious app se padha toh bahut kuch clear hua. English grammar mein mujhe bahut dikkat aati thi — usne ek dum simple mein explain kiya. Aaj paper achha gaya!"
+    visual_action: >
+      Girl speaks sincerely, slightly emotional but happy. Eyes slightly bright,
+      clasps hands together while speaking. Very heartfelt and genuine expression.
+
+  - id: kid_05
+    gender: boy
+    age_range: "15-16"
+    emotion: matter_of_fact_smart
+    vlogger_question_hindi: "Koi app use ki kya boards ke liye?"
+    kid_response_hindi: "Professor Curious. Maths ke theorems the jo school mein samajh nahi aaye — uspe ek dum clear ho gaye. Teacher se baar baar poochne mein sharam aati hai — yahan akele baith ke samajh sakte ho."
+    visual_action: >
+      Boy is composed and analytical, gestures precisely while explaining.
+      Adjusts spectacles, matter-of-fact tone, confident eye contact with vlogger.
