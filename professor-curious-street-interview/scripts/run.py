@@ -180,26 +180,33 @@ same continuous shoot, same vlogger, same location, same time of day.
 
 # ── Azure Sora API ─────────────────────────────────────────────────────────────
 
-def submit_job(prompt: str, clip_id: str, seconds: int = 8) -> str:
+def submit_job(prompt: str, clip_id: str, seconds: int = 8, max_retries: int = 5) -> str:
     print(f"  [submit] {clip_id} ({seconds}s) ...", flush=True)
-    resp = requests.post(
-        f"{BASE_URL}/videos",
-        headers={**HEADERS, "Content-Type": "application/json"},
-        json={
-            "model":   MODEL,
-            "prompt":  prompt,
-            "size":    "720x1280",
-            "seconds": str(seconds),
-        },
-    )
-    if not resp.ok:
-        raise RuntimeError(f"Submit failed [{resp.status_code}]: {resp.text[:500]}")
-    job = resp.json()
-    if job.get("error"):
-        raise RuntimeError(f"API error: {job['error']}")
-    video_id = job["id"]
-    print(f"  [submit] {clip_id} → video_id={video_id}", flush=True)
-    return video_id
+    for attempt in range(1, max_retries + 1):
+        resp = requests.post(
+            f"{BASE_URL}/videos",
+            headers={**HEADERS, "Content-Type": "application/json"},
+            json={
+                "model":   MODEL,
+                "prompt":  prompt,
+                "size":    "720x1280",
+                "seconds": str(seconds),
+            },
+        )
+        if resp.status_code == 429:
+            wait = 30 * attempt
+            print(f"  [submit] {clip_id} → 429 too many tasks, waiting {wait}s (attempt {attempt}/{max_retries})", flush=True)
+            time.sleep(wait)
+            continue
+        if not resp.ok:
+            raise RuntimeError(f"Submit failed [{resp.status_code}]: {resp.text[:500]}")
+        job = resp.json()
+        if job.get("error"):
+            raise RuntimeError(f"API error: {job['error']}")
+        video_id = job["id"]
+        print(f"  [submit] {clip_id} → video_id={video_id}", flush=True)
+        return video_id
+    raise RuntimeError(f"Submit failed after {max_retries} retries (persistent 429)")
 
 
 def poll_job(video_id: str, clip_id: str, poll_interval: int = 15) -> str:
