@@ -280,8 +280,10 @@ def main():
     parser.add_argument("--time",       default="golden_hour",
                         choices=["golden_hour", "night", "early_morning"],
                         help="Time of day for the shoot (default: golden_hour)")
-    parser.add_argument("--hook",       default="default",
+    parser.add_argument("--hook",          default="default",
                         help="Hook variant from dialogue bank hook_variants section (default: uses establishing_shot + outro from YAML)")
+    parser.add_argument("--intro-seconds", type=int, default=4,
+                        help="Seconds for establishing + outro clips (default: 4 — keeps focus on kids)")
     args = parser.parse_args()
 
     # Validate
@@ -320,12 +322,16 @@ def main():
 
     kids = kids[:num_kids]
 
+    intro_secs = args.intro_seconds
+
     print(f"\n=== Professor Curious Street Interview ===")
     print(f"Run ID    : {args.run_id}")
     print(f"Time mode : {tod}")
     print(f"Hook      : {hook}")
+    print(f"Intro/outro: {intro_secs}s | Kids: {args.seconds}s")
+    total_secs = intro_secs * 2 + args.seconds * len(kids)
     print(f"Clips     : establishing + {len(kids)} kids + outro = {len(kids) + 2} total")
-    print(f"Duration  : ~{args.seconds}s per clip → ~{args.seconds * (len(kids) + 2)}s total")
+    print(f"Duration  : {intro_secs}s intro/outro + {args.seconds}s x {len(kids)} kids → ~{total_secs}s total")
     print(f"Output    : {out_dir}")
     print()
 
@@ -356,9 +362,9 @@ def main():
         e_action  = ts["establishing_action"]
         e_vlogger = ts["establishing_vlogger"]
     prompt = build_establishing_prompt(e_action, tod, e_vlogger)
-    generate_clip(prompt, clip_id, out_path, args.seconds)
+    generate_clip(prompt, clip_id, out_path, intro_secs)
     clip_paths.append(out_path)
-    manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": args.seconds})
+    manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": intro_secs})
 
     # ── Kid clips ─────────────────────────────────────────────────────────────
     for i, kid in enumerate(kids, start=2):
@@ -386,9 +392,9 @@ def main():
         o_action  = ts["outro_action"]
         o_vlogger = ts["outro_vlogger"]
     prompt = build_outro_prompt(o_action, o_vlogger, tod)
-    generate_clip(prompt, clip_id, out_path, args.seconds)
+    generate_clip(prompt, clip_id, out_path, intro_secs)
     clip_paths.append(out_path)
-    manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": args.seconds})
+    manifest["clips"].append({"clip": clip_id, "file": out_path.name, "seconds": intro_secs})
 
     # ── Stitch ────────────────────────────────────────────────────────────────
     merged_path = out_dir / f"{args.run_id}_merged.mp4"

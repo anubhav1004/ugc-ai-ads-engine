@@ -258,3 +258,78 @@ kids:
       shifts. She looks directly at the camera for the first time. Voice gets just slightly
       louder. Small but enormous transformation. The vlogger smiles warmly and nods slowly.
       This is the quiet ones — the ones nobody notices — finally being seen.
+
+  # ── QUOTE-STYLE EMOTIONAL BATCH v4 — Raw pulled-from-life testimonials ─────────
+  # Scripts written as real unscripted quotes — specific, honest, not ad-speak.
+  # Professor Curious named in every response. Short vlogger hook, long kid moment.
+
+  - id: kid_19
+    gender: boy
+    age_range: "13-14"
+    emotion: validated_for_first_time
+    vlogger_question_hindi: "Padhai mein kya lagta tha pehle?"
+    kid_response_hindi: "Bhaiya... main sochta tha sirf mujhe hi nahi aata. Class mein sab samajh jaate hain — main akela hota tha jo haath nahi uthata. Professor Curious ne pehli baar bataya — 'ye concept actually mushkil hai.' Usne seedha bola. Pehli baar feel hua ki main pagal nahi hoon. Bas mujhe thoda zyada time chahiye tha."
+    visual_action: >
+      Boy speaks with the slow, careful weight of someone processing something for
+      the first time out loud. Pauses mid-sentence — real thinking pauses, not scripted.
+      Eyes slightly unfocused as he remembers feeling alone in class. Then a quiet,
+      almost private smile when he describes Professor Curious validating him.
+      He doesn't look at the camera — he looks at the vlogger, like he's telling
+      a friend something he's never said before. The most intimate, un-performed
+      clip in the entire bank.
+
+  - id: kid_20
+    gender: girl
+    age_range: "12-13"
+    emotion: family_pressure_then_breakthrough
+    vlogger_question_hindi: "Ghar pe koi pressure tha results ka?"
+    kid_response_hindi: "Papa kehte the — 'itna paisa coaching ka, phir bhi fail?' Main answer nahi de sakti thi unhe. Woh samjhte nahi the ki mujhe kuch nahi aata kyunki mujhe samjha koi nahi. Professor Curious se padha toh pata chala — mujhe apne pace se padhna tha, kisi aur ki speed se nahi. Ab Papa khush hain. Main khush hoon."
+    visual_action: >
+      Girl starts with a steady, almost flat voice — the flat voice of someone who
+      has repeated this pain many times inside their head. 'Itna paisa coaching ka'
+      — she mouths it like she's heard it a hundred times. Then her whole face changes
+      when she says 'ab Papa khush hain' — not a big smile, just a quiet exhale of
+      someone who finally got it right. She looks at the ground then slowly up at
+      the vlogger. Real. Unscripted. Completely devastating and hopeful at once.
+
+  - id: kid_21
+    gender: boy
+    age_range: "11-12"
+    emotion: inferiority_to_discovery
+    vlogger_question_hindi: "Class mein koi topper hai? Kya lagta hai unhe dekhke?"
+    kid_response_hindi: "Haan — Arjun. Woh hamesha first aata hai. Main socha karta tha woh kuch alag hai, kuch special. Professor Curious se padha toh pata chala — woh sirf zyada poochhta hai. Bas itna. Ab main bhi poochhhta hoon. Raat ko, apne phone pe, akele. Koi nahi dekh raha. Marks aa rahe hain. Shayad main bhi Arjun jaisa hoon."
+    visual_action: >
+      Boy says 'Arjun' and glances sideways — maybe Arjun is actually nearby in the
+      background, maybe not. The glance is real either way. When he describes the
+      discovery — 'sirf zyada poochhta hai' — his face goes through a slow revelation,
+      like a puzzle piece clicking. Then he looks directly at the camera for the first
+      time when he says 'shayad main bhi Arjun jaisa hoon.' Quiet. Huge. A boy
+      discovering his own potential in real time.
+
+  - id: kid_22
+    gender: girl
+    age_range: "13-14"
+    emotion: rescued_by_parent_and_app
+    vlogger_question_hindi: "Kabhi aisa hua ki bilkul toot gayi padhai mein?"
+    kid_response_hindi: "Haan bhaiya. Ek din 4 subjects ke tests the ek saath. Main bathroom mein ro rahi thi. Mummy ne dekh liya. Kuch nahi bola unhone — bas raat ko Professor Curious download kiya mere phone pe. Khamoshi se. Subah uthke dekha toh app thi. Usi raat maine padha. Teeno tests mein pass hui. Aaj tak woh app nahi hataya."
+    visual_action: >
+      Girl tells this story completely still — no big gestures, no performance.
+      Her voice is very quiet and very steady. When she says 'bathroom mein ro rahi thi'
+      she pauses — just for a second — and swallows. The vlogger does not speak.
+      When she describes her mother downloading the app silently, her eyes fill.
+      Not crying — just filled. 'Khamoshi se' — she says it soft and slow.
+      This is the most powerful clip in the bank. Let the silence do the work.
+
+  - id: kid_23
+    gender: boy
+    age_range: "14-15"
+    emotion: discovered_ownership_of_learning
+    vlogger_question_hindi: "Professor Curious ne kya alag kiya — school se?"
+    kid_response_hindi: "School mein seedhna aur Professor Curious pe seekhna — dono alag hain bhaiya. School mein time ka pressure hai — teacher aage badhti hai, main peechhe reh jaata hoon. Professor Curious pe — main ruk sakta hoon. Ek baar, do baar, teen baar — jab tak samjha nahi. Pehli baar feel hua ki padhai meri hai. Teacher ki nahi. Meri."
+    visual_action: >
+      This boy is older, more composed — he speaks like someone who has genuinely
+      thought about this. No performance, no rush. He counts on his fingers — 'ek baar,
+      do baar, teen baar' — slowly, deliberately. When he says 'padhai meri hai' he
+      taps his own chest once. Not dramatic. Just true. The vlogger nods slowly,
+      says nothing. Other kids walking past in the background seem like background
+      noise compared to this boy's quiet certainty. The most mature clip in the bank.
