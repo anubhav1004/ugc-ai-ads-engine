@@ -17,15 +17,19 @@ Output: 9:16 vertical MP4 clips, stitched into one merged video.
 
 ```
 ugc-ai-ads-engine/
-├── ugc-street-interview/
-│   ├── scripts/run.py          ← Main generator script
-│   ├── references/             ← Reference videos/images
-│   └── SKILL.md
-├── professor-curious-street-interview/
+├── ugc-street-interview/           ← India: Kota coaching/school gate, Hindi, emotional
 │   ├── scripts/run.py
-│   ├── output/                 ← Generated videos (gitignored)
+│   ├── references/
 │   └── SKILL.md
-├── CONTEXT.md                  ← This file
+├── ugc-us-college-interview/       ← US: Harvard/MIT/Stanford gate, English, social proof
+│   ├── scripts/run.py
+│   ├── references/
+│   └── SKILL.md
+├── professor-curious-street-interview/  ← PC-specific India skill (older)
+│   ├── scripts/run.py
+│   ├── output/                     ← Generated videos (gitignored)
+│   └── SKILL.md
+├── CONTEXT.md                      ← This file
 └── README.md
 ```
 
@@ -80,6 +84,16 @@ Output lands in: `~/.openclaw/workspace/output/ugc-street-interview/<run-id>/`
 
 ---
 
+## Skills Overview
+
+| Skill | Market | Language | Angle | Default Scene |
+|-------|--------|----------|-------|---------------|
+| `ugc-street-interview` | India | Hindi | Post-exam, raw emotion, Kota pressure | `kota-coaching` |
+| `ugc-us-college-interview` | US | English | "What got you into Harvard/MIT/Stanford?" | `harvard` |
+| `professor-curious-street-interview` | India | Hindi | PC-specific (older, grade-based) | school gate |
+
+---
+
 ## Session Log
 
 ### Session 3 — 2026-03-04
@@ -94,7 +108,43 @@ Output lands in: `~/.openclaw/workspace/output/ugc-street-interview/<run-id>/`
 
 4. **All scenes set in Kota** — New default scene `kota-coaching` added. All other scene settings updated to reference Kota, Rajasthan explicitly. Establishing/outro lines all mention Kota.
 
-**Status:** Script updated. Ready to run. Credentials saved locally.
+**Status:** Script updated. Kota_v1 run submitted to Azure Sora (in progress at session end).
+
+---
+
+### Session 3 (continued) — 2026-03-04: US College Interview Skill
+
+**New skill created: `ugc-us-college-interview/`**
+
+**Concept:** Vlogger outside elite US universities asks "What did you use to get in?"
+- Majority of students say Professor Curious by name, clearly
+- Minority mention Khan Academy / Quizlet first → come around to Professor Curious (creates authenticity)
+- Two-act structure: Act 1 (3-4s) struggle/tools tried → Act 2 (3-4s) Professor Curious as the answer
+- Aspirational FOMO play: "Harvard students use it" social proof
+
+**Scenes built (6 total):**
+- `harvard` (DEFAULT) — Johnston Gate, Cambridge MA, autumn
+- `mit` — Massachusetts Ave entrance, analytical/intense
+- `stanford` — White Plaza, warm California campus
+- `yale` — Phelps Gate, gothic literary energy
+- `princeton` — Nassau Hall gate, historic/prestigious
+- `elite-campus` — Generic elite university, flexible
+
+**Mix formula per scene (5 people):**
+- p01: Pure PC advocate
+- p02: "Tried Khan Academy → switched to Professor Curious"
+- p03: Social proof — "my whole dorm used Professor Curious"
+- p04: "Quizlet for vocab, but Professor Curious for understanding"
+- p05: Matter-of-fact — "easy answer"
+
+**To run:**
+```bash
+source ~/.env_azure
+python3 ~/ugc-ai-ads-engine/ugc-us-college-interview/scripts/run.py \
+  --product "Professor Curious" --scene harvard --run-id harvard_v1
+```
+
+**Status:** Built and committed. Ready to run.
 
 ---
 

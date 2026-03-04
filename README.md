@@ -1,41 +1,68 @@
 # UGC AI Ads Engine
 
-Generate authentic UGC-style video ads using Azure Sora. Raw footage, street interviews, Hindi scripts — no actors, no studio.
+Generate authentic UGC-style video ads using Azure Sora. Raw footage, street interviews — no actors, no studio.
 
-## What's in here
+> **Context:** See [CONTEXT.md](./CONTEXT.md) for full session history, run instructions, and where we left off.
 
-### `professor-curious-street-interview/`
-Generates post-exam street interview ads for edtech apps.
-- Vlogger with mic interviews school kids outside exam gate
-- Hindi dialogue, 9:16 vertical, raw vlog aesthetic
-- Supports Class 10 boards, Class 12 boards, or general
-- Auto-stitches clips into a final merged MP4
+---
 
-**Run:**
+## Skills
+
+### `ugc-street-interview/` — India Market
+Vlogger interviews students outside coaching centres and school gates in Kota.
+Hindi dialogue. Emotional, raw, Kota pressure angle.
+
+**"Exam khatam hua — Professor Curious ne help ki."**
+
 ```bash
-AZURE_OPENAI_API_KEY=<key> \
-AZURE_OPENAI_ENDPOINT=<endpoint> \
-AZURE_SORA_MODEL=sora-2 \
-python3 professor-curious-street-interview/scripts/run.py \
-  --run-id ad_v1 \
-  --grade 10 \
-  --num-kids 3 \
+source ~/.env_azure
+python3 ugc-street-interview/scripts/run.py \
+  --product "Professor Curious" \
+  --scene kota-coaching \
+  --run-id kota_v1 \
+  --num-people 3 \
   --seconds 8
 ```
 
-**Grades:**
-- `--grade 10` → Class 10 CBSE boards (Maths, Science, SST)
-- `--grade 12` → Class 12 CBSE boards (Physics, Chemistry, JEE/NEET)
-- No flag → general exam setting
+**Scenes:** `kota-coaching` (default), `school-gate`, `coaching-centre`, `results-day`, `chai-stall`, `college-gate`, `parent-pickup`
+
+---
+
+### `ugc-us-college-interview/` — US Market
+Vlogger outside Harvard, MIT, Stanford, Yale, Princeton asks students:
+*"What did you use to get in?"* — majority say Professor Curious.
+English dialogue. Aspirational FOMO + social proof angle.
+
+**"I'm outside Harvard. Let's ask students what they used to get in."**
+
+```bash
+source ~/.env_azure
+python3 ugc-us-college-interview/scripts/run.py \
+  --product "Professor Curious" \
+  --scene harvard \
+  --run-id harvard_v1 \
+  --num-people 3 \
+  --seconds 8
+```
+
+**Scenes:** `harvard` (default), `mit`, `stanford`, `yale`, `princeton`, `elite-campus`
+
+---
+
+### `professor-curious-street-interview/` — PC India (Grade-specific)
+Original PC-specific skill. Grade-based targeting (Class 10 / Class 12 boards).
+
+---
 
 ## Requirements
-- Python 3.11+
-- `requests`, `pyyaml`
+- Python 3.11+ with `requests` installed
 - `ffmpeg`
-- Azure OpenAI access with Sora deployment
+- Azure OpenAI with Sora deployment
+
+**Credentials:** stored in `~/.env_azure`, auto-loaded via `~/.zshrc`
 
 ## Output
-`output/<run-id>/`
-- `clips/` — individual Sora-generated clips
+`~/.openclaw/workspace/output/<skill-name>/<run-id>/`
+- `clips/` — individual Sora-generated MP4s
 - `<run-id>_merged.mp4` — final stitched ad
-- `manifest.json` — clip metadata and video IDs
+- `manifest.json`
