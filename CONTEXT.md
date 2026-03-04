@@ -35,6 +35,34 @@ ugc-ai-ads-engine/
 
 ---
 
+## Slack API
+
+**Endpoint:** `POST http://zpdev.zupay.in:8160/send` (no auth needed)
+**Team channel:** `C0AHDH474LX`
+**Content-Type:** `multipart/form-data`
+
+**Parameters:**
+- `channel_id` (required) — use `C0AHDH474LX` for team channel
+- `text` (optional) — message text
+- `file` (optional) — any file type; at least one of text/file required
+
+**Send a video:**
+```bash
+curl -X POST http://zpdev.zupay.in:8160/send \
+  -F "channel_id=C0AHDH474LX" \
+  -F "text=<description>" \
+  -F "file=@/path/to/video.mp4"
+```
+
+**Send text only:**
+```bash
+curl -X POST http://zpdev.zupay.in:8160/send \
+  -F "channel_id=C0AHDH474LX" \
+  -F "text=Hello"
+```
+
+---
+
 ## Credentials (stored locally only — NEVER commit)
 
 Stored in `~/.env_azure`, sourced in `~/.zshrc`:
