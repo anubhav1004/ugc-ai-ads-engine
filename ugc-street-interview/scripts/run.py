@@ -5,7 +5,7 @@ Generates raw-footage post-exam street interview ads for any edtech product.
 Supports 6 distinct scene types, any product name, any grade.
 
 Usage:
-  python3 run.py --product "Professor Curious" --scene chai-stall --run-id chai_v1
+  python3 run.py --product "Professor Curious" --scene kota-coaching --run-id kota_v1
 """
 
 import argparse
@@ -38,157 +38,285 @@ in his right hand. Visible from chest up on the left edge of frame, slightly low
 
 SCENES = {
 
-    # ── 1. School gate (default, existing) ────────────────────────────────────
+    # ── 1. Kota coaching centre gate (DEFAULT) ─────────────────────────────────
+    "kota-coaching": {
+        "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Evening, 7-8pm, streetlights
+coming on. Outside a crowded JEE/NEET coaching centre in Kota, Rajasthan — the coaching
+capital of India. Students in casual clothes (not uniforms) streaming out with heavy bags,
+thick notes, textbooks. Tired, hollow-eyed faces — dark circles, slightly dishevelled,
+visibly under pressure. Auto-rickshaws waiting in a row. Small chai stalls with students
+standing silently or scrolling phones. The weight of lakhs of dreams is palpable in
+every face. Raw phone camera footage, no color grading, natural low-light noise visible.
+Feels like one continuous real shoot — Kota's quiet desperation and fierce ambition.""",
+        "establishing": {
+            "line":   "Bhai, Kota mein hoon abhi — coaching se nikal rahe hain yeh log. Inse poochte hain, kya chal raha hai andar se.",
+            "visual": "Vlogger walks toward the coaching centre exit in selfie-cam as silent, heavy-burdened students stream out. He turns to camera with a serious, empathetic look — not his usual grin. The weight of the place is visible.",
+        },
+        "outro": {
+            "line":   "Kota mein laakhon bacche hain — akele, thake hue, maar khate hain andar se. {product} unka ek saathi ban gaya hai. Link neeche hai.",
+            "visual": "Vlogger turns selfie-cam on himself outside coaching centre, students silently walking away behind him. Eyes slightly watery, slow deliberate thumbs up — not a gimmick. Means it.",
+        },
+        "people": [
+            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "broken then hopeful",
+             "question": "Bhai, sach bata — Kota mein kaisa lag raha hai?",
+             "response": "Ghar se 700 kilometre dur hoon. Raat ko rota hoon akele mein — kuch samajh nahi aata, aur kisi ko bata bhi nahi sakta. Phir Professor Curious mila. Ek ek doubt uthaya usne — ruk gaya, samjhaya, choda nahi. Woh raat se neend aayi.",
+             "visual": "Boy's jaw tightens at first, eyes glassy — holds back tears. Then at 'Professor Curious' his face softens completely. Speaks the name clearly, deliberately. A real turning point visible on his face."},
+            {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "exhausted then determined",
+             "question": "Doctor banna hai — but aaj kaisi hai halat?",
+             "response": "Maa ne gold becha tha mujhe Kota bhejna ke liye. Yeh soch ke raat ko uthke ro leti hoon. Lekin Professor Curious pe Biology padhti hoon — woh itna clearly samjhata hai ki lag ta hai main kar sakti hoon. Yeh app meri wajah se nahi ruka kabhi.",
+             "visual": "Girl's voice breaks slightly mentioning her mother. She pauses, wipes the corner of her eye. Then speaks 'Professor Curious' with full composure and conviction — a quiet strength."},
+            {"id": "p03", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "raw and candid",
+             "question": "Kabhi laga ki chod ke chale jao?",
+             "response": "Haaan yaar. Ek raat bag pack kar liya tha. Phir kuch nahi socha, Professor Curious khola, Physics ka ek chapter finish kiya. Subah tak woh bag wahan pada tha aur main padh raha tha. Woh app meri wajah nahi jaanta — lekin usne roka mujhe.",
+             "visual": "Boy laughs softly but there's pain behind it — totally candid, no performance. Looks away briefly. When he says 'Professor Curious' he looks straight at the camera — grounded, grateful."},
+            {"id": "p04", "type": "NEET aspirant girl", "age": "17-18", "emotion": "fierce and emotional",
+             "question": "Competition itna hai — tum kaise khud ko alag karti ho?",
+             "response": "Roz 5 baje uthti hoon. Roz ek cheez toot ti hai andar se — rank, doubt, loneliness. Phir Professor Curious pe woh doubt solve karti hoon step by step. Woh har baar samjhata hai jab tak clear na ho jaaye. Yeh app nahi chodti main.",
+             "visual": "Girl is fierce, jaw set, eyes sharp. Voice steady but you can feel the emotion beneath. She says 'Professor Curious' like a fighter names their weapon — not emotional, but fierce."},
+            {"id": "p05", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "deeply relieved",
+             "question": "Aaj ka mock test kaisa gaya?",
+             "response": "Pichle 3 din se ek concept tha — samajh nahi aa raha tha. Raat ko Professor Curious pe khola — 2 ghante laga ke seedha clear kar diya. Aaj wahi question aaya test mein. Aaj pehli baar laga — haan, yahan rehna sahi tha.",
+             "visual": "Boy exhales deeply — real, unperformed relief. Eyes slightly wet. Says 'Professor Curious' with a slow nod — like he means every syllable. First genuine smile of the clip."},
+        ],
+    },
+
+    # ── 2. School gate ────────────────────────────────────────────────────────
     "school-gate": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Late afternoon golden-hour
-light. Outside a busy Indian school iron gate. Dozens of school kids in white shirts and
-grey pants/skirts with heavy backpacks streaming out after exams — happy, relieved, noisy.
+light. Outside a busy Indian school iron gate in Kota. Dozens of school kids in white shirts and
+grey pants/skirts with heavy backpacks streaming out after exams — some happy, some anxious, noisy.
 Parents waiting, yellow auto-rickshaws and bikes parked, a chai stall in background.
-Organic, slightly chaotic Indian street energy. Raw iPhone-style handheld footage,
+Organic, slightly chaotic energy. Raw iPhone-style handheld footage,
 no color grading, natural handheld shake. One continuous real shoot.""",
         "establishing": {
-            "line":   "Bhai, aaj exams khatam hue hain — chalo seedha bacchon se poochte hain, kaisi rahi taiyari!",
+            "line":   "Bhai, aaj exams khatam hue hain Kota mein — chalo seedha bacchon se poochte hain, kaisi rahi taiyari!",
             "visual": "Vlogger walks toward school gate in selfie-cam mode, points at kids pouring out, grins at camera, eyebrows raised, excited and spontaneous. Camera bobs with walk.",
         },
         "outro": {
-            "line":   "Sunaa? Sab ek hi app ki baat kar rahe hain — {product}. Link neeche diya hai.",
+            "line":   "Sunaa? Sab ek hi app ki baat kar rahe hain — Professor Curious. Link neeche diya hai.",
             "visual": "Vlogger walks away from gate in selfie-cam, kids streaming out behind. Looks at camera, raises eyebrows, relaxed thumbs up.",
         },
         "people": [
-            {"id": "p01", "type": "school boy",  "age": "13-14", "emotion": "excited and happy",         "question": "Exam kaisa gaya?",                      "response": "Bahut achha gaya! {product} use kiya tha — jo bhi doubt aata tha, scan karo, ek dum clear. Paper easy laga!",              "visual": "Kid very excited, wide eyes, animated gestures, backpack bouncing, smiling ear to ear."},
-            {"id": "p02", "type": "school girl", "age": "12-13", "emotion": "confident and relieved",     "question": "Taiyari kaise ki?",                     "response": "Bahut doubts the pehle... {product} use ki, sab clearly samjha diya. Jo bhi aaya paper mein, pata tha!",              "visual": "Girl calm and confident, adjusts bag strap, steady eye contact with vlogger."},
-            {"id": "p03", "type": "school girl", "age": "13-14", "emotion": "enthusiastic and giggly",   "question": "Koi secret bataao!",                    "response": "Raat ko akele padhti thi — bas {product} thi. Jo samajh nahi aaya, woh bata deti thi. Bahut kaam aayi!",             "visual": "Girl giggles, friends giggling behind, then speaks enthusiastically counting on fingers."},
-            {"id": "p04", "type": "school boy",  "age": "12-13", "emotion": "relieved and proud",        "question": "Mushkil laga paper?",                   "response": "Dar lag raha tha, but {product} pe raat bhar doubts clear kiye. Subah tak sab ready tha!",                           "visual": "Boy wipes forehead dramatically, then grins and gives big thumbs up."},
-            {"id": "p05", "type": "school boy",  "age": "11-12", "emotion": "shy then happy",            "question": "Kisi app se padha kya?",                "response": "{product}. Mummy ne bataya tha. Question scan kiya — simply samjha diya. Achha gaya exam!",                         "visual": "Boy initially shy, looks down then opens up with genuine smile."},
+            {"id": "p01", "type": "school boy",  "age": "13-14", "emotion": "relieved and emotional",
+             "question": "Exam ke pehle dar lag raha tha?",
+             "response": "Bahut dar tha bhaiya — raat ko so nahi pa raha tha, ek ek formula bhool raha tha. Phir Professor Curious pe sab clear kiya — woh samjhata hai, judge nahi karta. Aaj paper mein sab aaya. Sach mein aaya.",
+             "visual": "Kid's eyes go wide remembering the fear. Then visibly softens at 'Professor Curious' — says the name clearly, proudly. Relief is real."},
+            {"id": "p02", "type": "school girl", "age": "12-13", "emotion": "sincere and moved",
+             "question": "Ghar mein koi padhata hai kya?",
+             "response": "Nahi bhaiya, Papa kaam pe hote hain raat tak. Main akeli padh ti thi — bahut mushkil tha. Phir Professor Curious use karna shuru kiya. Woh meri saari confusions door karta tha — koi bhi time pe. Main ab akeli nahi hoon padhte waqt.",
+             "visual": "Girl is quiet, sincere. Slightly teary at 'akeli.' At 'Professor Curious' she straightens — says the name clearly with a small proud smile."},
+            {"id": "p03", "type": "school boy",  "age": "13-14", "emotion": "funny then sincere",
+             "question": "Koi app use kiya kya — sach bata!",
+             "response": "Bhaiya seedha bolunga — pehle kuch nahi karta tha, bas rota tha. Phir dost ne Professor Curious bataya. Usne ek dum simple mein samjhaya — roz use karta hoon. Aaj bahut achha gaya.",
+             "visual": "Boy grins at first, then gets genuine. Says 'Professor Curious' looking straight at camera — slow and clear, like he wants everyone watching to remember the name."},
+            {"id": "p04", "type": "school girl", "age": "13-14", "emotion": "proud and emotional",
+             "question": "Mummy ko kya bologe result ka?",
+             "response": "Main bolungi — Mummy, tumne jo expect kiya tha woh karke aayi hoon. Raat ko Professor Curious pe padha tha — woh samjhata tha jab koi nahi hota. Aaj sab aaya paper mein. Yehi toh chahiye tha.",
+             "visual": "Girl's voice catches slightly at 'Mummy.' Composes herself. Says 'Professor Curious' deliberately, loud enough — like she's rehearsing telling her mother."},
+            {"id": "p05", "type": "school boy",  "age": "11-12", "emotion": "shy then proud",
+             "question": "Kisi app se padha kya — batao na!",
+             "response": "Haan... Professor Curious. Mummy ne install kiya tha. Main bahut confuse rehta tha Maths mein — woh baar baar samjhata tha, gaali nahi deta tha... haha. Ab Maths achha lagta hai.",
+             "visual": "Boy initially shy, looks down. Then says 'Professor Curious' clearly — small giggle at his own joke, then a real, warm smile. Completely genuine."},
         ],
     },
 
-    # ── 2. Coaching centre gate ────────────────────────────────────────────────
+    # ── 3. Coaching centre gate (non-Kota) ─────────────────────────────────────
     "coaching-centre": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Evening, 7-8pm, streetlights
-coming on. Outside a crowded JEE/NEET coaching centre building in an Indian city — could be
-Kota or Old Rajender Nagar Delhi. Students in casual clothes (not uniforms) streaming out
-with heavy bags, notes, textbooks. Tired, focused faces — dark circles, slightly dishevelled.
-Auto-rickshaws waiting in a row outside. A few tea stalls with students standing and sipping.
-Raw phone camera footage, no color grading, natural low-light noise visible. Feels like
-one continuous shoot.""",
+coming on. Outside a crowded JEE/NEET coaching centre building in Kota, Rajasthan. Students in
+casual clothes (not uniforms) streaming out with heavy bags, notes, textbooks. Tired, focused
+faces — dark circles, slightly dishevelled. Auto-rickshaws waiting in a row outside.
+A few tea stalls with students standing and sipping in silence. Raw phone camera footage,
+no color grading, natural low-light noise visible. The weight of Kota hangs in the air.""",
         "establishing": {
-            "line":   "Bhai, coaching khatam hui abhi — yahan ke bacchon se poochte hain ki doubts kaise door karte hain!",
-            "visual": "Vlogger walks toward the coaching centre exit as students stream out, turns selfie-cam to himself, gestures at the tired but driven students behind him, grins at camera.",
+            "line":   "Kota mein hoon — coaching khatam hui. Yahan ke bacchon se poochte hain ki raat ko kya hota hai jab koi nahi hota.",
+            "visual": "Vlogger walks toward the coaching centre exit as silent, burdened students stream out, turns selfie-cam to himself, empathetic not entertained, gestures quietly at the students behind him.",
         },
         "outro": {
-            "line":   "Raat ko coaching ke baad bhi yeh log padhte hain — aur {product} unka saath deta hai. Link neeche hai.",
-            "visual": "Vlogger turns selfie-cam on himself outside coaching centre, students visible behind calling autos. Raises eyebrows, slow thumbs up, knowing look at camera.",
+            "line":   "Raat ko coaching ke baad bhi yeh log akele ladte hain apni padhai se — aur Professor Curious unka saathi hai. Link neeche.",
+            "visual": "Vlogger turns selfie-cam on himself outside coaching centre, students silently calling autos behind him. Serious, knowing look. Slow thumbs up — felt, not performed.",
         },
         "people": [
-            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "exhausted but determined",    "question": "Bhai, coaching ke baad bhi doubts reh jaate hain?",           "response": "Haan yaar, bahut. Teacher se class mein pooch nahi paate — {product} pe raat ko scan karo, turant clear ho jaata hai. Roz kaam aata hai.",      "visual": "Boy looks genuinely tired, dark circles, speaks earnestly, adjusts heavy bag on shoulder."},
-            {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "focused and relieved",        "question": "NEET ki taiyari mein sabse bada problem kya hai?",            "response": "Biology mein itna content hai — yaad hi nahi rehta. {product} pe topic scan karo, simple mein samjha deta hai. Time bachta hai bahut!",        "visual": "Girl is composed, holds thick Biology textbook, speaks confidently, minimal gestures."},
-            {"id": "p03", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "honest and candid",           "question": "Kota mein ho kitne saal se? Adjust hua?",                    "response": "Dusra saal hai. Pehle bahut struggle tha — ab {product} se roz doubts clear karta hoon. Akela nahi lagta padhai mein.",                        "visual": "Boy leans against wall, very candid tone, speaks like talking to a friend, reflective."},
-            {"id": "p04", "type": "NEET aspirant girl", "age": "17-18", "emotion": "competitive and sharp",      "question": "Topper kaise bante hain — koi app use karte ho?",             "response": "{product}. Jab bhi concept pakka nahi hota — seedha wahan jaao. Baar baar samjhata hai jab tak clear na ho. Yahi edge hai mera.",             "visual": "Girl is sharp and direct, adjusts glasses, confident eye contact, precise hand gestures."},
-            {"id": "p05", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "deeply relieved",             "question": "Aaj ka test kaisa gaya?",                                    "response": "Bahut achha! Chemistry ka ek concept kal raat {product} pe clear kiya tha — aaj wahi question aaya. Seriously kaam aaya.",                     "visual": "Boy breaks into a big smile, pumps fist slightly, relieved and proud post-test energy."},
+            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "broken then hopeful",
+             "question": "Coaching mein kitne ghante padhte ho — aur phir bhi kya hota hai?",
+             "response": "12-14 ghante roz. Phir bhi raat ko teacher ka concept dimag mein nahi rehta — class mein poochh nahi paate, hazaar bacche hain. Bahut akela lagta hai. Professor Curious pe woh concepts raat ko clear karta hoon — woh rukta hai mere saath tab tak jab tak samajh na aa jaaye.",
+             "visual": "Boy looks genuinely exhausted. Voice drops at 'akela.' Rallies at 'Professor Curious' — says it clearly, deliberately. A quiet resolve returns to his face."},
+            {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "focused and emotional",
+             "question": "NEET clear karna hai — lekin aaj kaisi feel ho rahi hai?",
+             "response": "Aaj mock mein fail hua. Ghar phone kiya — unhe bata nahi sakti kitni problem ho rahi hai, woh pehle se itna kar rahe hain mere liye. Phir Professor Curious pe Biology ka ek chapter khola — woh itna clearly samjhata hai. Raat tak confidence wapas aa gaya tha.",
+             "visual": "Girl's voice tightens at 'ghar phone kiya.' A beat of real vulnerability. At 'Professor Curious' she steadies, looks straight at camera. Says the name slowly, clearly — like it means something."},
+            {"id": "p03", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "raw honesty",
+             "question": "Kota mein kitna mushkil hai — sach mein?",
+             "response": "Bahut mushkil hai bhai. Log yahan rank ke liye jeete hain — roz toot te hain. Ek raat itna bura laga ki kuch nahi karna tha. Phir Professor Curious khola, ek problem solve ki, phir ek aur — subah ho gayi thi. Woh app nahi jaanta — but usne raat nikaali meri.",
+             "visual": "Boy looks away for a second — raw, no performance. Says 'Professor Curious' quietly but clearly, looking straight to camera. Then nods once — that's the whole truth."},
+            {"id": "p04", "type": "NEET aspirant girl", "age": "17-18", "emotion": "fierce",
+             "question": "Topper kaisi banti ho yahan — koi secret?",
+             "response": "Koi secret nahi — bas yeh ki main roti hoon, phir uthti hoon. Jo samajh nahi aata — Professor Curious pe jaati hoon. Woh tab tak samjhata hai jab tak clear na ho. Baar baar. Kabhi nahi kehta kal poochh. Yahi edge hai mera.",
+             "visual": "Girl is fierce, minimal emotion but the weight is present. Says 'Professor Curious' like naming a trusted ally — clear, loud, owns it completely."},
+            {"id": "p05", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "deeply relieved",
+             "question": "Aaj ka test kaisa gaya?",
+             "response": "Chemistry ka ek concept tha — 3 din se samajh nahi aa raha tha. Raat ko Professor Curious pe 2 ghante baitha. Step by step — ruka, samjhaya. Aaj wahi question aaya. Pehli baar is saal achha feel hua Kota mein.",
+             "visual": "Boy exhales slowly — real relief, eyes a little wet. Says 'Professor Curious' with a slow nod, completely sincere. First genuine smile in the clip."},
         ],
     },
 
-    # ── 3. Results day ────────────────────────────────────────────────────────
+    # ── 4. Results day ────────────────────────────────────────────────────────
     "results-day": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Morning, bright natural light.
-Outside a school on board exam results day. Chaotic, emotional scene — students clustered
+Outside a school in Kota on board exam results day. Chaotic, emotional scene — students clustered
 in groups checking phones and printed result sheets, some crying with joy, some hugging
-parents, some jumping. Parents in formal clothes standing anxiously. Teachers visible near
-the gate. Notice boards with results visible in background. Raw iPhone-style footage,
-no color grading, natural handheld shake. Electric emotional energy — most charged day
-of these students' lives.""",
+parents, some jumping. Parents in formal clothes standing anxiously. Teachers near the gate.
+Notice boards with results visible in background. Raw iPhone-style footage,
+no color grading, natural handheld shake. The most charged day of these students' lives.""",
         "establishing": {
-            "line":   "Bhai, aaj board results aaye hain — yahan ka maahaul dekho. Chalo kuch bacchon se baat karte hain!",
-            "visual": "Vlogger walks into the emotional crowd in selfie-cam mode, visibly moved by the scene around him — students crying, parents hugging kids, gestures wide at the chaos behind him.",
+            "line":   "Bhai, aaj board results aaye hain Kota mein — yahan ka maahaul dekho. Chalo kuch bacchon se baat karte hain!",
+            "visual": "Vlogger walks into the emotional crowd in selfie-cam mode, visibly moved — students crying, parents hugging kids. He gestures wide at the chaos behind him, voice slightly unsteady.",
         },
         "outro": {
-            "line":   "Result ka din hai aaj — aur jo khush hain, unka ek common connection hai — {product}. Link neeche.",
-            "visual": "Vlogger walks away from celebrating crowd in selfie-cam. Emotional scenes still visible behind. He looks at camera quietly, gives a thumbs up with a genuine smile.",
+            "line":   "Result ka din hai aaj — aur jo khush hain, unka ek common connection hai — Professor Curious. Link neeche.",
+            "visual": "Vlogger walks away from celebrating crowd in selfie-cam. Emotional scenes still visible behind. He looks at camera quietly, gives a thumbs up with a genuine smile — moved by what he witnessed.",
         },
         "people": [
-            {"id": "p01", "type": "student boy",   "age": "16-17", "emotion": "overwhelmed with joy",    "question": "Bhai, kaisa result aaya?",                           "response": "95 percent aaya bhaiya! Mujhe khud yakeen nahi ho raha. {product} use kiya tha roz — sab doubt clear the. Mummy ko call karta hoon!",        "visual": "Boy is overwhelmed, eyes watery, breaks into huge smile mid-sentence, looks at phone result."},
-            {"id": "p02", "type": "student girl",  "age": "15-16", "emotion": "crying happy tears",      "question": "Kya hua — khush ho ya rona ho raha hai?",            "response": "Khushi ke aansu hain bhaiya! Science mein 98 aaya. {product} ne itna help kiya — raat ko bhi padha ussi pe. Sab clear ho gaya tha.",          "visual": "Girl is crying happy tears, wipes eyes with dupatta, friends around her celebrating."},
-            {"id": "p03", "type": "student boy",   "age": "16-17", "emotion": "proud and reflective",    "question": "Ek saal pehle kya sochte the result ke baare mein?",  "response": "Bahut dar tha. But {product} ne confidence diya — roz doubt scan karo, clear karo. Aaj result dekha toh sab mehnat ka fal mila.",            "visual": "Boy speaks reflectively, one hand on heart, genuine and measured emotion."},
-            {"id": "p04", "type": "parent",        "age": "40-45", "emotion": "proud parent energy",     "question": "Uncle, bacche ka result kaisa aaya?",                "response": "Bahut achha aaya beta! Hum log bahut worried the — but inhone ek app use ki thi — {product} — roz padhte the. Sach mein kaam aayi.",           "visual": "Parent (father) beams with pride, arm around kid's shoulder, emotional but composed."},
-            {"id": "p05", "type": "student girl",  "age": "15-16", "emotion": "relieved and grateful",   "question": "Sabse tough subject kaunsa tha aur kaise crack kiya?","response": "Maths bhaiya. Formulas yaad nahi rehte the. {product} pe baar baar practice kiya — step by step samjha. Aaj maths mein 92 aaya!",              "visual": "Girl holds result printout up proudly, grins wide, shows paper to camera."},
+            {"id": "p01", "type": "student boy",   "age": "16-17", "emotion": "overwhelmed with joy",
+             "question": "Bhai, kaisa result aaya?",
+             "response": "95 percent... mujhe yakeen nahi ho raha. Papa ne government job chodi thi ek baar mujhe padhaane ke liye. Aaj unhe call karta hoon. Professor Curious pe roz padhta tha — raat ko jo samajh nahi aata, woh samjha deta tha. Yahi result hai unka bhi.",
+             "visual": "Boy is overwhelmed — jaw trembles briefly, eyes wet. Mid-sentence he composes himself. Says 'Professor Curious' slowly, clearly — naming it like he's giving credit. Then breaks into a full smile."},
+            {"id": "p02", "type": "student girl",  "age": "15-16", "emotion": "crying happy tears",
+             "question": "Kya hua — khush ho ya rona ho raha hai?",
+             "response": "Dono bhaiya — Science mein 98 aaya. Maa kehti thi 'beta kuch nahi hoga tere se' — not taunting, she was scared. Main bhi dara hua tha. Professor Curious ne raat ko mujhe hath tham liya jab koi nahi tha. Aaj ka result unka bhi hai.",
+             "visual": "Girl crying openly, wipes eyes. Voice breaks at 'Maa.' Then says 'Professor Curious' clearly through tears — the name comes out strong, not soft. Friends around her crying too."},
+            {"id": "p03", "type": "student boy",   "age": "16-17", "emotion": "proud and reflective",
+             "question": "Ek saal pehle kya sochte the?",
+             "response": "Sochta tha fail ho jaunga. Coaching ka pressure, ghar ki umeed — sab ek saath. Ek raat bilkul toot gaya tha. Phir Professor Curious pe ek chapter khola — aur phir ek aur. Woh raat khatam nahi hui bhi tab tak jab tak sab clear nahi hua. Woh app meri wajah se nahi thaka.",
+             "visual": "Boy speaks quietly, one hand on heart. Looks away briefly remembering. Says 'Professor Curious' deliberately — looking at camera, slow and clear. Real gratitude."},
+            {"id": "p04", "type": "parent",        "age": "40-45", "emotion": "proud, emotional parent",
+             "question": "Uncle, bacche ka result kaisa aaya?",
+             "response": "Bahut achha aaya beta. Main raat ko dekh ta tha — light on rehti thi kamre mein. Ek app se padhta tha — Professor Curious. Maine kabhi nahi rokey — jo concentrate kar raha tha toh hona chahiye. Aaj woh mehnat ka phal mila.",
+             "visual": "Father's eyes glisten. Arm around child's shoulder. Says 'Professor Curious' carefully — like he memorized the name. Proud, composed, deeply moved."},
+            {"id": "p05", "type": "student girl",  "age": "15-16", "emotion": "relieved and grateful",
+             "question": "Sabse tough subject kaunsa tha aur kaise crack kiya?",
+             "response": "Maths bhaiya — formulas bhool jaati thi exam pressure mein. Raat ko bahut roti thi. Professor Curious pe step by step practice kiya — woh samjhata tha, daanta nahi. Aaj Maths mein 92 aaya. Woh app nahi hoti toh yeh din nahi hota.",
+             "visual": "Girl holds result printout up, voice shakes briefly. Says 'Professor Curious' firmly, clearly — like she's speaking to everyone who's still struggling. Then smiles, shows paper to camera."},
         ],
     },
 
-    # ── 4. Chai stall ─────────────────────────────────────────────────────────
+    # ── 5. Chai stall ─────────────────────────────────────────────────────────
     "chai-stall": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Evening golden hour, warm
-orange light. Small roadside chai stall right outside a school or coaching centre — a
+orange light. Small roadside chai stall right outside a coaching centre in Kota — a
 wooden bench, a gas stove with a large chai pot, steam rising, glass cups on a tray.
-Students in school uniforms or casual clothes sitting on benches sipping chai,
-bags on the ground, books open, decompressing after a long day. Relaxed, intimate,
-unguarded energy. Street noise in background — autos passing, distant chatter.
-Raw phone camera footage, no color grading. Intimate and very authentic.""",
+Students in casual clothes sitting on benches sipping chai, bags on the ground,
+books open, decompressing after a long day. Exhausted, slightly numb faces.
+Street noise in background — autos passing, distant chatter.
+Raw phone camera footage, no color grading. Intimate, very authentic Kota atmosphere.""",
         "establishing": {
-            "line":   "Bhai, school ke baad chai pi rahe hain yahan ke bacche — seedha inka mooh mitha karaate hain aur poochhte hain!",
-            "visual": "Vlogger walks up to a chai stall where students are sitting, turns selfie-cam on himself, grins and points at the relaxed students behind him, steam from chai visible.",
+            "line":   "Kota mein coaching ke baad yahan chai pi rahe hain bacche — seedha inse poochte hain, kya chal raha hai andar se.",
+            "visual": "Vlogger walks up to a chai stall where students sit in tired silence, turns selfie-cam on himself, points quietly at the exhausted students behind him, steam from chai visible. Empathetic tone, not entertained.",
         },
         "outro": {
-            "line":   "Chai ki tarah {product} bhi sab ke saath hai — roz, har doubt pe. Link neeche.",
-            "visual": "Vlogger holds a glass of chai toward camera with a grin, students visible on bench behind, then turns selfie-cam to himself walking away from the stall.",
+            "line":   "Chai ki tarah Professor Curious bhi sab ke saath hai — roz, har raat, har doubt pe. Link neeche.",
+            "visual": "Vlogger holds a glass of chai toward camera with a quiet nod, students visible on bench behind, then turns selfie-cam to himself walking away from the stall.",
         },
         "people": [
-            {"id": "p01", "type": "school boy",  "age": "14-15", "emotion": "relaxed and candid",      "question": "Bhai, raat ko padhte waqt kya karte ho jab kuch samajh nahi aata?",   "response": "Pehle toh rota tha — phir {product} mila. Ab bas scan karo — woh samjha deta hai. Raat ko bhi koi problem nahi.",              "visual": "Boy sips chai casually, very relaxed, almost laughs at his own answer, completely unguarded."},
-            {"id": "p02", "type": "school girl", "age": "14-15", "emotion": "honest and thoughtful",   "question": "Chai pi ke padhai kaisi lagti hai?",                                   "response": "Haan thoda relax ho jaata hai. Phir {product} kholo — ek dum focused ho jaata hai man. Doubts bhi jaldi clear hote hain chai ke baad!",  "visual": "Girl laughs softly, holds chai cup with both hands, thoughtful expression, looks at vlogger."},
-            {"id": "p03", "type": "school boy",  "age": "15-16", "emotion": "funny and honest",        "question": "Yahan kya hua — class mein tha ya chai pe?",                          "response": "Chai pe tha bhaiya, class bhi chai se hi hoti thi. But {product} se sach mein padha. Usne clearly samjhaya — teacher se zyada kabhi kabhi!", "visual": "Boy grins cheekily, friends laugh behind him, very natural and funny energy at the stall."},
-            {"id": "p04", "type": "school girl", "age": "13-14", "emotion": "sweet and sincere",       "question": "Aaj ka exam kaisa gaya — bata de!",                                   "response": "Achha gaya bhaiya! Kal raat ko {product} pe saare doubts clear kiye the — aaj sab aaya. Ab chai pi ke ghar jaungi khush hoke!",           "visual": "Girl beams happily, just came from exam, still in uniform, sips chai in celebration."},
-            {"id": "p05", "type": "school boy",  "age": "14-15", "emotion": "passionate and gesturing","question": "Ek app suggest karo jo actually kaam aaye padhai mein!",               "response": "{product}! Seriously bhaiya — jo bhi samajh nahi aata, scan karo — instantly explain kar deta hai. Yahi pita hoon roz chai ke baad!",    "visual": "Boy gets animated, points finger up for emphasis, very passionate recommendation energy."},
+            {"id": "p01", "type": "student boy",  "age": "14-15", "emotion": "exhausted and candid",
+             "question": "Raat ko padhai karte waqt kya hota hai jab kuch samajh nahi aata?",
+             "response": "Bhaiya sach bolunga — ek baar phone uthaya tha ghar call karne ko. Phir rakha diya — unhe pareshan nahi karna tha. Professor Curious khola uss raat. Woh samjhata raha — 2 baje tak. Socha tha quit karunga. Woh raat nahi ki.",
+             "visual": "Boy sips chai, totally drained. Voice very quiet at 'ghar call karne ko.' Says 'Professor Curious' simply — not dramatic, just true. Stares into chai cup."},
+            {"id": "p02", "type": "student girl", "age": "14-15", "emotion": "honest and raw",
+             "question": "Kota mein akela feel hota hai kya?",
+             "response": "Bahut. Ghar mein maa hoti thi — doubt hota toh pooch leti thi. Yahan koi nahi. Raat ko Professor Curious khola — woh samjhata hai, judge nahi karta, thakta nahi. Chai peene ke baad wahi pehli cheez kholti hoon. Woh maa ki jagah nahi le sakta — but kuch toh hai.",
+             "visual": "Girl's voice catches at 'maa.' She looks at her chai cup for a moment. Then says 'Professor Curious' clearly, steadily — not performing grief, just honest. A real, human moment."},
+            {"id": "p03", "type": "student boy",  "age": "15-16", "emotion": "dark humor, then real",
+             "question": "Kota mein sabse mushkil kya hai?",
+             "response": "Apne aap se fight karna bhaiya. Sab se zyada yahi thakata hai. Raat ko Professor Curious se jhagada karta hoon — matlab doubts deta hoon, woh jawab deta hai. Kabhi kabhi sochta hoon woh mujhse better teacher hai than anyone I've paid fees for.",
+             "visual": "Boy grins tiredly — dark humor but real underneath. Says 'Professor Curious' with a slight laugh that turns genuine. Points at camera — that's the truth."},
+            {"id": "p04", "type": "student girl", "age": "13-14", "emotion": "sweet and vulnerable",
+             "question": "Aaj ka exam kaisa gaya — sach mein bata.",
+             "response": "Raat bhar roti rahi — soch rahi thi fail ho jaungi. Professor Curious pe ek ek chapter cover kiya. Subah uthke exam diya. Achha gaya bhaiya. Ab chai pi rahi hoon — pehli baar chain se.",
+             "visual": "Girl exhales slowly, holds her chai with both hands like it's a comfort. Says 'Professor Curious' quietly but clearly — peace visible on her face. First calm moment in a long time."},
+            {"id": "p05", "type": "student boy",  "age": "14-15", "emotion": "passionate and grateful",
+             "question": "Ek cheez recommend karo jo sach mein kaam aayi Kota mein.",
+             "response": "Professor Curious. Bhaiya seedha bolunga — yeh app nahi hoti toh main yahan nahi hota abhi. Jo samajh nahi aata, scan karo — woh samjhata hai tab tak jab tak clear na ho. Kota mein yahi chahiye hota hai — koi jo chode na.",
+             "visual": "Boy puts chai cup down, points at camera — completely earnest. Says 'Professor Curious' slowly and clearly, almost spelling it out. Full eye contact. No performance — pure sincerity."},
         ],
     },
 
-    # ── 5. College gate ────────────────────────────────────────────────────────
+    # ── 6. College gate ────────────────────────────────────────────────────────
     "college-gate": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Afternoon bright natural light.
-Outside a busy Indian college main gate — large iron gate, college name board visible,
-students in casual clothes (not uniforms) streaming out after semester exams. 18-20 year
-olds, confident, fashion-conscious, in groups. Some on phones, some with earphones. College
-canteen visible inside gate. Raw phone camera footage, no color grading, natural handheld
-shake. Older, more confident energy than school — aspirational setting.""",
+Outside a busy Indian college main gate in Kota. Students in casual clothes streaming out after
+semester exams — 18-20 year olds, many Kota veterans now in college, confident but carrying
+the scars of their coaching days. Some on phones, some with earphones. Raw phone camera
+footage, no color grading, natural handheld shake. Aspirational but layered with history.""",
         "establishing": {
-            "line":   "Bhai, college mein semester exams khatam hue — yahan ke bacche Class 12 ke baad aaye hain. Poochte hain ki 12th ki taiyari kaise ki thi!",
-            "visual": "Vlogger stands outside college gate in selfie-cam mode, points at students streaming out confidently, grins at camera with raised eyebrows.",
+            "line":   "Bhai, college ke baahir hoon Kota mein — yahan ke bacche Kota ke veteran hain. Poochte hain ki kaise survive kiya unhone.",
+            "visual": "Vlogger stands outside college gate in selfie-cam mode, points at students confidently streaming out, serious and empathetic look at camera.",
         },
         "outro": {
-            "line":   "College pahunch gaye yeh log — aur unhe yahan tak {product} ne bhi help kiya. School wale sun rahe ho? Link neeche.",
-            "visual": "Vlogger walks away from college gate toward camera in selfie-cam. Confident older students visible behind. Smiles knowingly, slow thumbs up.",
+            "line":   "College pahunch gaye yeh log — Kota se lad ke. Professor Curious unka ek saathi tha. School wale sun rahe ho? Link neeche.",
+            "visual": "Vlogger walks away from college gate toward camera in selfie-cam. Confident older students visible behind. Slow nod, meaningful thumbs up.",
         },
         "people": [
-            {"id": "p01", "type": "college boy",  "age": "18-19", "emotion": "nostalgic and proud",       "question": "Bhai, 12th boards ki taiyari kaise ki thi — college mein aane ke liye?",  "response": "Yaar, last 3 months bahut intense the. {product} use kiya tha — Physics aur Maths ke concepts raat ko clear karta tha. Ussi ne bachaya honestly.",    "visual": "Boy leans against college gate, reflective and proud tone, speaks candidly like reminiscing."},
-            {"id": "p02", "type": "college girl", "age": "18-19", "emotion": "confident and articulate",  "question": "School ke baad college — kya fark laga?",                               "response": "Bahut fark hai confidence mein. 12th mein {product} se padha — har doubt seedha clear hota tha. Woh habit college mein bhi kaam aa rahi hai.",        "visual": "Girl is composed and articulate, gestures confidently, college lanyard visible."},
-            {"id": "p03", "type": "college boy",  "age": "19-20", "emotion": "funny and self-aware",      "question": "School aur college mein kya fark hai padhai ka?",                        "response": "School mein {product} tha toh sab clear tha — college mein woh bhi nahi pata kya use karein! But 12th ke liye toh definitely recommend karunga.",   "visual": "Boy laughs at himself, very self-aware humor, friends laugh along behind him."},
-            {"id": "p04", "type": "college girl", "age": "18-19", "emotion": "heartfelt and sincere",     "question": "Ek cheez jo sabse zyada kaam aayi 12th mein?",                          "response": "{product} app. Raat 12 baje bhi doubt aata tha — koi nahi hota — woh hoti thi. Usne kabhi nahi kaha kal poochh. Wahi fark hai.",                   "visual": "Girl speaks sincerely, places hand on heart briefly, genuine and moving answer."},
-            {"id": "p05", "type": "college boy",  "age": "18-19", "emotion": "motivational energy",       "question": "Jo abhi 12th mein hain unhe kya bologe?",                              "response": "Ek kaam karo — {product} download karo. Seriously. Jo nahi samjha, seedha scan karo. Main yahan hoon kyunki ussi ne help kiya.",                   "visual": "Boy speaks directly to camera like giving advice, points at camera, very motivational energy."},
+            {"id": "p01", "type": "college boy",  "age": "18-19", "emotion": "nostalgic and honest",
+             "question": "Kota survive kiya — kaise?",
+             "response": "Ek raat itna bura laga tha ki bag pack kar liya tha. Seriously. Phir Professor Curious pe Physics ka ek chapter khola — aur subah ho gayi. Yahan hoon aaj usi wajah se. Woh app jaanta nahi mujhe — but woh wahan tha uss raat.",
+             "visual": "Boy leans against college gate, reflective. Voice goes quiet at 'bag pack kar liya.' Says 'Professor Curious' slowly, deliberately — like he wants anyone still in Kota to hear it clearly."},
+            {"id": "p02", "type": "college girl", "age": "18-19", "emotion": "composed and sincere",
+             "question": "Kota ke baad college — kya fark laga?",
+             "response": "Confidence aaya. Kota mein roz tootha tha — roz Professor Curious pe uth ta tha. Woh app ne sikhaya ki toot ke bhi padhte rehte hain. Yahi habit college mein bhi kaam aa rahi hai. Wo app meri foundation hai.",
+             "visual": "Girl is composed but emotion is present underneath. Says 'Professor Curious' with quiet pride — like naming something that shaped her. Steady eye contact."},
+            {"id": "p03", "type": "college boy",  "age": "19-20", "emotion": "self-aware and real",
+             "question": "Kota mein kya bachaya tumhe?",
+             "response": "Seedha bolunga — Professor Curious. Raat 1 baje bhi kholta tha woh app. Woh kabhi band nahi hua, kabhi slow nahi hua. Jab sab thak jaate hain — teacher, friends — woh nahi thaka. Yahan hoon toh usi ki wajah se hoon.",
+             "visual": "Boy is candid, no bravado. Says 'Professor Curious' looking straight at camera — slowly, loudly. Not a testimonial, a fact."},
+            {"id": "p04", "type": "college girl", "age": "18-19", "emotion": "heartfelt",
+             "question": "Ek cheez jo sabse zyada kaam aayi Kota mein?",
+             "response": "Professor Curious app. Raat 12 baje bhi doubt aata tha — koi nahi hota. Teacher so gaye, dost so gaye — woh hoti thi. Usne kabhi nahi bola kal poochh. Kabhi nahi. Yahi fark hai.",
+             "visual": "Girl places hand on heart briefly. Says 'Professor Curious' clearly, loudly — like she wants it heard. Genuine and moving. Doesn't need to dramatize it."},
+            {"id": "p05", "type": "college boy",  "age": "18-19", "emotion": "direct, motivational",
+             "question": "Jo abhi Kota mein hain unhe kya bologe?",
+             "response": "Ek kaam karo — Professor Curious download karo. Abhi. Kota mein akela feel ho raha hai — woh wahan hai. Raat ko doubt hai — woh wahan hai. Main yahan hoon kyunki woh wahan tha jab main nahi tha.",
+             "visual": "Boy speaks directly to camera, points finger — not aggressive, urgent and caring. Says 'Professor Curious' twice — slowly and clearly both times. Means every word."},
         ],
     },
 
-    # ── 6. Parent pickup zone ──────────────────────────────────────────────────
+    # ── 7. Parent pickup zone ──────────────────────────────────────────────────
     "parent-pickup": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Late afternoon warm light.
-Parent pickup zone outside a school — cars, scooters, and auto-rickshaws parked in a line,
-Indian parents (mothers in sarees/salwar kameez, fathers on bikes in office clothes) waiting
-anxiously. Kids in school uniforms running out to their parents — hugs, bags being handed
-over, conversations starting immediately. Mix of relief and curiosity on parents' faces.
-Raw phone camera footage, no color grading, natural handheld shake. Warm, emotional,
-family-oriented energy.""",
+Parent pickup zone outside a school in Kota — cars, scooters, and auto-rickshaws in a line,
+Indian parents (mothers in sarees/salwar kameez, fathers in office clothes) waiting anxiously.
+Kids in school uniforms running out to their parents — hugs, bags handed over.
+Mix of relief and emotion on parents' faces. Raw phone camera footage, no color grading,
+natural handheld shake. Warm, emotional, family energy charged with Kota's intensity.""",
         "establishing": {
-            "line":   "Bhai, parents aa rahe hain bacchon ko lene — chalo unse poochte hain, bacchon ka exam kaisa gaya!",
-            "visual": "Vlogger walks through the parent pickup area in selfie-cam mode, points at parents waiting with helmets and car keys, grins at camera, slightly chaotic but warm energy.",
+            "line":   "Kota mein parents aa rahe hain bacchon ko lene — chalo unse poochte hain, kya chal raha hai ghar mein.",
+            "visual": "Vlogger walks through the parent pickup area in selfie-cam mode, points at waiting parents with helmets and car keys — empathetic, warm tone.",
         },
         "outro": {
-            "line":   "Parents aur bacche — dono ki ek hi advice — {product}. Link neeche hai, ghar mein try karo aaj.",
-            "visual": "Vlogger walks back toward camera in selfie-cam, parent-child pairs visible behind him chatting and walking. Warm smile, thumbs up, gentle nod.",
+            "line":   "Parents aur bacche — dono ki ek hi baat — Professor Curious. Link neeche hai, ghar mein try karo aaj.",
+            "visual": "Vlogger walks back toward camera in selfie-cam, parent-child pairs visible behind him, some emotional reunions. Warm smile, gentle thumbs up.",
         },
         "people": [
-            {"id": "p01", "type": "mother with child", "age": "35-40", "emotion": "proud and emotional",     "question": "Aunty, bacche ka exam kaisa gaya?",                      "response": "Bahut achha gaya beta! Yeh roz ek app use karte the — {product} — saare doubts wahan clear karte the. Mujhe toh pata bhi nahi tha kya hota hai uspe!",   "visual": "Mother beams with pride, child in uniform beside her, mom puts arm around child's shoulder."},
-            {"id": "p02", "type": "father with child",  "age": "38-45", "emotion": "relieved and warm",      "question": "Uncle, bhai kaisa gaya paper?",                          "response": "Achha gaya bhai sahab. Hum log worried the — but inhone khud se padha, {product} se doubts clear kiye. Aajkal ke bacche samajhdaar hain!",              "visual": "Father claps son on the back proudly, son grins shyly, warm father-son moment."},
-            {"id": "p03", "type": "school girl",        "age": "12-13", "emotion": "running to mom excited", "question": "Arre, mummy ko kya bataya result ka?",                  "response": "Mummy ko bola bahut achha gaya! {product} se raat ko sab prepare kiya tha. Ab mummy khush hain — ice cream milegi shayad!",                             "visual": "Girl runs up to mom mid-interview, both laugh, kid is in full post-exam excitement."},
-            {"id": "p04", "type": "mother with child", "age": "38-42", "emotion": "curious and grateful",   "question": "Ghar mein kaise taiyari karaate hain bacchon ko?",        "response": "Yeh khud se padhte hain ab — {product} app use karte hain. Main kuch nahi karti — bas yeh app hai jo sab samjha deta hai. Bahut achha hai.",            "visual": "Mother speaks genuinely, child tugs at her hand impatiently, she laughs and continues."},
-            {"id": "p05", "type": "father with child",  "age": "40-45", "emotion": "matter-of-fact proud",  "question": "Aap bacchon ki padhai mein help karte ho?",              "response": "Main toh engineer hoon — Maths aata hai. But Science aur Hindi mein {product} se hi padhte hain yeh. Main bhi kabhi kabhi dekh leta hoon — achha hai.",  "visual": "Father is matter-of-fact, slightly amused, son looks up at him proudly, real family dynamic."},
+            {"id": "p01", "type": "mother with child", "age": "35-40", "emotion": "proud and tearful",
+             "question": "Aunty, bacche ka exam kaisa gaya?",
+             "response": "Bahut achha gaya beta. Main har raat sochti thi — Kota mein akela hai, koi nahi hoga saath. Phir dekha tha — raat ko ek app use karta tha — Professor Curious — sab doubts wahan clear karta tha. Tab main ne chain li. App ne mere bacche ko akela nahi chhoda.",
+             "visual": "Mother's eyes fill. She squeezes child's shoulder. Says 'Professor Curious' slowly — like she memorized it to tell others. Raw, real parental relief."},
+            {"id": "p02", "type": "father with child",  "age": "38-45", "emotion": "quiet pride",
+             "question": "Uncle, Kota mein chhodna mushkil lagta hai bacche ko?",
+             "response": "Bahut mushkil tha pehli baar. Ghar jaate waqt rota tha main — woh nahi, main. Phir usne bataya — Professor Curious pe padhta hoon, sab clear ho jaata hai. Tab se chinta kum hui. Woh app ne mera kaam kiya.",
+             "visual": "Father is still for a moment — the admission that HE cried is quiet and real. Says 'Professor Curious' with a nod — matter-of-fact, but loaded with meaning. Son looks up at him."},
+            {"id": "p03", "type": "school girl",        "age": "12-13", "emotion": "running to mom, emotional",
+             "question": "Arre, mummy ko kya bataya result ka?",
+             "response": "Mummy — bahut achha gaya! Raat bhar Professor Curious pe padha tha — woh samjha ta tha sab kuch. Aaj sab aaya! Ab ice cream do please!",
+             "visual": "Girl runs to mom mid-interview, grabs her arm, completely lit up. Says 'Professor Curious' fast and clear — owning it, then immediately back to being a happy kid asking for ice cream."},
+            {"id": "p04", "type": "mother with child", "age": "38-42", "emotion": "grateful and honest",
+             "question": "Ghar se Kota — kab chain milti hai aapko?",
+             "response": "Jab yeh raat ko padh raha hota hai — Professor Curious pe. Main call karti hoon toh kehta hai 'Maa main theek hoon, padh raha hoon.' Tab chain aati hai. Woh app ne mujhe bhi sambhala iss saal.",
+             "visual": "Mother laughs softly but eyes are glassy. Says 'Professor Curious' clearly, warmly — like it's a family friend. Child tugs at her hand, she laughs and looks at camera."},
+            {"id": "p05", "type": "father with child",  "age": "40-45", "emotion": "real and direct",
+             "question": "Aap bacchon ki padhai mein help karte ho?",
+             "response": "Main engineer hoon — Maths karta hoon. But Kota mein itna competition hai — main nahi kar sakta itna. Professor Curious karta hai. Yeh wahan padhta hai — raat ko, akele — aur woh samjhata hai. Mujhe se zyada patience hai uss app mein.",
+             "visual": "Father is dry and honest — almost funny but real. Says 'Professor Curious' seriously, clearly. Son looks up at him with a grin. An earned, true endorsement."},
         ],
     },
 
@@ -204,7 +332,7 @@ def build_establishing_prompt(scene: dict) -> str:
 
 Scene: {e['visual']}
 Vlogger speaking in Hindi to camera: "{e['line']}"
-Camera bobs naturally. Start of a candid street vlog interview — energetic, unscripted.
+Camera bobs naturally. Start of a candid street vlog interview — empathetic, raw, unscripted.
 """
 
 def build_person_prompt(person: dict, scene: dict, product: str) -> str:
@@ -220,9 +348,16 @@ Person responds in Hindi: "{response}"
 
 Visual action: {person['visual']}
 
+CLIP PACING — TWO ACTS:
+Act 1 (first 3-4 seconds): Raw emotional problem — the struggle, the loneliness, the fear.
+Person's face carries real weight. No solution yet. Let the pain breathe.
+Act 2 (next 3-4 seconds): "{product}" is the turning point. The name is spoken clearly,
+deliberately, out loud — not mumbled. A visible shift in the person's face and energy.
+The name "{product}" must be unmistakably audible and visible as a spoken word.
+
 Person speaking animatedly in Hindi — natural Indian hand gestures, expressive face,
-authentic unscripted energy. Feels like a real candid moment, not staged.
-Same continuous shoot — same location, same light, same vlogger.
+authentic unscripted emotion. Feels like a real candid moment, not staged.
+Same continuous shoot — same Kota location, same light, same vlogger.
 """
 
 def build_outro_prompt(scene: dict, product: str) -> str:
@@ -234,7 +369,8 @@ def build_outro_prompt(scene: dict, product: str) -> str:
 
 Scene: {o['visual']}
 Vlogger speaks in Hindi to camera: "{line}"
-Knowing smile, thumbs up, eyebrows raised. End of street interview — same shoot, same vlogger.
+Genuine emotion — not a pitch, a conviction. Thumbs up, eyebrows raised.
+End of street interview — same shoot, same vlogger, same Kota.
 """
 
 # ── Azure Sora API ─────────────────────────────────────────────────────────────
@@ -302,7 +438,7 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
 def main():
     parser = argparse.ArgumentParser(description="UGC Street Interview Ad Generator")
     parser.add_argument("--product",    required=True,                                  help="Product/app name (e.g. 'Professor Curious')")
-    parser.add_argument("--scene",      default="school-gate", choices=list(SCENES),    help="Scene type (default: school-gate)")
+    parser.add_argument("--scene",      default="kota-coaching", choices=list(SCENES),  help="Scene type (default: kota-coaching)")
     parser.add_argument("--run-id",     default="run_001",                              help="Unique run identifier")
     parser.add_argument("--num-people", type=int, default=3,                            help="Number of interview clips (1-5)")
     parser.add_argument("--person-ids", nargs="*",                                      help="Specific person IDs e.g. p01 p03")
