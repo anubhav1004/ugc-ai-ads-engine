@@ -249,15 +249,16 @@ def embed_logos(raw_path: Path, out_path: Path, gauth_first: bool) -> None:
     gauth_first=False: PC logo full clip (0-8s) — person went straight to PC
     Logo: top-right corner, 130px, with app name label below it.
     """
-    logo_size = 130
-    pad = 20
+    logo_size = 85
+    pad_x = 16
+    pad_y = 100  # pushed down from top so it doesn't overlap faces
 
     if gauth_first:
         filt = (
             f"[1:v]scale={logo_size}:{logo_size}[gauth];"
             f"[2:v]scale={logo_size}:{logo_size}[pc];"
-            f"[0:v][gauth]overlay=W-w-{pad}:{pad}:enable='between(t,0,4)'[v1];"
-            f"[v1][pc]overlay=W-w-{pad}:{pad}:enable='between(t,4,8)'[out]"
+            f"[0:v][gauth]overlay=W-w-{pad_x}:{pad_y}:enable='between(t,0,4)'[v1];"
+            f"[v1][pc]overlay=W-w-{pad_x}:{pad_y}:enable='between(t,4,8)'[out]"
         )
         inputs = [
             "-i", str(raw_path),
@@ -267,7 +268,7 @@ def embed_logos(raw_path: Path, out_path: Path, gauth_first: bool) -> None:
     else:
         filt = (
             f"[1:v]scale={logo_size}:{logo_size}[pc];"
-            f"[0:v][pc]overlay=W-w-{pad}:{pad}:enable='between(t,0,8)'[out]"
+            f"[0:v][pc]overlay=W-w-{pad_x}:{pad_y}:enable='between(t,0,8)'[out]"
         )
         inputs = [
             "-i", str(raw_path),
