@@ -176,6 +176,26 @@ python3 ~/ugc-ai-ads-engine/ugc-us-college-interview/scripts/run.py \
 
 ---
 
+### Session 6 — 2026-03-06
+
+**New format: Hand-only vlogger (`run_hand_vlog.py`)**
+
+Problem: Sora cannot maintain character consistency across clips (face/body shifts).
+Solution: Only the vlogger's hand (holding mic) is shown at the bottom-left edge of frame.
+No face, no torso — vlogger is voice-only. Sora only needs to render a hand grip.
+
+**Script:** `ugc-street-interview/scripts/run_hand_vlog.py`
+- `HAND_LOCK` replaces `VLOGGER_LOCK` — hand + mic only, bottom-left edge, no face/body
+- All establishing/outro visuals rewritten (no selfie-cam references)
+- Output to `ugc-hand-vlog/<run-id>/`
+
+**hand_v1:** 5 clips × 8s, kota-coaching, 22MB — sent to Slack ✓
+Subjects: NEET girl (gold sold), JEE boy (bag pack night), NEET girl (fierce topper)
+
+**Logo fix (all 3 Gauth scripts):** size 130→85px, y-pos 20→100px (below face area)
+
+---
+
 ### Session 5 — 2026-03-06
 
 **New skill: `video-editor/`**
