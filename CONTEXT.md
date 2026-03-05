@@ -176,6 +176,95 @@ python3 ~/ugc-ai-ads-engine/ugc-us-college-interview/scripts/run.py \
 
 ---
 
+### Session 5 — 2026-03-06
+
+**New skill: `video-editor/`**
+
+Built a proper post-processing pipeline for UGC ads. Current editing was just `ffmpeg -f concat -c copy` — zero editing.
+
+**`video-editor/scripts/edit.py`** — edit a single run:
+- Color grading: warm/cinematic/cool/neutral (colorbalance + eq)
+- Vignette effect
+- Hook text on establishing shot (big text, first 3s) via Pillow PNG → ffmpeg overlay
+- CTA text on outro ("Download Professor Curious")
+- App logo bug (bottom-right corner, persistent)
+- Cross-fade transitions between clips (pairwise xfade + acrossfade, 0.3s)
+- Optional 2.5s branded end card (Pillow-generated PNG → looped video)
+- Audio normalization (loudnorm –16 LUFS)
+- Fallback: no manifest.json → infers clip types from filenames
+
+**`video-editor/scripts/edit_batch.py`** — edit all runs at once
+
+**Known issues fixed:**
+- drawtext not available in this ffmpeg (no libfreetype) → use Pillow for text
+- xfade timebase mismatch after multiple pairwise merges → normalize with fps=24 + aresample=48000 before each xfade
+
+**Usage:**
+```bash
+python3 ~/ugc-ai-ads-engine/video-editor/scripts/edit.py \
+  --run-dir ~/.openclaw/workspace/output/ugc-experiments/exp_01_ek_raat \
+  --hook-text "Raat ke 11 baje. Akela." \
+  --logo ~/ugc-ai-ads-engine/assets/pc_logo.png \
+  --style warm --transition fade --end-card --send-slack
+```
+
+**Test:** exp_01_ek_raat_edited.mp4 (41s, 720x1280, H.264) sent to Slack ✓
+
+---
+
+### Session 4 — 2026-03-04 (continued)
+
+**New scripts added to `ugc-us-college-interview/scripts/`:**
+
+| Script | Ads | Status |
+|--------|-----|--------|
+| `run_experiments.py` | 5 India experimental hooks (ek-raat, bag-pack, rank-wala, pehla-din, mock-result) | ✓ DONE, sent to Slack |
+| `run_shame_series.py` | 5 India shame series (क्यों नहीं हो रही पढ़ाई?) | ✓ DONE, sent to Slack |
+| `run_comparison.py` | 5 US comparison ads (vs Khan/Chegg/ChatGPT/Tutors/Quizlet) | ✓ DONE, sent to Slack |
+| `run_vs_gauth.py` | 3 US Gauth vs PC ads with logo overlays | ✓ DONE (mit+stanford+harvard), sent to Slack |
+| `rerun_gauth_02.py` | Targeted rerun for gauth_02_stanford (DNS fail recovery) | helper script, kept in repo |
+
+**Critical audio fix — PERMANENT RULE:**
+> Sora generates 96kHz AAC audio. Slack cannot play it.
+> ALL stitch/merge commands must use: `-c:a aac -ar 48000 -b:a 128k`
+> This is applied in: run_vs_gauth.py, run_comparison.py, rerun_gauth_02.py, and all future scripts.
+> Also embed_logos() must include `-map 0:a? -c:a aac -ar 48000 -b:a 128k`
+
+**Output directories:**
+```
+~/.openclaw/workspace/output/
+├── ugc-street-interview/kota_v1/          ← kota_v1_merged.mp4
+├── ugc-experiments/exp_01_ek_raat/        ← exp_01_ek_raat_merged.mp4
+├── ugc-experiments/exp_02_bag_pack/       ← exp_02_bag_pack_merged.mp4
+├── ugc-experiments/exp_03_rank_wala/      ← exp_03_rank_wala_merged.mp4
+├── ugc-experiments/exp_04_pehla_din/      ← exp_04_pehla_din_merged.mp4
+├── ugc-experiments/exp_05_mock_result/    ← exp_05_mock_result_merged.mp4
+├── ugc-shame-series/shame_01_classroom/   ← shame_01_classroom_merged.mp4
+├── ugc-shame-series/shame_02_coaching/    ← shame_02_coaching_merged.mp4
+├── ugc-shame-series/shame_03_home/        ← shame_03_home_merged.mp4
+├── ugc-shame-series/shame_04_friends/     ← shame_04_friends_merged.mp4
+├── ugc-shame-series/shame_05_alone/       ← shame_05_alone_merged.mp4
+├── ugc-vs-gauth/gauth_01_mit/             ← gauth_01_mit_merged.mp4
+├── ugc-vs-gauth/gauth_02_stanford/        ← gauth_02_stanford_merged.mp4
+├── ugc-vs-gauth/gauth_03_harvard/         ← gauth_03_harvard_merged.mp4
+├── ugc-us-comparison/us_cmp_01_vs_khan/   ← us_cmp_01_vs_khan_merged.mp4
+├── ugc-us-comparison/us_cmp_02_vs_chegg/  ← us_cmp_02_vs_chegg_merged.mp4
+├── ugc-us-comparison/us_cmp_03_vs_chatgpt/← us_cmp_03_vs_chatgpt_merged.mp4
+├── ugc-us-comparison/us_cmp_04_vs_tutors/ ← us_cmp_04_vs_tutors_merged.mp4
+└── ugc-us-comparison/us_cmp_05_vs_quizlet/← us_cmp_05_vs_quizlet_merged.mp4
+```
+
+**Logo assets:**
+```
+~/ugc-ai-ads-engine/assets/
+├── gauth_logo.png   ← 512x512 from App Store
+└── pc_logo.png      ← 512x512 from App Store (iTunes API)
+```
+
+**Total videos sent to Slack:** 19 (11 India + 3 Gauth + 5 US comparison)
+
+---
+
 ### Session 2 — ~2026-02-25
 
 - Built full multi-scene UGC generator with 6 scene types
