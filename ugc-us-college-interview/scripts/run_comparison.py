@@ -455,7 +455,9 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
     list_file = output_path.parent / "concat_list.txt"
     list_file.write_text("\n".join(f"file '{p.resolve()}'" for p in clip_paths))
     result = subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_file), "-c", "copy", str(output_path)],
+        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_file),
+         "-c:v", "libx264", "-crf", "20",
+         "-c:a", "aac", "-ar", "48000", "-b:a", "128k", str(output_path)],
         capture_output=True, text=True,
     )
     list_file.unlink(missing_ok=True)
