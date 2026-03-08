@@ -19,16 +19,34 @@ Output: 9:16 vertical MP4 clips, stitched into one merged video.
 ugc-ai-ads-engine/
 ├── ugc-street-interview/           ← India: Kota coaching/school gate, Hindi, emotional
 │   ├── scripts/run.py
+│   ├── scripts/run_experiments.py  ← 5 India Kota hooks
 │   ├── references/
 │   └── SKILL.md
 ├── ugc-us-college-interview/       ← US: Harvard/MIT/Stanford gate, English, social proof
 │   ├── scripts/run.py
 │   ├── references/
 │   └── SKILL.md
+├── ugc-studytok-hooks/             ← StudyTok: Sora reaction + demo + trending audio
+│   └── scripts/
+│       ├── run_studytok_hooks.py   ← Main pipeline: 5 hooks with caption, demo, audio
+│       └── run_reaction_experiments.py ← 8 pure reaction experiments (varied settings)
+├── ugc-livestream-call/            ← Split-screen call format (Veo 3)
+│   └── scripts/run_call_hooks.py
+├── ugc-reaction/                   ← Reaction hooks (Sora US + Veo 3)
+│   └── scripts/
+│       ├── run_hooks_us.py         ← 10 Sora US hooks
+│       └── run_veo_hooks.py        ← 5 Veo 3 hooks (Gemini pipeline)
 ├── professor-curious-street-interview/  ← PC-specific India skill (older)
 │   ├── scripts/run.py
 │   ├── output/                     ← Generated videos (gitignored)
 │   └── SKILL.md
+├── video-editor/                   ← Post-processing: color grade, transitions, text
+│   └── scripts/
+│       ├── edit.py
+│       └── edit_batch.py
+├── assets/
+│   ├── pc_logo.png
+│   └── gauth_logo.png
 ├── CONTEXT.md                      ← This file
 └── README.md
 ```
@@ -38,7 +56,8 @@ ugc-ai-ads-engine/
 ## Slack API
 
 **Endpoint:** `POST http://zpdev.zupay.in:8160/send` (no auth needed)
-**Team channel:** `C0AHDH474LX`
+**Main/approved channel:** `C0AHDH474LX` — only send here when Anubhav explicitly approves a final ad
+**Experimental channel:** `C0AJSBJU1LK` — all experiments, tests, iterations go here by default
 **Content-Type:** `multipart/form-data`
 
 **Parameters:**
@@ -124,6 +143,69 @@ Output lands in: `~/.openclaw/workspace/output/ugc-street-interview/<run-id>/`
 
 ## Session Log
 
+### Session 8 — 2026-03-08
+
+**New formats built:**
+
+#### 1. StudyTok Hooks (`ugc-studytok-hooks/`)
+Snapchat-style TikTok reaction hooks: Sora 2 reaction clip → caption overlay → full demo video (muted) → trending audio → Slack.
+
+**Script:** `ugc-studytok-hooks/scripts/run_studytok_hooks.py`
+
+Key config:
+- Demo clips: `761f2bb3b84a4003a9744b4e5b45a4f2.MP4` (27.9s) + `958c1b7bb7d4413d8276bfaa828a58d8.MP4` (24.6s) in `~/.openclaw/workspace/output/ugc-studytok-hooks/demo/`
+- Audio pool (dynamic selection by total video length):
+  - Short (<35s): `audio_01_oh_no.mp3` — Oh No by Kreepa
+  - Medium (35-55s): `audio_03_cupid.mp3` — Cupid by FIFTY FIFTY
+  - Long (>55s): `audio_02_aperture.mp3` — Harry Styles Aperture
+- Caption: dark semi-transparent bar, white text, positioned at TOP 8% of frame (`bar_y = int(height * 0.08)`)
+- Emoji rendering: Apple Color Emoji font at `/System/Library/Fonts/Apple Color Emoji.ttc`, split text into runs, render with `embedded_color=True`
+- Sora API: `POST {ENDPOINT}/openai/v1/videos`, `size=720x1280`, poll until completed, download via `/content`
+
+**5 hooks generated:** library, cafe, bedroom, gym, walking — all sent to Slack ✓
+
+#### 2. Livestream Call Format (`ugc-livestream-call/`)
+Split-screen 9:16 Omegle/call style: streamer (top) + Harvard student (bottom), reveals Professor Curious.
+
+**Script:** `ugc-livestream-call/scripts/run_call_hooks.py`
+- Uses Veo 3 for both sides, composites with ffmpeg vstack
+- Adds Pillow UI overlay (call UI, usernames, timer)
+
+#### 3. Reaction Experiments (`ugc-studytok-hooks/scripts/run_reaction_experiments.py`)
+8 pure reaction clips (no caption/demo/stitch) — varied settings and motions.
+
+**Critical POV fix discovered this session:**
+> The recording camera IS the phone being picked up. The FRAME must physically move.
+> Key prompt pattern: "THIS IS A FIRST-PERSON PHONE CAMERA VIDEO. THE CAMERA ITSELF IS THE PHONE BEING PICKED UP. There is no other phone. When the person picks up the phone, THE FRAME MOVES."
+> Frame must spin/lurch/tilt — not show a person looking at a separate phone.
+
+**8 experiments completed and sent to Slack:**
+| # | Setting | Motion |
+|---|---------|--------|
+| 01 | Cafe golden hour | Face-down → flipped & lifted, frame spins |
+| 02 | Car parked afternoon | Cupholder → snatched, frame tilts hard |
+| 03 | Bathroom mirror | Propped on sink → grabbed mid-toothbrush, lurches up |
+| 04 | Bed morning sun | Face-up on bed → arm from duvet grabs it, dark then emerges |
+| 05 | Kitchen coffee | Counter → one-handed flip, spins ceiling→face |
+| 06 | Balcony wind | Railing buzzes → snatched, frame swings wildly |
+| 07 | Reading chair | Armrest → both hands, frame rises slowly |
+| 08 | Walking stops | Mid-stride walk bounce → dead stop |
+
+**Output:** `~/.openclaw/workspace/output/ugc-reaction-experiments/`
+
+**Fixes this session:**
+- Caption was covering face at 42% → moved to top 8%
+- Emoji showing as square boxes → Apple Color Emoji font + split_runs() per segment
+- Audio hardcoded → dynamic selection by total video length
+- Demo video updated to new clips (27.9s + 24.6s)
+- C0AJSBJU1LK returns channel_not_found (bot not invited) — experiments went to C0AHDH474LX
+
+**Pending:**
+- Evaluate which of the 8 reaction experiments worked best → iterate on winners
+- Get correct channel ID for `exp-ai-ads-videos` or invite bot to C0AJSBJU1LK
+
+---
+
 ### Session 3 — 2026-03-04
 
 **Changes applied to `ugc-street-interview/scripts/run.py`:**
@@ -173,6 +255,60 @@ python3 ~/ugc-ai-ads-engine/ugc-us-college-interview/scripts/run.py \
 ```
 
 **Status:** Built and committed. Ready to run.
+
+---
+
+### Session 7 — 2026-03-06
+
+**New format: Reaction hooks (UGC selfie-cam style)**
+
+**Pipeline 1: Sora text-to-video (no reference image)**
+- `ugc-reaction/scripts/` — all reaction scripts
+- Key learning: Sora's `input_reference` hard-blocks ANY realistic human image (`people-in-user-uploads` policy). Only anime/illustrated style passes.
+- Solution: text-only prompts with detailed selfie-cam direction
+
+**Pipeline 2: Gemini (nano-banana-pro + Veo 3)**
+- `ugc-reaction/scripts/run_veo_hooks.py`
+- nano-banana-pro (`models/nano-banana-pro-preview`) = Gemini 3 Pro Image — generates realistic portraits
+- Veo 3 (`veo-3.0-generate-001`) — image-to-video, 9:16, 8s
+- GEMINI_API_KEY saved to `~/.env_azure`
+- Veo 3 response format: `response.generateVideoResponse.generatedSamples[0].video.uri` — download with `?key=` appended
+- Remove `enhancePrompt` — not supported by Veo 3
+
+**Prompt engineering for realistic UGC:**
+- Key phrase: `"WE ARE the phone camera"` — sets POV correctly
+- Beat-by-beat timing: `0-2s: ... 2-4s: ... 4-6s: ...`
+- Camera motion must be explicit: pick-up lurch, grip tightens on shock, exhale dips frame, pulling closer tightens shot
+- Imperfections = realism: `"autofocus micro-pulses"`, `"flat colors no LUT"`, `"raw phone audio background hiss"`
+- Specific device: `"iPhone 15 Pro front camera in selfie mode"`
+- Character NOT model-pretty: `"no makeup, messy hair, not model-pretty"`
+
+**Angle variants tested (sent to experimental Slack):**
+- `angle_A_low` — phone flat on desk looking up, pick-up lurch
+- `angle_B_high` — phone lifted high looking down, swing motion
+- `angle_C_mirror` — ultra close chest-level, grip reaction jolts
+- `angle_D_tilted` — bed/casual tilt (moderation blocked)
+- Best versions: `v2_angle_A/B/C` with full camera motion per beat
+
+**Slack channels:**
+- Experimental: `C0AJSBJU1LK` — ALL iterations go here
+- Main/approved: `C0AHDH474LX` — only when Anubhav explicitly approves
+
+**Available Gemini models on key:**
+- Image: `nano-banana-pro-preview` (Gemini 3 Pro Image), `imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`
+- Video: `veo-3.0-generate-001`, `veo-3.1-generate-preview`, `veo-3.0-fast-generate-001`
+
+**Scripts:**
+| Script | Purpose |
+|--------|---------|
+| `ugc-reaction/scripts/run_veo_hooks.py` | Gemini pipeline: nano-banana-pro + Veo 3, 5 hooks |
+| `ugc-reaction/scripts/run_hooks_us.py` | Sora 10 US hooks |
+| `ugc-reaction/scripts/run_reaction.py` | Sequential 4-clip reaction format |
+| `ugc-reaction/scripts/test_consistent_char.py` | Character consistency test |
+
+**Output:** `~/.openclaw/workspace/output/ugc-veo-hooks/` and `ugc-sora-hooks/`
+
+**Pending:** Pick best camera angle from v2 angle tests → lock in → rebuild all 5 hooks with that angle
 
 ---
 

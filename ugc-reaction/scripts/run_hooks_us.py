@@ -29,7 +29,7 @@ BASE_URL = f"{ENDPOINT}/openai/v1"
 HEADERS  = {"api-key": API_KEY}
 
 SLACK_URL     = "http://zpdev.zupay.in:8160/send"
-SLACK_CHANNEL = "C0AHDH474LX"
+SLACK_CHANNEL = "C0AJSBJU1LK"   # experimental — change to C0AHDH474LX for approved finals
 
 OUTPUT_BASE = Path.home() / ".openclaw" / "workspace" / "output" / "ugc-reaction-hooks-us"
 

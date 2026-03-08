@@ -34,7 +34,7 @@ BASE_URL = f"{ENDPOINT}/openai/v1"
 HEADERS  = {"api-key": API_KEY}
 
 SLACK_URL     = "http://zpdev.zupay.in:8160/send"
-SLACK_CHANNEL = "C0AHDH474LX"
+SLACK_CHANNEL = "C0AJSBJU1LK"   # experimental — change to C0AHDH474LX for approved finals
 
 # ── Scene configs ─────────────────────────────────────────────────────────────
 
@@ -54,7 +54,7 @@ SCENES = {
         "clips": [
             {
                 "id": "frustration",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. Feels like a private moment — not filmed for anyone.
@@ -71,7 +71,7 @@ Feels completely real — like someone accidentally left their phone recording."
             },
             {
                 "id": "discovery",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. Continuous from previous moment.
@@ -88,7 +88,7 @@ NO speaking. Just his face watching the screen, changing.""",
             },
             {
                 "id": "reaction",
-                "seconds": 6,
+                "seconds": 8,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. THIS IS THE KEY CLIP — the emotional core.
@@ -108,7 +108,7 @@ This is the most honest 6 seconds in the entire ad.""",
             },
             {
                 "id": "direct",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. He sets the phone down propped against the books,
@@ -142,7 +142,7 @@ Feels like he filmed this for his friends. Not for an ad.""",
         "clips": [
             {
                 "id": "frustration",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
@@ -158,7 +158,7 @@ No speaking. Just her frustrated, tired face in warm tubelight.""",
             },
             {
                 "id": "discovery",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
@@ -173,7 +173,7 @@ No speaking. Just her face, the phone glow, the anticipation.""",
             },
             {
                 "id": "reaction",
-                "seconds": 6,
+                "seconds": 8,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. THE emotional moment.
@@ -192,7 +192,7 @@ No performing — this is what understanding looks like on a face.""",
             },
             {
                 "id": "direct",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
@@ -225,7 +225,7 @@ Like she filmed this for her best friend. Warm, real, not an ad.""",
         "clips": [
             {
                 "id": "frustration",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
@@ -241,7 +241,7 @@ No speaking. Just the face. The fatigue. The 11pm dorm room.""",
             },
             {
                 "id": "discovery",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
@@ -257,7 +257,7 @@ No speaking. The fairy lights, the phone glow, her face changing.""",
             },
             {
                 "id": "reaction",
-                "seconds": 6,
+                "seconds": 8,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical. The reaction.
@@ -276,7 +276,7 @@ Completely real. Unperformed.""",
             },
             {
                 "id": "direct",
-                "seconds": 5,
+                "seconds": 4,
                 "prompt": """{character}
 
 RAW FRONT-CAM FOOTAGE, 9:16 vertical.
