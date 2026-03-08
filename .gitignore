@@ -1,6 +1,12 @@
 output/
 *.mp4
 *.mov
+*.MP4
+*.MOV
+!assets/*.mp4
+!assets/*.MP4
+!assets/*.mov
+!assets/*.MOV
 __pycache__/
 *.pyc
 .env

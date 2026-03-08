@@ -21,11 +21,14 @@ import requests
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-API_KEY  = os.environ.get("AZURE_OPENAI_API_KEY", "")
-ENDPOINT = os.environ.get("AZURE_OPENAI_ENDPOINT", "").rstrip("/")
-MODEL    = os.environ.get("AZURE_SORA_MODEL", "sora-2")
-BASE_URL = f"{ENDPOINT}/openai/v1"
-HEADERS  = {"api-key": API_KEY}
+API_KEY   = os.environ.get("AZURE_OPENAI_API_KEY", "")
+ENDPOINT  = os.environ.get("AZURE_OPENAI_ENDPOINT", "").rstrip("/")
+MODEL     = os.environ.get("AZURE_SORA_MODEL", "sora-2")
+BASE_URL  = f"{ENDPOINT}/openai/v1"
+HEADERS   = {"api-key": API_KEY}
+
+# App outro clip — appended to every final merged video
+APP_OUTRO = Path(__file__).parent.parent.parent / "assets" / "app_outro_india.MP4"
 
 # ── Vlogger lock — identical across every scene and every clip ────────────────
 
@@ -422,13 +425,37 @@ def generate_clip(prompt: str, clip_id: str, out_path: Path, seconds: int) -> No
 # ── Stitch ─────────────────────────────────────────────────────────────────────
 
 def stitch_clips(clip_paths: list, output_path: Path) -> None:
-    list_file = output_path.parent / "concat_list.txt"
-    list_file.write_text("\n".join(f"file '{p.resolve()}'" for p in clip_paths))
+    # Append app outro if it exists
+    all_paths = list(clip_paths)
+    if APP_OUTRO.exists():
+        all_paths.append(APP_OUTRO)
+        print(f"  [outro]  Appending app outro: {APP_OUTRO.name}", flush=True)
+    else:
+        print(f"  [outro]  Warning: app outro not found at {APP_OUTRO}", flush=True)
+
+    # Build ffmpeg filter for scale + concat (handles different resolutions)
+    inputs = []
+    filter_parts = []
+    for i, p in enumerate(all_paths):
+        inputs += ["-i", str(p)]
+        filter_parts.append(
+            f"[{i}:v]scale=720:1280:force_original_aspect_ratio=decrease,"
+            f"pad=720:1280:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24[v{i}];"
+        )
+    n = len(all_paths)
+    concat_v = "".join(f"[v{i}]" for i in range(n))
+    concat_a = "".join(f"[{i}:a]" for i in range(n))
+    filter_complex = "".join(filter_parts) + f"{concat_v}{concat_a}concat=n={n}:v=1:a=1[vout][aout]"
+
     result = subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_file), "-c", "copy", str(output_path)],
+        ["ffmpeg", "-y"] + inputs + [
+            "-filter_complex", filter_complex,
+            "-map", "[vout]", "-map", "[aout]",
+            "-c:v", "libx264", "-c:a", "aac", "-ar", "48000", "-b:a", "128k",
+            str(output_path),
+        ],
         capture_output=True, text=True,
     )
-    list_file.unlink(missing_ok=True)
     if result.returncode != 0:
         raise RuntimeError(f"ffmpeg failed:\n{result.stderr[:500]}")
     print(f"  [stitch] → {output_path.name}", flush=True)
