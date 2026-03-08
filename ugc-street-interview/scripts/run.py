@@ -755,9 +755,8 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
             f"pad=720:1280:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24[v{i}];"
         )
     n = len(all_paths)
-    concat_v = "".join(f"[v{i}]" for i in range(n))
-    concat_a = "".join(f"[{i}:a]" for i in range(n))
-    filter_complex = "".join(filter_parts) + f"{concat_v}{concat_a}concat=n={n}:v=1:a=1[vout][aout]"
+    concat_inputs = "".join(f"[v{i}][{i}:a]" for i in range(n))
+    filter_complex = "".join(filter_parts) + f"{concat_inputs}concat=n={n}:v=1:a=1[vout][aout]"
 
     result = subprocess.run(
         ["ffmpeg", "-y"] + inputs + [
