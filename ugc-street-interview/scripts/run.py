@@ -32,10 +32,20 @@ APP_OUTRO = Path(__file__).parent.parent.parent / "assets" / "app_outro_india.MP
 
 # ── Vlogger lock — used ONLY in establishing shot and outro ──────────────────
 
-VLOGGER_LOCK = """CONTINUITY — SAME VLOGGER IN EVERY CLIP: Young Indian male, late 20s, slim build,
+VLOGGER_LOCK_MALE = """CONTINUITY — SAME VLOGGER IN EVERY CLIP: Young Indian male, late 20s, slim build,
 medium-brown skin, short neat black hair, clean-shaven. Navy blue round-neck t-shirt,
 dark jeans. Holds a small black handheld reporter mic with round black foam ball top
 in his right hand. Visible from chest up on the left edge of frame, slightly low angle."""
+
+VLOGGER_LOCK_FEMALE = """CONTINUITY — SAME VLOGGER IN EVERY CLIP: Young Indian female, mid 20s, slim build,
+medium-brown skin, long black hair pulled back in a loose ponytail — a few strands loose
+at the front, natural and unstyled. No heavy makeup — just kajal, natural look. Wearing
+a plain dusty-rose kurta over dark straight-fit jeans. Small gold studs, no other jewellery.
+Holds a small black handheld reporter mic with round black foam ball top in her right hand.
+Visible from chest up on the left edge of frame, slightly low angle. Warm, empathetic energy —
+like a journalist who genuinely cares, not an influencer performing concern."""
+
+VLOGGER_LOCK = VLOGGER_LOCK_MALE  # default; overridden by --vlogger-gender
 
 # ── Subject-only lock — used for ALL interview clips (vlogger NOT visible) ───
 
@@ -483,11 +493,16 @@ def main():
     parser.add_argument("--person-ids", nargs="*",                                      help="Specific person IDs e.g. p01 p03")
     parser.add_argument("--seconds",    type=int, default=8,                            help="Seconds per clip (4/8/12)")
     parser.add_argument("--output-dir", default="",                                     help="Override output directory")
-    parser.add_argument("--no-stitch",  action="store_true",                            help="Skip final ffmpeg merge")
+    parser.add_argument("--no-stitch",      action="store_true",                        help="Skip final ffmpeg merge")
+    parser.add_argument("--vlogger-gender", default="male", choices=["male", "female"], help="Vlogger gender (default: male)")
     args = parser.parse_args()
 
     if not API_KEY or not ENDPOINT:
         sys.exit("ERROR: Set AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT.")
+
+    # Set vlogger lock globally based on gender flag
+    global VLOGGER_LOCK
+    VLOGGER_LOCK = VLOGGER_LOCK_FEMALE if args.vlogger_gender == "female" else VLOGGER_LOCK_MALE
 
     scene_cfg  = SCENES[args.scene]
     num_people = max(1, min(5, args.num_people))
