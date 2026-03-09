@@ -38,10 +38,15 @@ tousled — not salon-neat, not messy. Clean-shaven. Wearing an oversized off-wh
 shirt worn open over a plain white fitted tee. Relaxed dark chinos. Clean white sneakers.
 A small wireless clip-on lavalier mic clipped to his shirt collar — NOT a foam-ball
 reporter mic. One AirPod dangling casually from his left ear. Thin silver ring on his
-right hand. Holds his phone in selfie-cam mode — arm extended, slightly low angle,
-slightly shaky from walking. Occupies the left 30% of frame.
-He looks like a real 5M-subscriber Indian creator — authentic, not a TV anchor.
-His energy is empathetic and serious, not entertainer-hype."""
+right hand. He looks like a real 5M-subscriber Indian creator — authentic, not a TV anchor.
+
+FACE RULE — CRITICAL:
+- Establishing shot ONLY: vlogger face visible in selfie-cam mode.
+- ALL interview clips: vlogger face is NOT shown. Only a hand holding a small
+  wireless clip-on lav mic extended from the LEFT edge of frame toward the subject.
+  The mic is small, modern, black — barely visible. The subject fills 80% of frame.
+  Vlogger is off-camera. His voice is heard but his face is never shown again.
+- Outro: vlogger face returns briefly."""
 
 # ── VIRAL HOOK RULE (baked into every establishing prompt) ────────────────────
 
@@ -656,10 +661,16 @@ def build_person_prompt(person: dict, scene: dict, product: str) -> str:
 
 {VLOGGER_LOCK}
 
-Scene: Vlogger holds phone toward {person['type']}, age {person['age']}.
+FRAMING — THIS CLIP ONLY:
+The vlogger's FACE is NOT visible. Only a hand holding a small black wireless lav mic
+extends from the LEFT edge of frame toward the subject. The subject fills 80% of frame.
+Camera is handheld at chest height — slightly unstable, real.
+This is an intimate one-on-one — feels like a secret being shared, not a TV interview.
 
-Vlogger asks in Hindi: "{person['question']}"
-Person responds in Hindi: "{response}"
+Subject: {person['type']}, age {person['age']}.
+
+Vlogger asks off-camera in Hindi: "{person['question']}"
+{person['type']} responds in Hindi: "{response}"
 
 Visual direction: {person['visual']}
 
