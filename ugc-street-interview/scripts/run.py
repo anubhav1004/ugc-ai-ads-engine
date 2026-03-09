@@ -79,26 +79,40 @@ Feels like one continuous real shoot — Kota's quiet desperation and fierce amb
             "visual": "Vlogger turns selfie-cam on himself outside coaching centre, students silently walking past behind him. Speaks fast and directly — no performance, completely genuine. Eyes slightly wet. Points at camera on last line. Slow deliberate thumbs up at the very end.",
         },
         "people": [
-            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "broken then hopeful",
-             "question": "Bhai, sach bata — Kota mein kaisa lag raha hai?",
-             "response": "Ghar se 700 kilometre door hoon. Papa ne loan liya hai — 4 lakh rupaye. Raat ko sochta hoon — kya ho agar main fail hua? Rone ka mann karta hai par rota nahi — koi dekhega. Phir Professor Curious mila. Ek ek doubt — rukta hai, samjhata hai, chhodta nahi. Pehli baar laga koi hai mere saath yahan.",
-             "visual": "Boy speaks fast, clipped short sentences — jaw tight, eyes glassy. Voice catches briefly at 'Papa ne loan liya.' At 'Professor Curious' his whole posture shifts — shoulders drop, face opens. Says the name slowly, deliberately. Real turning point on his face in real time."},
-            {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "exhausted then determined",
-             "question": "Doctor banna hai — but aaj kaisi hai halat?",
-             "response": "Maa ne sona becha tha — apna mangalsutra. Mujhe pata chala toh 3 din khaana nahi khaya. Raat ko uth ke ro leti hoon. Phir khud hi uthti hoon — Professor Curious kholti hoon. Biology ka ek chapter, phir doosra. Woh nahi ruka kabhi meri wajah se. Main bhi nahi rukoungi.",
-             "visual": "Girl speaks rapidly with barely contained emotion — voice breaks for exactly one second at 'mangalsutra,' then she recovers hard and fast. By 'Professor Curious' she is fierce and composed. Says the name like a vow — looking straight into the camera. Zero drama, total conviction."},
-            {"id": "p03", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "raw and candid",
-             "question": "Kabhi laga ki chod ke chale jao?",
-             "response": "Haan. Ek raat bag pack kar liya tha — serious. Darwaza tak gaya. Phir wapas aaya, Professor Curious khola, Physics ka ek problem solve kiya. Phir doosra. Subah ho gayi. Bag wahan pada tha — main padh raha tha. App ko nahi pata — usne roka mujhe uss raat.",
-             "visual": "Boy tells it like a true story, fast and quiet — no performance. Small dark laugh at 'darwaza tak gaya.' When he says 'Professor Curious' he looks straight at camera, slows down for just those two words — everything else is fast. Then back to quiet. Completely real."},
-            {"id": "p04", "type": "NEET aspirant girl", "age": "17-18", "emotion": "fierce and emotional",
-             "question": "Competition itna hai — tum kaise khud ko alag karti ho?",
-             "response": "Roz 4:30 pe uthti hoon. Roz kuch toot ta hai andar — rank, mock, loneliness. Rona aata hai toh roti hoon, 5 minute, phir band. Professor Curious kholti hoon — jo samajh nahi aaya, woh clear karo. Baar baar. Jab tak. Yahi mera edge hai — main nahi rukti.",
-             "visual": "Girl is fast and fierce — she's said this to herself a hundred times and now she's saying it to you. Short punchy sentences, jaw set. At 'Professor Curious' she jabs a finger slightly — naming it like a weapon. Eyes burning, not tearful. The most determined face in Kota."},
-            {"id": "p05", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "deeply relieved",
-             "question": "Aaj ka mock test kaisa gaya?",
-             "response": "3 din se ek concept tha — samajh nahi aa raha tha. Teacher se poochha — 40 bacche hain class mein, woh aage badh gaye. Raat ko Professor Curious pe baitha — 2 ghante. Step by step. Ruka. Samjhaya. Aaj wahi question aaya test mein. Pehli baar is saal lag a — haan, yahan rehna sahi tha.",
-             "visual": "Boy exhales one long slow breath at the start — real relief. Speaks fast through the backstory, slows down at 'Professor Curious pe baitha' — you can feel the weight of that night. Eyes wet on 'pehli baar.' First full genuine smile of the clip on the last line."},
+            # ── CLIP 1: App Introduction — name it, explain it, plant the seed ──
+            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "earnest and clear",
+             "narrative_role": "introduction",
+             "question": "Bhai, yahan sab koi ek app ki baat kar rahe hain — kaunsa app hai yeh?",
+             "response": "Professor Curious. Yeh ek app hai — doubt aaya, open karo, seedha step by step samjhata hai. Raat 2 baje bhi. Ghar se door hoon, coaching mein teacher ke paas time nahi — yeh app mere paas tab hota hai jab koi nahi hota. Professor Curious. Yaad rakho yeh naam.",
+             "visual": "Boy speaks directly to camera — clear, grounded, no drama. Points finger slightly on 'Professor Curious' the first time, then again at the end saying the name slowly. Face is calm, certain. He's not emotional — he's stating a fact he wants you to remember."},
+
+            # ── CLIP 2: What it actually does — specific, feature-driven ────────
+            {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "explaining with conviction",
+             "narrative_role": "feature_expansion",
+             "question": "Yeh app kya karta hai exactly — bata na properly.",
+             "response": "Baar baar pooch sakti hoon — kabhi nahi kehta 'yeh toh basic hai' ya 'kal poochho.' Raat ko 1 baje Biology ka concept atka — yeh app tha. Step by step. Jab tak clear nahi hua, nahi choda. Coaching mein 200 bacche hain — wahan yeh nahi milta. Iss app mein milta hai.",
+             "visual": "Girl speaks fast with real conviction — this is firsthand knowledge, not an ad. Hand gestures emphasize each point. At 'baar baar' she taps her palm. At 'step by step' she slows down briefly — that's the key thing. Eyes direct, no emotional wavering. Pure utility pitch from someone who lived it."},
+
+            # ── CLIP 3: Emotional transformation — before/after, social proof ──
+            {"id": "p03", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "raw transformation",
+             "narrative_role": "transformation",
+             "question": "Pehle kaisa tha yahan — aur ab kya fark aaya?",
+             "response": "Pehle bahut mazak hota tha — doston mein, 'yaar tu clear nahi karega.' Bahut bura lagta tha andar se. Phir iss app se roz ek ek concept clear kiya. Ek mahina. Do mahina. Aaj jo log mazak uthate the, mujhse poochh rahe hain — 'kaise padh raha hai?' App ne sirf doubts nahi, confidence diya. Yeh bahut badi baat hai.",
+             "visual": "Boy speaks with a quiet intensity — 'mazak hota tha' lands heavy, he doesn't exaggerate it. Then a visible shift when he talks about the change — sits a little straighter. At 'mujhse poochh rahe hain' a small, earned smile. Last line delivered looking straight at camera — 'yeh bahut badi baat hai.' He means it."},
+
+            # ── CLIP 4: Deep emotional connection — the human relationship ─────
+            {"id": "p04", "type": "NEET aspirant girl", "age": "17-18", "emotion": "quietly moved, grateful",
+             "narrative_role": "emotional_connection",
+             "question": "Ghar waalon ko pata hai — Kota mein tum kitna struggle kar rahi ho?",
+             "response": "Papa roz phone karte hain — 'kaisi hai beta?' Main kehti hoon 'theek hoon.' Sach nahi bolta. Raat ko roti hoon — phir iss app ko khol leti hoon. Yeh app sunti nahi, samjhti nahi — lekin samjha deti hai. Bahut thankful hoon. Yahan jo doston ko nahi bata sakti — andar ka dard — woh iss app ke saath nikal jaata hai. Meri sabse quiet saathi hai yeh.",
+             "visual": "Girl's voice drops at 'Papa roz phone karte hain' — she's back home for a second. Small pause. Then she looks up. At 'bahut thankful hoon' her voice catches — just for a beat — then she composes herself. Last line said softly, looking slightly away and then back. This is the most human clip in the whole video."},
+
+            # ── CLIP 5: Direct CTA — viewer addressed, urgency, close ──────────
+            {"id": "p05", "type": "JEE aspirant boy",  "age": "18-19", "emotion": "direct and urgent",
+             "narrative_role": "call_to_action",
+             "question": "Jo abhi yeh video dekh raha hai — unhe kya bologe?",
+             "response": "Download karo. Professor Curious. Abhi. Seriously. Akela feel ho raha hai — yeh app hai. Raat ko doubt hai — yeh app hai. Main yahan hoon kyunki iss app ne uss raat roka jab jaana chahta tha. Neeche link dekh rahe ho — ek baar click karo. Bas ek baar.",
+             "visual": "Boy leans slightly toward camera — urgent, caring, not aggressive. Points at camera on 'download karo.' Repeats 'Professor Curious' clearly, slowly. On 'uss raat' his expression clouds briefly — that night was real. Then snaps back to direct eye contact on 'neeche link.' Last words 'ek baar' — he holds up one finger. Completely real."},
         ],
     },
 
@@ -360,8 +374,43 @@ Every second of the 8s clip has dialogue happening. No long silences or dead air
 Camera bobs naturally with his walk. Start of a candid street vlog — empathetic, urgent, unscripted.
 """
 
+NARRATIVE_ROLE_CONTEXT = {
+    "introduction": (
+        "NARRATIVE ROLE — CLIP 1 OF 5 (APP INTRODUCTION):\n"
+        "This is the FIRST interview. The viewer does not yet know what {product} is.\n"
+        "The subject must clearly say '{product}' AND make it obvious it is an APP they downloaded.\n"
+        "End with the app name spoken slowly — plant it in the viewer's memory."
+    ),
+    "feature_expansion": (
+        "NARRATIVE ROLE — CLIP 2 OF 5 (WHAT IT DOES):\n"
+        "Viewer already heard the app name. This clip explains HOW it works — specific, functional.\n"
+        "Subject refers to 'yeh app' (this app) rather than repeating the full name.\n"
+        "Focus: availability, patience, step-by-step — things no tutor or coaching can offer."
+    ),
+    "transformation": (
+        "NARRATIVE ROLE — CLIP 3 OF 5 (BEFORE vs AFTER):\n"
+        "Viewer knows what the app is and what it does. Now show the TRANSFORMATION it caused.\n"
+        "Subject talks about who they were before vs who they are now because of 'iss app.'\n"
+        "Emotional arc: embarrassment/struggle → quiet pride. Social proof is powerful here."
+    ),
+    "emotional_connection": (
+        "NARRATIVE ROLE — CLIP 4 OF 5 (HUMAN CONNECTION):\n"
+        "The deepest, most human clip. Subject reveals what the app means emotionally — not features.\n"
+        "'Iss app ne saath diya jab koi nahi tha.' The app as a companion, not a tool.\n"
+        "Gratitude, warmth, vulnerability. This is the clip that makes parents want to download it."
+    ),
+    "call_to_action": (
+        "NARRATIVE ROLE — CLIP 5 OF 5 (CALL TO ACTION):\n"
+        "Final clip. Subject speaks DIRECTLY to the viewer watching this video.\n"
+        "Says '{product}' clearly one more time. Tells them: download it, try it, it worked for me.\n"
+        "Urgency without pressure. Authentic recommendation from a peer, not an ad."
+    ),
+}
+
 def build_person_prompt(person: dict, scene: dict, product: str) -> str:
     response = person["response"].format(product=product)
+    role_key  = person.get("narrative_role", "")
+    role_ctx  = NARRATIVE_ROLE_CONTEXT.get(role_key, "").format(product=product)
     return f"""{scene['setting']}
 
 {SUBJECT_ONLY_LOCK}
@@ -373,12 +422,13 @@ Subject's response in Hindi: "{response}"
 
 Visual action: {person['visual']}
 
+{role_ctx}
+
 CLIP PACING — TWO ACTS, FAST DELIVERY:
 Act 1 (first 3-4 seconds): Raw emotional truth — the struggle, pressure, loneliness, fear.
 Short fast sentences. Real pain on the face. No pause-and-breathe acting — quick, clipped, urgent.
-Act 2 (next 3-4 seconds): "{product}" is spoken clearly, deliberately, unmistakably — out loud.
-The name MUST be audible. Visible emotional shift on the subject's face as they say it.
-After naming "{product}" the subject continues fast — gratitude, resolve, or relief.
+Act 2 (next 3-4 seconds): The emotional shift — {product}, gratitude, resolve, or direct CTA.
+The app name (when used) MUST be audible — spoken clearly, deliberately, not mumbled.
 
 DENSITY: Subject speaks continuously through most of the 8 seconds — minimal dead air.
 Natural Indian hand gestures, expressive face, authentic emotion. Completely candid — not staged.
@@ -519,7 +569,8 @@ def main():
     if args.person_ids:
         people = [p for p in pool if p["id"] in args.person_ids][:num_people]
     else:
-        people = random.sample(pool, min(num_people, len(pool)))
+        # Preserve narrative order — clips build a logical story (intro → features → transformation → emotion → CTA)
+        people = pool[:num_people]
 
     total = len(people) + 2
     print(f"\n=== UGC Street Interview Ad ===")
