@@ -173,7 +173,62 @@ Real ambient city noise — horns, voices, rattling autorickshaws. One continuou
         ],
     },
 
-    # ── 3. School gate ────────────────────────────────────────────────────────
+    # ── 3. Doubt fear — generic Indian school, any city (UNIVERSAL FORMAT) ────
+    "doubt-fear": {
+        "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Afternoon, 3-4pm, warm natural light.
+Outside a typical Indian school gate in a regular city or town — NOT Kota, not a coaching centre.
+Students in school uniforms (white shirts, grey pants or skirts) streaming out with backpacks.
+Auto-rickshaws and parents on scooters waiting outside. Normal Indian school chaos — 13-16 year olds,
+laughing, rushing, some quiet. Canteen or chai stall nearby. This is EVERY school in EVERY Indian city.
+Raw phone camera footage, no color grading, natural handheld shake. Feels like any school, any child.
+The universality is the point — this could be YOUR child's school.""",
+        "establishing": {
+            "line":   "Ek second ruko. Kya aapke bacche school mein doubt poochne se darte hain? Kyun darte hain? Kyunki baaki bacche unka mazak udaate hain. Kyunki teacher bhi kabhi kabhi udaate hain. Yeh sharm — yahi cheez unhe peeche rakh ti hai. Main aaj seedha inse poochh raha hoon.",
+            "visual": "Vlogger stands outside school gate in selfie-cam as uniformed students stream out behind. Speaks the first two sentences slowly and directly — not loud, not performing. The question 'Kya aapke bacche school mein doubt poochne se darte hain?' is asked to the viewer, not to the crowd. A beat of silence after the shame line. Then he turns and moves toward students.",
+        },
+        "outro": {
+            "line":   "Tumne suna inhe? Doubt poochna chahte the — par darte the. Raat ko akele suljhate the. Ek app ne yeh badla — {product}. Ab poochh te hain. Bina sharm ke. Raat ko, akele, jab tak clear na ho. Link neeche hai. Apne bacche ke liye — aaj hi try karo.",
+            "visual": "Vlogger turns selfie-cam back on himself — school gate visible behind, last students leaving. Speaks fast and direct — no performance. On 'apne bacche ke liye' his voice softens just slightly. Points at camera. Deliberate thumbs up at the end.",
+        },
+        "people": [
+            # ── CLIP 1: App Introduction ────────────────────────────────────────
+            {"id": "p01", "type": "school boy",  "age": "14-15", "emotion": "direct and clear",
+             "narrative_role": "introduction",
+             "question": "Yahan sab ek app ki baat kar rahe hain — kaunsa app hai yeh?",
+             "response": "Professor Curious. — Yeh ek app hai. Doubt aaya — open karo, seedha poochho, koi nahi dekhta. Koi mazak nahi udaata. Step by step samjhata hai jab tak clear na ho. Class mein poochh ne mein dar lagta tha — ab iss app pe poochh ta hoon. Professor Curious. Yeh naam yaad rakh lo.",
+             "visual": "Boy opens his mouth and the very first sound out is 'Professor Curious' — clearly, to camera. Then immediately explains it's an app. Calm, direct — not emotional, informational. Points on the first 'Professor Curious,' slow repeat at the end. Clean, confident school-age kid talking straight."},
+
+            # ── CLIP 2: Feature expansion ──────────────────────────────────────
+            {"id": "p02", "type": "school girl", "age": "13-14", "emotion": "relieved and explaining",
+             "narrative_role": "feature_expansion",
+             "question": "Yeh app kya karta hai exactly?",
+             "response": "Baar baar pooch sakti hoon — kabhi nahi kehta 'yeh toh simple hai' ya 'phir poochho.' Raat ko Maths ka ek step nahi samjha — yeh app tha. Step by step. Jab tak clear nahi hua, nahi gaya. Class mein kabhi poochh nahi paati thi — sab hanste the. Iss app mein koi nahi hota dekhne wala.",
+             "visual": "Girl speaks fast with real relief — like she's describing something that genuinely changed her daily life. Taps palm on 'baar baar.' Slight wince on 'sab hanste the' — that memory is real. Then lighter: 'koi nahi hota dekhne wala.' Eyes direct, no drama."},
+
+            # ── CLIP 3: Transformation ─────────────────────────────────────────
+            {"id": "p03", "type": "school boy",  "age": "15-16", "emotion": "quiet earned confidence",
+             "narrative_role": "transformation",
+             "question": "Pehle class mein kaisa tha — aur ab kya fark hai?",
+             "response": "Pehle kabhi haath nahi uthata tha. Kabhi. Dar lagta tha — sab dekhenge, koi hansega, teacher bura bolega. Phir iss app se raat ko concepts clear kiye. Ek mahina. Ab class mein haath uthata hoon. Sir ne ek baar bola — 'yeh baccha pehle kahan tha?' Yeh sunke kuch alag hi laga.",
+             "visual": "Boy speaks with a quiet intensity. 'Kabhi haath nahi uthata tha' — said with the weight of years of silence. Small real smile at 'ab class mein haath uthata hoon.' At 'sir ne bola' — a visible, earned pride. Last line to camera — he means it. No exaggeration needed."},
+
+            # ── CLIP 4: Emotional connection ───────────────────────────────────
+            {"id": "p04", "type": "school girl", "age": "14-15", "emotion": "honest and moved",
+             "narrative_role": "emotional_connection",
+             "question": "Ghar mein doubt aaye toh kya karte the pehle?",
+             "response": "Pehle raat ko bas roti thi — Maths nahi aata tha, Papa kaam pe hote the, Maa padhni nahi. Kisi ko poochh nahi sakti thi. Teacher se dar — classmates se sharm. Phir iss app ko khola. Raat ko, akele — koi nahi dekhta, koi nahi hansata. Bahut thankful hoon. Akeli nahi hoon padhte waqt ab.",
+             "visual": "Girl's voice drops at 'raat ko bas roti thi' — completely real, no performance. She's back in that room for a second. At 'koi nahi dekhta, koi nahi hansata' — visible relief on her face. 'Bahut thankful hoon' said softly, eyes a little bright. Last line — she means it. Parents watching will feel this."},
+
+            # ── CLIP 5: CTA ────────────────────────────────────────────────────
+            {"id": "p05", "type": "school boy",  "age": "14-15", "emotion": "direct, warm, urgent",
+             "narrative_role": "call_to_action",
+             "question": "Jo yeh video dekh raha hai — parents ya bacche — unhe kya bologe?",
+             "response": "Ek kaam karo — Professor Curious download karo. Abhi. Agar tumhara baccha class mein haath nahi uthata — yeh app hai. Agar raat ko akele struggle kar raha hai — yeh app hai. Koi judge nahi karta, koi mazak nahi udaata, kabhi nahi kehta kal poochho. Neeche link hai. Bas ek baar.",
+             "visual": "Boy speaks directly to camera — the most direct clip in the video. Points finger on 'download karo.' Slow and clear on 'Professor Curious.' On 'koi judge nahi karta' — a slight nod, he knows this is the thing. Holds up one finger on 'ek baar.' Completely real, zero performance."},
+        ],
+    },
+
+    # ── 4. School gate ────────────────────────────────────────────────────────
     "school-gate": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Late afternoon golden-hour
 light. Outside a busy Indian school iron gate in Kota. Dozens of school kids in white shirts and
