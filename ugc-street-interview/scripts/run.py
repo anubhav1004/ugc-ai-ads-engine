@@ -71,8 +71,8 @@ standing silently or scrolling phones. The weight of lakhs of dreams is palpable
 every face. Raw phone camera footage, no color grading, natural low-light noise visible.
 Feels like one continuous real shoot — Kota's quiet desperation and fierce ambition.""",
         "establishing": {
-            "line":   "Bhai sun — main Kota mein hoon. Yeh India ka coaching capital hai. 2 lakh se zyada bacche — JEE ke liye, NEET ke liye — ghar se 500-700 kilometre door. Roz subah uthte hain 5 baje. Roz raat ko rote hain akele mein. Yahan koi nahi jaanta inka dard. Main aaj seedha inse poochh raha hoon — kya chal raha hai andar se. Yeh log jhooth nahi bolenge.",
-            "visual": "Vlogger walks fast toward coaching centre exit in selfie-cam, talking to camera with raw urgency — no casual grin, completely serious. Students stream out heavily burdened behind him. He swings camera briefly to show the exhausted crowd, then back to himself. Last line spoken looking directly into lens — eyes carry real weight.",
+            "line":   "Bhai — tumhara baccha Kota mein hai. Woh tumhein bol raha hai 'Main theek hoon.' Woh theek nahi hai. 2023 mein yahan 29 bacchon ne apni zindagi khatam ki — har 12 din mein ek. Aur unke parents ko pata hi nahi tha. Main aaj seedha inse poochh raha hoon.",
+            "visual": "Vlogger walks slowly toward camera in selfie-cam — not fast and energetic, heavy. Students stream out silently behind him, exhausted. He speaks the first two lines looking dead into the lens — voice low, serious, not performing grief. On the statistics line, he pauses one beat — lets it land. Then: 'Main aaj seedha inse poochh raha hoon.' Camera bobs as he turns toward the students.",
         },
         "outro": {
             "line":   "Bhai, yeh sab real hain. Yeh log jhooth nahi bolte — Kota mein jhooth bolne ki energy nahi hoti. Laakhon bacche yahan hain — akele, thake, andar se toot rahe hain. Aur {product} unka saathi ban gaya hai. Raat ko, jab koi nahi hota — woh hota hai. Link neeche hai. Apne bacche ke liye dekh lo.",
@@ -80,11 +80,11 @@ Feels like one continuous real shoot — Kota's quiet desperation and fierce amb
         },
         "people": [
             # ── CLIP 1: App Introduction — name it, explain it, plant the seed ──
-            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "earnest and clear",
+            {"id": "p01", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "earnest and direct",
              "narrative_role": "introduction",
              "question": "Bhai, yahan sab koi ek app ki baat kar rahe hain — kaunsa app hai yeh?",
-             "response": "Professor Curious. Yeh ek app hai — doubt aaya, open karo, seedha step by step samjhata hai. Raat 2 baje bhi. Ghar se door hoon, coaching mein teacher ke paas time nahi — yeh app mere paas tab hota hai jab koi nahi hota. Professor Curious. Yaad rakho yeh naam.",
-             "visual": "Boy speaks directly to camera — clear, grounded, no drama. Points finger slightly on 'Professor Curious' the first time, then again at the end saying the name slowly. Face is calm, certain. He's not emotional — he's stating a fact he wants you to remember."},
+             "response": "Professor Curious. — Yeh ek app hai. Download karo. Doubt aaya — open karo, step by step samjhata hai, raat 2 baje bhi. Coaching mein teacher ke paas time nahi — 200 bacche hain class mein. Yeh app rukta hai mere saath jab tak clear na ho. Professor Curious. Yeh naam yaad rakh lo.",
+             "visual": "Boy opens his mouth and the very first sound is 'Professor Curious' — two clear words, spoken slowly, directly at camera. Then he immediately explains it's an app. Points slightly on the first 'Professor Curious,' then again at the end on the repeat. Face calm and certain — he is not selling, he is informing. Last shot: eyes to lens, slow nod."},
 
             # ── CLIP 2: What it actually does — specific, feature-driven ────────
             {"id": "p02", "type": "NEET aspirant girl", "age": "17-18", "emotion": "explaining with conviction",
@@ -116,7 +116,64 @@ Feels like one continuous real shoot — Kota's quiet desperation and fierce amb
         ],
     },
 
-    # ── 2. School gate ────────────────────────────────────────────────────────
+    # ── 2. Kota coaching centre — DAYTIME (rattle & crowd, for female vlogger) ─
+    "kota-coaching-day": {
+        "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Daytime, 10-11am, harsh bright
+Indian summer sun — strong shadows, dust in the air. Outside a crowded JEE/NEET coaching centre
+in Kota, Rajasthan. Students rushing between coaching shifts — backpacks, thick notes clutched,
+water bottles, phones. Auto-rickshaws honking constantly in a line, dust rising from road.
+A chai stall packed with standing students eating quickly before the next class.
+Groups of students in twos and threes, talking fast, stressed, some silent staring at phones.
+The relentless noise and scale of Kota in full daylight — not evening's quiet despair, but
+morning's grinding pressure. Raw phone camera footage, no color grading, harsh natural sunlight.
+Real ambient city noise — horns, voices, rattling autorickshaws. One continuous unedited shoot.""",
+        "establishing": {
+            "line":   "Ruk jao ek second. Yeh baccha jo tumhare ghar mein hai — Kota mein hai — woh tumhein roz bolega 'Main theek hoon.' Woh theek nahi hai. 2023 mein yahan 29 bacchon ne apni zindagi khatam ki. Unke parents ko pata hi nahi tha. Main aaj seedha inse poochh ti hoon.",
+            "visual": "Female vlogger stands in the middle of the rattling, noisy Kota street in selfie-cam — autos honking, students rushing around her. She does NOT move. She speaks the first two sentences completely still, eyes locked on lens — voice quiet but cuts through the noise. On the statistics: slight pause, jaw set. Then she turns and starts walking toward students — 'Main aaj seedha inse poochh ti hoon.' The crowd noise rises as she moves.",
+        },
+        "outro": {
+            "line":   "Yeh sab real hain. Yeh bacche jhooth nahi bolta — Kota mein jhooth bolne ki energy nahi hoti. Laakhon bacche yahan hain — akele, ghar se door, andar se toot rahe hain. Aur {product} unka saathi ban gaya hai. Raat ko, jab koi nahi hota — woh hoti hai. Link neeche hai. Apne bacche ke liye. Abhi dekho.",
+            "visual": "Female vlogger turns selfie-cam back on herself — daytime sun behind her, students rushing past in background. Speaks fast and directly — no performance, completely genuine. Voice slightly caught on 'apne bacche ke liye.' Points at camera on 'abhi dekho.' Deliberate thumbs up at the very end.",
+        },
+        "people": [
+            # ── CLIP 1: App Introduction — name it, explain it ─────────────────
+            {"id": "p01", "type": "NEET aspirant girl", "age": "17-18", "emotion": "clear and direct",
+             "narrative_role": "introduction",
+             "question": "Yahan sab koi ek app ki baat kar rahe hain — kaunsa app hai yeh?",
+             "response": "Professor Curious. — Yeh ek app hai. Download karo. Doubt aaya — open karo, step by step samjhata hai, raat 2 baje bhi. Coaching mein teacher ke paas time nahi — 200 bacche hain class mein. Yeh app rukta hai mere saath jab tak clear na ho. Professor Curious. Yeh naam yaad rakh lo.",
+             "visual": "Girl opens her mouth and the very first sound is 'Professor Curious' — two clear words, directly at camera, slightly raised voice over the street noise. Then immediately explains it's an app. Taps phone in her hand when she says 'download karo.' Repeats 'Professor Curious' at the end, slowly — making sure the name lands above the ambient noise. Confident, not emotional."},
+
+            # ── CLIP 2: What it does ────────────────────────────────────────────
+            {"id": "p02", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "explaining with conviction",
+             "narrative_role": "feature_expansion",
+             "question": "Yeh app kya karta hai exactly — seedha bata.",
+             "response": "Baar baar pooch sakta hoon — kabhi nahi kehta 'yeh basic hai' ya 'kal poochho.' Raat 1 baje Physics atka — yeh app tha. Step by step. Jab tak clear nahi hua, nahi choda. Coaching mein 200 bacche hain — wahan yeh nahi milta. Iss app mein milta hai.",
+             "visual": "Boy speaks over the daytime street noise — fast, matter-of-fact, firsthand. Taps palm on 'baar baar.' On 'step by step' he slows briefly. Eyes direct, no wavering. Street chaos visible and audible behind him — this feels like a stolen 30 seconds between classes."},
+
+            # ── CLIP 3: Transformation ──────────────────────────────────────────
+            {"id": "p03", "type": "NEET aspirant girl", "age": "18-19", "emotion": "quiet earned pride",
+             "narrative_role": "transformation",
+             "question": "Kota se pehle aur ab — kya fark aaya?",
+             "response": "Pehle bahut mazak hota tha — 'tu doctor nahi banega.' Bahut bura lagta tha. Phir iss app se roz ek ek chapter. Ek mahina. Do mahina. Aaj mock mein rank aayi — woh log ab mujhse notes maangne aate hain. App ne sirf doubts nahi, confidence diya. Yeh bahut badi cheez hai.",
+             "visual": "Girl speaks with quiet intensity in the busy daytime crowd. 'Mazak hota tha' is said almost to herself — not for effect. Then a visible straightening when she talks about the change. Small real smile on 'notes maangne aate hain.' Last line to camera — 'yeh bahut badi cheez hai' — absolutely meant."},
+
+            # ── CLIP 4: Emotional connection ───────────────────────────────────
+            {"id": "p04", "type": "JEE aspirant boy",  "age": "17-18", "emotion": "quietly moved, honest",
+             "narrative_role": "emotional_connection",
+             "question": "Ghar waalon ko pata hai kitna struggle hai yahan?",
+             "response": "Papa roz phone karte hain — 'kaisa hai beta?' Main kehta hoon 'theek hoon.' Sach nahi bolta. Unhe pata nahi. Raat ko rota hoon — phir iss app ko kholna ta hoon. Woh nahi samjhta — but samjha deta hai. Bahut thankful hoon. Yahan jo kisi ko nahi bata sakta — iss app se thoda nikal jaata hai.",
+             "visual": "Boy's voice drops at 'Papa roz phone karte hain' — he goes home for one second, even in the noisy daytime street. The crowd noise continues around him. At 'bahut thankful hoon' his voice barely catches — just a fraction. Last line said quietly, looking slightly past camera — then back. The most human clip in the video."},
+
+            # ── CLIP 5: CTA ────────────────────────────────────────────────────
+            {"id": "p05", "type": "NEET aspirant girl", "age": "18-19", "emotion": "direct, urgent, warm",
+             "narrative_role": "call_to_action",
+             "question": "Jo yeh video dekh raha hai — unhe kya bolegi?",
+             "response": "Download karo. Professor Curious. Abhi. Sach mein. Akela feel ho raha hai — yeh app hai. Raat ko doubt hai — yeh app hai. Main yahan hoon kyunki iss app ne uss raat roka jab jaana chahti thi. Neeche link dekh rahi ho — ek baar click karo. Bas.",
+             "visual": "Girl points directly at camera — not aggressive, urgent and caring. Says 'Professor Curious' slowly and clearly above the street noise — two deliberate words. On 'uss raat' her expression clouds for a beat — that night was real. Snaps back to direct eye contact. Holds up one finger on 'ek baar.' Completely authentic."},
+        ],
+    },
+
+    # ── 3. School gate ────────────────────────────────────────────────────────
     "school-gate": {
         "setting": """Raw handheld smartphone vlog footage, 9:16 vertical. Late afternoon golden-hour
 light. Outside a busy Indian school iron gate in Kota. Dozens of school kids in white shirts and
@@ -377,9 +434,10 @@ Camera bobs naturally with his walk. Start of a candid street vlog — empatheti
 NARRATIVE_ROLE_CONTEXT = {
     "introduction": (
         "NARRATIVE ROLE — CLIP 1 OF 5 (APP INTRODUCTION):\n"
-        "This is the FIRST interview. The viewer does not yet know what {product} is.\n"
-        "The subject must clearly say '{product}' AND make it obvious it is an APP they downloaded.\n"
-        "End with the app name spoken slowly — plant it in the viewer's memory."
+        "⚠️ HARD RULE: The subject's VERY FIRST WORDS — before anything else — must be '{product}'\n"
+        "The clip opens with the subject saying '{product}' as the opening two syllables. Not after context. Not mid-sentence. FIRST.\n"
+        "Then they immediately explain it is an APP. The name '{product}' is spoken again at the very end.\n"
+        "The viewer must leave this clip knowing exactly what the app is called and that it exists."
     ),
     "feature_expansion": (
         "NARRATIVE ROLE — CLIP 2 OF 5 (WHAT IT DOES):\n"
