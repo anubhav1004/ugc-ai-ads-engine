@@ -654,7 +654,7 @@ def main():
     parser.add_argument("--run-id",     default="run_001",                              help="Unique run identifier")
     parser.add_argument("--num-people", type=int, default=5,                            help="Number of interview clips (1-5)")
     parser.add_argument("--person-ids", nargs="*",                                      help="Specific person IDs e.g. p01 p03")
-    parser.add_argument("--seconds",    type=int, default=8,                            help="Seconds per clip (4/8/12)")
+    parser.add_argument("--seconds",    type=int, default=12,                           help="Seconds per clip (4/8/12)")
     parser.add_argument("--output-dir", default="",                                     help="Override output directory")
     parser.add_argument("--no-stitch",      action="store_true",                        help="Skip final ffmpeg merge")
     parser.add_argument("--vlogger-gender", default="male", choices=["male", "female"], help="Vlogger gender (default: male)")
