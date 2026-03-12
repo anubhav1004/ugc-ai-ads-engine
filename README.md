@@ -1,137 +1,174 @@
 # UGC AI Ads Engine
 
-Generate authentic UGC-style video ads using Azure Sora. Raw footage, street interviews — no actors, no studio.
+This repo is the creative operating system for Professor Curious ads.
 
-> **Context:** See [CONTEXT.md](./CONTEXT.md) for full session history, run instructions, and where we left off.
+It is where we keep:
+- product research
+- user feedback
+- ad ideas
+- prompt experiments
+- reaction-video systems
+- India and US ad formats
+- reusable generation pipelines
+
+If you are new here, open:
+- `START_HERE.md`
+- `experiments/LATEST.md`
+- `research/README.md`
+
+> For detailed session history and implementation notes, see [CONTEXT.md](./CONTEXT.md).
 
 ---
 
-## Project Areas
+## What This Repo Really Is
 
-### Stable / Core Systems
+Think of this repo as a studio with different rooms.
 
-- `ugc-street-interview/` — India Hindi street interviews
-- `ugc-us-college-interview/` — US college social-proof interviews
-- `ugc-studytok-hooks/` — StudyTok hook generation
-- `ugc-reaction/` — reaction hook scripts and camera logic
-- `ugc-livestream-call/` — split-screen call format
-- `video-editor/` — post-processing tools
-- `common/send_slack.py` — Slack file/message sender helper
+| Area | What it means in plain English |
+|---|---|
+| `research/` | Everything we know about the product, the users, and what ads should say |
+| `experiments/` | Active creative tests and prompt experiments |
+| `india-raw-footage/` | The system for realistic India-style raw camera ads |
+| `ugc-street-interview/` | India street interview ads |
+| `ugc-us-college-interview/` | US college social-proof ads |
+| `ugc-reaction/` | Reaction ad logic and camera rules |
+| `video-editor/` | Post-production and finishing tools |
 
-### Research
+---
 
-- `research/` — product research, survey analysis, persona work, and creative strategy
+## Best Files To Open First
 
-### Experiments
-
-### `experiments/`
-Visible workspace for trial pipelines, prompt tests, model comparisons, and consistency
-experiments before they are promoted into stable production workflows.
-
-See:
-- `experiments/README.md`
+### If you want the latest work
 - `experiments/LATEST.md`
 
-### `ugc-street-interview/` — India Market
-Vlogger interviews students outside coaching centres and school gates in Kota.
-Hindi dialogue. Emotional, raw, Kota pressure angle.
+### If you want to understand Professor Curious deeply
+- `research/product/PROF_CURIOUS_CREATIVE_RESEARCH_V2_2026-03-12.md`
+- `research/product/PROF_CURIOUS_PRODUCT_DOSSIER_2026-03-12.md`
 
-**"Exam khatam hua — Professor Curious ne help ki."**
+### If you want to understand the raw-footage ad direction
+- `india-raw-footage/README.md`
 
-```bash
-source ~/.env_azure
-python3 ugc-street-interview/scripts/run.py \
-  --product "Professor Curious" \
-  --scene kota-coaching \
-  --run-id kota_v1 \
-  --num-people 3 \
-  --seconds 8
-```
-
-**Scenes:** `kota-coaching` (default), `school-gate`, `coaching-centre`, `results-day`, `chai-stall`, `college-gate`, `parent-pickup`
+### If you want to understand the reaction-video direction
+- `experiments/reaction-pipeline/README.md`
 
 ---
 
-### `ugc-us-college-interview/` — US Market
-Vlogger outside Harvard, MIT, Stanford, Yale, Princeton asks students:
-*"What did you use to get in?"* — majority say Professor Curious.
-English dialogue. Aspirational FOMO + social proof angle.
+## Main Creative Systems
 
-**"I'm outside Harvard. Let's ask students what they used to get in."**
+### India Street Interview
+Folder:
+- `ugc-street-interview/`
 
-```bash
-source ~/.env_azure
-python3 ugc-us-college-interview/scripts/run.py \
-  --product "Professor Curious" \
-  --scene harvard \
-  --run-id harvard_v1 \
-  --num-people 3 \
-  --seconds 8
-```
+What it is:
+- raw Hindi street-style interviews
+- school gate / coaching center / Kota pressure
+- emotional and social-proof driven
 
-**Scenes:** `harvard` (default), `mit`, `stanford`, `yale`, `princeton`, `elite-campus`
+Example idea:
+- students talking about how Professor Curious helped during exam pressure
+
+### US College Interview
+Folder:
+- `ugc-us-college-interview/`
+
+What it is:
+- campus-style interviews in English
+- aspirational and social-proof driven
+- “What helped you get in?” style creative
+
+### India Raw Footage
+Folder:
+- `india-raw-footage/`
+
+What it is:
+- a more controlled system for realistic recurring scenes
+- characters, room setups, prompts, and campaign manifests
+- useful when we want raw footage that still feels structured
+
+### Reaction Pipeline
+Folder:
+- `experiments/reaction-pipeline/`
+
+What it is:
+- reaction-first ads
+- top hook text
+- same-phone pickup motion
+- demo stitched after reaction
+- replacement trending-style audio
 
 ---
 
-### `professor-curious-street-interview/` — PC India (Grade-specific)
-Original PC-specific skill. Grade-based targeting (Class 10 / Class 12 boards).
+## Research Area
+
+Folder:
+- `research/`
+
+This is the strategic brain of the repo.
+
+It contains:
+- survey exports
+- user insights
+- personas
+- product truths
+- ad implications
+
+This is the best place for non-technical people to start if they want to understand:
+- what Professor Curious actually solves
+- what users care about
+- what angles are strong or weak
 
 ---
 
-### `india-raw-footage/` — India Character-Consistency Lab
-New India-market production scaffold for recurring-character raw phone-footage ads.
-Built to support stronger continuity across multi-video campaigns using locked character
-packs, format templates, setting packs, and per-campaign shot manifests.
+## Experiments Area
 
-**Current test:** `kota_boy_confession_night_01`
+Folder:
+- `experiments/`
 
-```bash
-python3 india-raw-footage/scripts/build_run.py \
-  --campaign india-raw-footage/campaigns/kota_boy_confession_night_01/brief.json
-```
+This is where we try ideas before treating them as stable systems.
 
-### `experiments/reaction-pipeline/` — Reaction Ad System
-Reusable reaction-video pipeline for:
-- front-selfie reactions
-- side-table reactions
-- same-phone pickup motion in post
-- Professor Curious demo stitching
-- trending-style replacement audio
+Inside it you will find:
+- prompt tests
+- reaction formats
+- batch experiments
+- temporary pipelines
+- hook experiments
 
-Main runner:
+This is the repo’s “lab.”
 
-```bash
-python3 experiments/reaction-pipeline/run_reaction_pipeline.py \
-  --spec experiments/reaction-pipeline/specs/front-selfie-sample.json
-```
+---
 
-## Generated Outputs
+## Important Note About Videos
 
-Generated media stays local and gitignored by default:
-- `output/`
-- `*.mp4`
-- `*.mov`
-
-The repo tracks:
-- scripts
+The repo mostly tracks:
 - prompts
+- scripts
 - manifests
 - specs
 - overlays
 - research
 - experiment structure
 
+Most generated videos stay local and are intentionally not committed to Git.
+
+Why:
+- the repo stays cleaner
+- the systems remain reusable
+- we store the recipe, not only the baked output
+
 ---
 
-## Requirements
-- Python 3.11+ with `requests` installed
+## For Technical Use
+
+Requirements:
+- Python 3.11+
+- `requests`
 - `ffmpeg`
-- Azure OpenAI with Sora deployment
+- Azure OpenAI / Sora access
 
-**Credentials:** stored in `~/.env_azure`, auto-loaded via `~/.zshrc`
+Typical local output path:
+- `~/.openclaw/workspace/output/<skill-name>/<run-id>/`
 
-## Output
-`~/.openclaw/workspace/output/<skill-name>/<run-id>/`
-- `clips/` — individual Sora-generated MP4s
-- `<run-id>_merged.mp4` — final stitched ad
+Typical contents:
+- `clips/`
+- merged video
 - `manifest.json`

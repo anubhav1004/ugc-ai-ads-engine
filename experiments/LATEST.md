@@ -1,85 +1,81 @@
 # Latest Experiment Index
 
-This file points to the latest active experiment systems in the repo.
+If someone opens the repo and asks, “What should I look at first?”, this is the answer.
 
-## Reaction Pipeline
+## 1. Best Current Reaction System
 
-Location:
+Open:
 - `experiments/reaction-pipeline/`
 
-Purpose:
-- generate reaction-first UGC ads
-- apply validated same-phone pickup motion in post
-- add top hook overlay
-- stitch the Professor Curious demo
-- replace original audio with the trending-style bed
+What it does:
+- creates short reaction videos
+- adds the top hook text
+- applies same-phone pickup motion
+- stitches the Professor Curious demo
+- adds replacement trending-style audio
 
-Main runner:
-- `experiments/reaction-pipeline/run_reaction_pipeline.py`
-
-Current presets:
-- `front-selfie`
-- `side-table`
-
-Current sample specs:
+Best files:
+- `experiments/reaction-pipeline/README.md`
 - `experiments/reaction-pipeline/specs/front-selfie-sample.json`
 - `experiments/reaction-pipeline/specs/side-table-sample.json`
 - `experiments/reaction-pipeline/specs/side-table-dim-screenlight-sample.json`
 
-Latest generated runs:
+Latest run folders:
 - `experiments/reaction-pipeline/runs/side_table_sample_01/`
 - `experiments/reaction-pipeline/runs/side_table_dim_screenlight_01/`
 
-## Reaction Hook Demo
+## 2. Reaction Hook Demo
 
-Location:
+Open:
 - `experiments/reaction-hook-demo/`
 
-Purpose:
-- single reaction clip + Snapchat-style hook bar + full Professor Curious demo + trending-style audio
+What it is:
+- a simple reaction-plus-demo format
+- hook bar on top
+- demo stitched after the reaction
 
-Main builder:
+Main file:
 - `experiments/reaction-hook-demo/build_professor_curious_hook_demo.py`
 
-## Reaction Ad Batches
+## 3. Reaction Ad Batches
 
-Locations:
+Open:
 - `experiments/reaction-ads/`
 - `experiments/reaction-ads-v2/`
 
-Purpose:
-- batch American-character reaction ads with different appearances, hooks, and the same demo structure
+What they are:
+- batch-generated variations of the same reaction format
+- different looks, hook lines, and prompt variants
 
-Main batch scripts:
+Main files:
 - `experiments/reaction-ads/build_batch.py`
 - `experiments/reaction-ads-v2/build_batch.py`
 
-## India Raw-Footage Prompt Tests
+## 4. India Raw-Footage Prompt Tests
 
-Location:
+Open:
 - `experiments/india-raw-footage/`
 
-Purpose:
-- India-market UGC concept tests
-- interview formats
-- reaction-format tests
-- raw-footage prompt experiments
+What it is:
+- India-specific ad ideation space
+- prompt-test folders for new ad stories
+- interview and confession angles
 
-Prompt-test folders:
+Best folders:
 - `experiments/india-raw-footage/prompt-tests/doubt-mazak-street-interview/`
 - `experiments/india-raw-footage/prompt-tests/school-corridor-confession/`
 - `experiments/india-raw-footage/prompt-tests/ai-impact-summit-explainer/`
 
-## Notes On Generated Outputs
-
-Generated MP4 outputs remain gitignored by design.
+## 5. What Is Stored Here vs What Stays Local
 
 The repo stores:
-- runners
-- specs
 - prompts
+- specs
+- scripts
 - overlays
-- research
 - manifests
+- research
 
-The actual generated video outputs remain present in the local workspace under the corresponding `output/` folders.
+Most final generated videos stay local and are usually gitignored.
+
+So this file is the map to the systems, not a gallery of every output file.

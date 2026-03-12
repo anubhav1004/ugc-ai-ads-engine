@@ -1,73 +1,100 @@
-## India Raw Footage Pipeline
+# India Raw Footage
 
-This folder is the first character-consistency production scaffold for India-market ads.
+This folder is the India raw-camera ad workshop.
 
-It is intentionally separate from the existing generators so we can test a new workflow
-without rewriting the current repo structure.
+It exists to help us build ads that feel like:
+- real phone footage
+- real Indian rooms and settings
+- believable student moments
+- repeatable scenes and characters when needed
 
-### Goal
+## What this folder is trying to solve
 
-Produce raw phone-camera style India ads with tighter recurring-character continuity.
+Normal prompt generation can create good moments, but it often loses consistency.
 
-### Production Model
+This folder is our attempt to make the process more controlled by locking:
+- who the character is
+- what room they are in
+- what kind of ad format we are making
+- what the final video needs to feel like
 
-1. Define a locked character pack.
-2. Define a reusable raw-footage format template.
-3. Define a setting pack.
-4. Define a campaign brief for one ad.
-5. Apply India-wide production defaults.
-6. Compile the brief into a shot manifest and prompt pack.
-7. Generate clips with Sora and/or Veo.
-8. Stitch and edit using the shared editor.
+In simple terms:
 
-### Why this exists
+`character + setting + format + campaign brief = ad plan`
 
-The current India generators are strong on emotional prompting, but they do not yet have
-a dedicated character-consistency pipeline. This scaffold adds that layer.
+## How to think about this folder
 
-### India-wide constraints
+### `characters/`
+Who is in the ad.
 
-These are enforced through `india_defaults.json`.
+### `settings/`
+Where the ad happens.
 
-- Duration presets: `20`, `30`, `40`, `50`, `60` seconds
-- Export aspect ratios: `9:16`, `4:5`, `16:9`
-- Every India ad must use the same locked outro asset
-- The India outro audio and timing must not be changed
-- Dialogue delivery quality is treated as a top-level constraint, not a nice-to-have
+### `formats/`
+What type of ad it is.
 
-### Current Test
+Examples:
+- confession
+- reaction
+- friend conversation
 
-`campaigns/kota_boy_confession_night_01/`
+### `campaigns/`
+The actual ad idea we are building.
 
-This is the first single-video test:
-- format: kid-to-camera confession
-- character: Kota boy
-- setting: hostel night room
-- style: handheld front-camera realism
-- audio: model-native audio preferred, no ElevenLabs required by default
+### `scripts/`
+The tools that turn the idea into prompts and production files.
 
-### Folder Layout
+## Why this matters
 
-```text
-india-raw-footage/
-├── campaigns/
-├── characters/
-├── formats/
-├── settings/
-└── scripts/
-```
+This folder is useful when we want ads that feel:
+- more real
+- more repeatable
+- more intentional
 
-### Build the test manifest
+It is especially useful for India ads where:
+- raw footage matters
+- room realism matters
+- voice and emotion matter
+- we may want to reuse the same character or scene style
 
-```bash
-python3 india-raw-footage/scripts/build_run.py \
-  --campaign india-raw-footage/campaigns/kota_boy_confession_night_01/brief.json
-```
+## India-wide rules in this system
 
-The script writes:
-- `build/run_manifest.json`
-- `build/shot_01_prompt.txt`
-- `build/shot_02_prompt.txt`
-- `build/shot_03_prompt.txt`
+These rules are stored in `india_defaults.json`.
 
-These files are the source of truth for generation and later editing.
+They currently include:
+- duration options: `20`, `30`, `40`, `50`, `60`
+- export shapes: `9:16`, `4:5`, `16:9`
+- one locked India outro
+- no changing the outro timing or audio
+- dialogue quality is treated as a top-level requirement
+
+## Current example
+
+Current test campaign:
+- `campaigns/kota_boy_confession_night_01/`
+
+What it is:
+- a kid-to-camera confession
+- set in a Kota hostel room at night
+- meant to feel like raw handheld student footage
+
+## What gets created
+
+When the campaign is built, this folder generates:
+- a manifest for the ad
+- shot-by-shot prompt files
+- the production plan needed for generation and later editing
+
+## If you are non-technical
+
+The most useful places to open are:
+- `characters/`
+- `settings/`
+- `formats/`
+- `campaigns/`
+
+That will tell you:
+- who the ad is about
+- where it happens
+- what style it is
+- what the final story is supposed to be
