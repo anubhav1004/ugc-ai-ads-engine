@@ -1,0 +1,41 @@
+THIS IS RAW PHONE FRONT-CAMERA FOOTAGE, 9:16 vertical.
+THE CAMERA IS THE PHONE ITSELF.
+The phone is propped against books on a desk. The student suddenly grabs it and pulls it closer to his face. THE FRAME MUST PHYSICALLY MOVE WITH THE PHONE. No cinematic camera movement.
+
+Setting:
+Indian student study desk at night. Kota/coaching style setup. Open chemistry and physics books, rough notebook pages, cheap desk lamp, plain wall, realistic clutter. Real Android phone look.
+
+Subject:
+Indian boy, 18 years old, medium-brown skin, tired face, simple dark t-shirt, slightly messy hair.
+
+Camera behavior:
+- starts as a propped front-camera recording
+- face is on the right third of frame, chest-up, slightly low angle
+- when he sees something on the screen, he grabs the phone with one hand
+- the frame jolts upward and comes physically closer to the face
+- final framing is a tight face close-up, still imperfect, not centered
+- autofocus breathes once while the phone moves closer
+
+Action:
+He is reading from the desk, distracted.
+Then he looks down at the phone screen and suddenly realizes something important.
+He grabs the phone and pulls it closer to check again.
+Then he stares directly into the lens for one beat.
+
+Expression sequence:
+- frustration
+- concentration
+- freeze
+- eyebrows lift slightly
+- eyes widen
+- tiny "oh" reaction without speaking
+
+Audio:
+Silent except desk rustle, light room tone, one small inhale.
+
+Constraints:
+- no dialogue
+- no text overlay
+- no other people
+- realism over beauty
+- physical phone movement is the whole point

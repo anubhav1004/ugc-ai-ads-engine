@@ -1,0 +1,44 @@
+{
+  "id": "propped_desk_confession_reaction",
+  "label": "Propped Desk Confession Reaction",
+  "best_use": "Student is already recording on front camera, like a private late-night vent or reaction for friends.",
+  "ugc_principle": "Feels authentic because the phone is propped, the body language is contained, and the reaction is mostly facial.",
+  "camera_logic": {
+    "camera_role": "front-facing phone camera propped against books or a desk object",
+    "start_state": "already recording, static but imperfect angle",
+    "pickup_behavior": "optional small hand adjustment only",
+    "framing": "chest-up or face-close",
+    "face_position": "slightly low in frame or off-center",
+    "movement_style": "tiny desk vibrations, occasional hand adjustment, small lean-ins",
+    "reframe_rule": "tighter framing comes from the subject leaning toward the phone"
+  },
+  "emotion_arc": [
+    "stressed or frustrated",
+    "reads explanation",
+    "slow understanding",
+    "quiet payoff or statement"
+  ],
+  "scale_logic": {
+    "easy_variations": [
+      "hostel room",
+      "bedroom desk",
+      "library table",
+      "coaching notes setup"
+    ],
+    "swap_variables": [
+      "lighting",
+      "dialogue line",
+      "subject age band",
+      "desk clutter",
+      "reaction subtlety"
+    ]
+  },
+  "prompt_skeleton": [
+    "RAW FRONT-CAM FOOTAGE, 9:16 vertical.",
+    "The phone is propped against books on a desk.",
+    "The frame is imperfect and slightly shaky from real desk vibration.",
+    "The subject reads something on the phone and the face changes gradually.",
+    "The subject may lean closer to the phone, bringing the face tighter into frame.",
+    "This should feel like a real private recording, not a performed ad."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "format": "raw_front_phone_camera_footage",
+  "aspect_ratio": "9:16",
+  "test_type": "shock_then_pull_phone_closer",
+  "hard_rules": [
+    "this recording is the phone itself",
+    "there is no second phone anywhere",
+    "the front camera of this same phone is already recording",
+    "do not show another phone in her hand",
+    "the shocked reaction must be visible by the third second",
+    "the hand-to-mouth gesture must be visible",
+    "after the reaction, she must physically pull the recording phone closer to her face as if trying to read the screen better",
+    "the frame must tighten because the phone moves physically closer, not because of fake zoom",
+    "no cinematic stabilization",
+    "no fake zoom"
+  ],
+  "goal": "Create raw front-camera footage where an American blonde girl reacts with shock by the third second, then physically brings the recording phone closer toward her face as if rereading or inspecting something on the screen.",
+  "scene": {
+    "subject": "American blonde girl in her early 20s",
+    "setting": "plain bedroom at night",
+    "wardrobe": "simple grey t-shirt",
+    "background_details": [
+      "plain wall",
+      "bed",
+      "dresser",
+      "slightly open door"
+    ],
+    "lighting": "soft practical room light, ordinary and unstyled",
+    "style": "real raw front phone camera footage, not aesthetic"
+  },
+  "camera": {
+    "lens_state": "front camera selfie footage only",
+    "look": [
+      "raw phone look",
+      "natural handheld imperfections",
+      "no smooth rig motion",
+      "tiny exposure breathing is okay"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "0.0-1.2",
+      "beats": [
+        "the phone is resting and already recording from the front camera",
+        "medium close framing",
+        "she reads something on this phone screen",
+        "minimal movement"
+      ]
+    },
+    {
+      "time": "1.2-3.0",
+      "beats": [
+        "the shock reaction visibly builds and lands within this window",
+        "eyes widen",
+        "eyebrows lift",
+        "mouth opens slightly",
+        "one hand clearly comes up and covers part of her mouth",
+        "hold the shocked expression by the third second"
+      ]
+    },
+    {
+      "time": "3.0-4.2",
+      "beats": [
+        "while still shocked, she reaches toward this same recording phone",
+        "she grabs it and gently pulls it closer toward her face",
+        "the frame shifts and tightens because the recording phone is moving closer",
+        "the motion should feel like she is trying to reread or inspect what is on the screen"
+      ]
+    },
+    {
+      "time": "4.2-6.2",
+      "beats": [
+        "the phone is now much closer to her face",
+        "the framing becomes a tight close-up naturally from physical phone movement",
+        "small handheld shake continues",
+        "she stares at the screen in disbelief"
+      ]
+    },
+    {
+      "time": "6.2-8.0",
+      "beats": [
+        "she keeps the phone close and continues reading",
+        "one hand can hover near the mouth or cheek naturally",
+        "tiny raw handheld tremor remains visible",
+        "no dialogue, only natural room tone"
+      ]
+    }
+  ],
+  "priority_notes": [
+    "the move closer must feel like curious shocked rereading, not random pickup",
+    "the hand-on-mouth gesture must read clearly on screen",
+    "the shock reaction must be fully visible by second 3",
+    "the tighter framing must come from real phone movement toward her face"
+  ],
+  "audio": {
+    "room_tone": "natural room tone only",
+    "music": "none",
+    "dialogue": "none"
+  }
+}

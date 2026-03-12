@@ -346,16 +346,17 @@ def concat_and_add_audio(reaction_mp4: Path, demo_mp4: Path,
 
 def send_to_slack(video_path: Path, hook: dict) -> None:
     print(f"\n[→ Slack] {hook['id']} ...")
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     r = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", (
-            f"text=*[STUDYTOK HOOK]* `{hook['id']}` — {hook['title']}\n"
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", (
+            f"*[STUDYTOK HOOK]* `{hook['id']}` — {hook['title']}\n"
             f"> Caption: _{hook['caption']}_\n"
             f"> Character: {hook['character']}\n"
             f"Sora 2 reaction + product demo | trending audio (auto-picked) | 9:16"
         ),
-        "-F", f"file=@{video_path}",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {r.stdout.strip() or r.stderr.strip()}")
 

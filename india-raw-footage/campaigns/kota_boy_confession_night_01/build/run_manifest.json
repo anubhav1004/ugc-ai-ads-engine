@@ -1,0 +1,53 @@
+{
+  "campaign_id": "kota_boy_confession_night_01",
+  "market": "india",
+  "product": "Professor Curious",
+  "character_id": "kota_boy_v1",
+  "format_id": "kid_to_camera_confession",
+  "setting_id": "hostel_night_room",
+  "target_duration_seconds": 20,
+  "target_aspect_ratios": [
+    "9:16",
+    "4:5",
+    "16:9"
+  ],
+  "generation_preferences": {
+    "primary_video_model": "sora-2",
+    "fallback_video_model": "veo",
+    "native_audio": true,
+    "dialogue_delivery_priority": "max",
+    "master_aspect_ratio": "9:16"
+  },
+  "duration_plan": {
+    "content_duration_seconds": 11,
+    "outro_duration_seconds": 8.866667,
+    "target_duration_seconds": 20,
+    "remaining_optional_seconds": 0.133
+  },
+  "india_defaults": {
+    "outro_asset_path": "/Users/anubhavmishra/Downloads/c99c5747-3db9-4457-a45c-f79bd1f42c82.MP4",
+    "outro_locked": true,
+    "outro_audio_edit_allowed": false,
+    "outro_timing_change_allowed": false
+  },
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "role": "hook",
+      "duration_seconds": 3,
+      "prompt_file": "shot_01_prompt.txt"
+    },
+    {
+      "shot_id": "shot_02",
+      "role": "body",
+      "duration_seconds": 5,
+      "prompt_file": "shot_02_prompt.txt"
+    },
+    {
+      "shot_id": "shot_03",
+      "role": "close",
+      "duration_seconds": 3,
+      "prompt_file": "shot_03_prompt.txt"
+    }
+  ]
+}

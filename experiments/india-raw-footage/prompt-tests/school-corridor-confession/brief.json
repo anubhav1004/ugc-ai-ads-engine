@@ -1,0 +1,14 @@
+{
+  "id": "school_corridor_confession",
+  "market": "india",
+  "duration_seconds": 56,
+  "format": "single-cam confession",
+  "consistency_dependency": "medium",
+  "product_role": "safe place to ask doubts without judgment",
+  "core_pain": "fear of public embarrassment when asking doubts",
+  "assembly": {
+    "body_clips": 6,
+    "clip_seconds": 8,
+    "locked_outro_required": true
+  }
+}

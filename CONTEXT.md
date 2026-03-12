@@ -44,6 +44,12 @@ ugc-ai-ads-engine/
 │   └── scripts/
 │       ├── edit.py
 │       └── edit_batch.py
+├── india-raw-footage/             ← India character-consistency scaffold for raw footage ads
+│   ├── campaigns/
+│   ├── characters/
+│   ├── formats/
+│   ├── settings/
+│   └── scripts/build_run.py
 ├── assets/
 │   ├── pc_logo.png
 │   └── gauth_logo.png
@@ -143,7 +149,102 @@ Output lands in: `~/.openclaw/workspace/output/ugc-street-interview/<run-id>/`
 
 ## Session Log
 
+### Session 9 — 2026-03-12
+
+#### 1. Reaction Pipeline Formalized
+Created a reusable reaction-ad system under:
+- `experiments/reaction-pipeline/`
+
+Main runner:
+- `experiments/reaction-pipeline/run_reaction_pipeline.py`
+
+Purpose:
+- generate short reaction clips
+- enforce same-phone pickup logic
+- add hook overlay
+- stitch full Professor Curious demo
+- replace original audio with a trending-style bed
+
+Specs created:
+- `specs/front-selfie-sample.json`
+- `specs/side-table-sample.json`
+- `specs/side-table-dim-screenlight-sample.json`
+
+Important creative/mechanical learning:
+- `front-selfie` is the most reliable preset
+- `side-table` should not rely on the model to invent the pickup transition
+- for `side-table`, the stronger approach is to generate the seated reaction first and add pickup motion in post on the same recorded frame sequence
+
+#### 2. Reaction Batch Systems
+Created batch experiment folders:
+- `experiments/reaction-ads/`
+- `experiments/reaction-ads-v2/`
+
+Purpose:
+- run multiple American reaction variants with different looks and hook copy
+- append the Professor Curious demo
+- apply the same trending-style replacement audio
+
+#### 3. India Raw-Footage Expansion
+Added:
+- `india-raw-footage/`
+
+Purpose:
+- reference-scene generation
+- character packs
+- raw-footage campaign manifests
+- first India test campaigns and long-form assembly scripts
+
+#### 4. Product Research Added To Repo
+Added durable research under:
+- `research/product/`
+- `research/user-feedback/`
+
+Key files:
+- `research/product/PROF_CURIOUS_PRODUCT_DOSSIER_2026-03-12.md`
+- `research/product/PROF_CURIOUS_CREATIVE_RESEARCH_V2_2026-03-12.md`
+- `research/user-feedback/prof-curious-user-feedback-2026-03-08.csv`
+- `research/user-feedback/USER_RESEARCH_QUESTIONS.md`
+- `research/user-feedback/INSIGHTS_2026-03-12.md`
+
+Key conclusion:
+- Professor Curious should be treated as a `clarity product` first
+- strongest ad territory is `confusion -> explanation -> relief`
+
+#### 5. Slack API Integration
+Introduced shared helper:
+- `common/send_slack.py`
+
+Updated existing scripts to use the new multipart Slack send API instead of older per-script send logic.
+
 ### Session 8 — 2026-03-08
+
+#### 4. India Character-Consistency Scaffold (`india-raw-footage/`)
+Started a new additive India pipeline for recurring-character raw-footage ads without
+rewriting the older generators.
+
+**Purpose:**
+- lock character identity, wardrobe, room realism, and camera grammar
+- compile a single campaign brief into a multi-shot prompt pack
+- support Sora and/or Veo generation later
+- prefer native model audio by default
+
+**Current test campaign:**
+- `campaigns/kota_boy_confession_night_01/`
+- format: kid-to-camera confession
+- character: `kota_boy_v1`
+- setting: `hostel_night_room`
+- output: `build/run_manifest.json` + 3 shot prompt files
+
+**Build command:**
+```bash
+python3 india-raw-footage/scripts/build_run.py \
+  --campaign india-raw-footage/campaigns/kota_boy_confession_night_01/brief.json
+```
+
+**Why this matters:**
+- current India flows are strong on emotion but not structured for recurring character packs
+- this creates the base layer for consistency across multiple videos before API execution
 
 **New formats built:**
 

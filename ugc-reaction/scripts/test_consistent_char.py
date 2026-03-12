@@ -162,11 +162,12 @@ def poll_and_download(video_id: str) -> Path:
 
 def send_to_slack(video_path: Path) -> None:
     print("\n[4/4] Sending to Slack ...")
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     result = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", "text=*[CONSISTENT CHAR TEST]* hook_01_jaw_drop with gpt-image-1.5 reference\nSame character locked via input_reference — checking face consistency.",
-        "-F", f"file=@{video_path}",
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", "*[CONSISTENT CHAR TEST]* hook_01_jaw_drop with gpt-image-1.5 reference\nSame character locked via input_reference — checking face consistency.",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {result.stdout.strip() or result.stderr.strip()}")
 

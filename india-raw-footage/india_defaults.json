@@ -1,0 +1,33 @@
+{
+  "market": "india",
+  "duration_presets_seconds": [20, 30, 40, 50, 60],
+  "aspect_ratio_presets": {
+    "reels_vertical": "9:16",
+    "feed_portrait": "4:5",
+    "landscape_video": "16:9"
+  },
+  "india_outro": {
+    "asset_path": "/Users/anubhavmishra/Downloads/c99c5747-3db9-4457-a45c-f79bd1f42c82.MP4",
+    "duration_seconds": 8.866667,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "width": 480,
+    "height": 848,
+    "frame_rate": 30,
+    "audio_sample_rate": 44100,
+    "audio_channels": 2,
+    "policy": {
+      "required_for_all_india_ads": true,
+      "replaceable": false,
+      "trim_allowed": false,
+      "audio_edit_allowed": false,
+      "timing_change_allowed": false
+    }
+  },
+  "delivery_rules": {
+    "dialogue_quality": "highest priority",
+    "spoken_delivery": "must feel natural, local, and believable",
+    "voice_over_default": "native model dialogue preferred",
+    "master_edit_rule": "all India ads are built around the locked outro asset"
+  }
+}

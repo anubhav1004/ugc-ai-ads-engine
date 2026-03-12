@@ -253,15 +253,16 @@ def apply_ui_overlay(video_path: Path, ui_png: Path, out_path: Path) -> Path:
 
 def send_to_slack(video_path: Path, hook: dict) -> None:
     print(f"\n[→ Slack] {hook['id']} ...")
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     r = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", (
-            f"text=*[CALL FORMAT]* `{hook['id']}` — {hook['title']}\n"
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", (
+            f"*[CALL FORMAT]* `{hook['id']}` — {hook['title']}\n"
             f"> {hook['angle']}\n"
             f"Veo 3 | 9:16 | split-screen livestream call style | Professor Curious"
         ),
-        "-F", f"file=@{video_path}",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {r.stdout.strip() or r.stderr.strip()}")
 

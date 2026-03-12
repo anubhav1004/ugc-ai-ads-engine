@@ -6,7 +6,31 @@ Generate authentic UGC-style video ads using Azure Sora. Raw footage, street int
 
 ---
 
-## Skills
+## Project Areas
+
+### Stable / Core Systems
+
+- `ugc-street-interview/` — India Hindi street interviews
+- `ugc-us-college-interview/` — US college social-proof interviews
+- `ugc-studytok-hooks/` — StudyTok hook generation
+- `ugc-reaction/` — reaction hook scripts and camera logic
+- `ugc-livestream-call/` — split-screen call format
+- `video-editor/` — post-processing tools
+- `common/send_slack.py` — Slack file/message sender helper
+
+### Research
+
+- `research/` — product research, survey analysis, persona work, and creative strategy
+
+### Experiments
+
+### `experiments/`
+Visible workspace for trial pipelines, prompt tests, model comparisons, and consistency
+experiments before they are promoted into stable production workflows.
+
+See:
+- `experiments/README.md`
+- `experiments/LATEST.md`
 
 ### `ugc-street-interview/` — India Market
 Vlogger interviews students outside coaching centres and school gates in Kota.
@@ -51,6 +75,51 @@ python3 ugc-us-college-interview/scripts/run.py \
 
 ### `professor-curious-street-interview/` — PC India (Grade-specific)
 Original PC-specific skill. Grade-based targeting (Class 10 / Class 12 boards).
+
+---
+
+### `india-raw-footage/` — India Character-Consistency Lab
+New India-market production scaffold for recurring-character raw phone-footage ads.
+Built to support stronger continuity across multi-video campaigns using locked character
+packs, format templates, setting packs, and per-campaign shot manifests.
+
+**Current test:** `kota_boy_confession_night_01`
+
+```bash
+python3 india-raw-footage/scripts/build_run.py \
+  --campaign india-raw-footage/campaigns/kota_boy_confession_night_01/brief.json
+```
+
+### `experiments/reaction-pipeline/` — Reaction Ad System
+Reusable reaction-video pipeline for:
+- front-selfie reactions
+- side-table reactions
+- same-phone pickup motion in post
+- Professor Curious demo stitching
+- trending-style replacement audio
+
+Main runner:
+
+```bash
+python3 experiments/reaction-pipeline/run_reaction_pipeline.py \
+  --spec experiments/reaction-pipeline/specs/front-selfie-sample.json
+```
+
+## Generated Outputs
+
+Generated media stays local and gitignored by default:
+- `output/`
+- `*.mp4`
+- `*.mov`
+
+The repo tracks:
+- scripts
+- prompts
+- manifests
+- specs
+- overlays
+- research
+- experiment structure
 
 ---
 

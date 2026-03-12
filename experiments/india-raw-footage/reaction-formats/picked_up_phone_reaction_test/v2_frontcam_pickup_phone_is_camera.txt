@@ -1,0 +1,54 @@
+STRICT DEVICE LOGIC TEST.
+
+THIS RECORDING IS THE PHONE ITSELF.
+THERE IS NO SECOND PHONE IN THE SCENE.
+THE CAMERA YOU ARE SEEING FROM IS THE SAME PHONE THE STUDENT TOUCHES, LIFTS, TILTS, AND MOVES.
+
+Mode:
+- front-facing selfie camera is already ON
+- the phone is currently propped against books on a study desk
+- the recording frame is what this phone sees from its own front camera
+
+Important:
+- do NOT show the student holding a different phone
+- do NOT introduce another device
+- when the student grabs the phone, the frame itself must physically jolt because the recording device is being moved
+- if the phone comes closer to the face, the frame itself becomes tighter because the recording phone moved closer
+- no fake cinematic zoom
+
+Visual setup:
+- 9:16 vertical
+- raw Android front-camera look
+- slight grain, imperfect autofocus, normal compression
+- Indian student study desk at night
+- cheap desk lamp, books, notes, ordinary clutter
+- Indian boy, 18, tired face, simple dark t-shirt, slightly messy hair
+
+Starting frame:
+- front camera is on
+- phone is propped at desk level
+- chest-up framing
+- his face starts on the right third of the frame, not centered
+
+Action timeline:
+- 0-2s: he is studying and glances at the phone screen on the recording device
+- 2-3s: he suddenly notices something important on THIS phone's screen
+- 3-4s: he grabs THIS phone with one hand; the recording frame jolts upward and tilts slightly
+- 4-6s: while still reading THIS screen, he physically pulls THIS phone closer to his face; frame gets tighter and more intimate
+- 6-8s: he freezes, eyebrows lift slightly, eyes widen, tiny silent "oh", then he looks directly into THIS lens for one beat
+
+Expression:
+- frustration
+- concentration
+- freeze
+- understanding landing
+- disbelief mixed with relief
+
+Audio:
+- room tone only
+- desk rustle
+- one small inhale
+- no music
+- no dialogue
+
+This must feel like a real phone that was already recording on front camera and then got picked up by the student using that exact same device.

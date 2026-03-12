@@ -1,0 +1,100 @@
+{
+  "format": "raw_front_phone_camera_footage",
+  "aspect_ratio": "9:16",
+  "test_type": "shock_then_device_pickup",
+  "hard_rules": [
+    "this recording is the phone itself",
+    "there is no second phone anywhere",
+    "the front camera of this same phone is already recording",
+    "do not show another phone in her hand",
+    "do not delay the shock reaction past the third second",
+    "the hand-to-mouth gesture must be visible",
+    "the phone pickup motion must happen after the shock lands",
+    "no cinematic stabilization",
+    "no fake zoom"
+  ],
+  "goal": "Create raw front-camera footage where the subject reacts with visible shock by the third second, including a hand moving onto her mouth, and then picks up the recording phone.",
+  "scene": {
+    "subject": "Latina American woman in her early 20s",
+    "appearance": "caramel highlighted hair",
+    "setting": "simple room with plain wall",
+    "wardrobe": "simple neutral t-shirt",
+    "background_details": [
+      "plain wall",
+      "bed",
+      "dresser",
+      "slightly open door"
+    ],
+    "lighting": "soft practical room light, ordinary and unstyled",
+    "style": "real raw front phone camera footage, not aesthetic"
+  },
+  "camera": {
+    "lens_state": "front camera selfie footage only",
+    "look": [
+      "raw phone look",
+      "natural handheld imperfections",
+      "no smooth rig motion",
+      "tiny exposure breathing is okay"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "0.0-1.2",
+      "beats": [
+        "the phone is resting and already recording from the front camera",
+        "medium close framing",
+        "she reads something on this phone screen",
+        "minimal movement"
+      ]
+    },
+    {
+      "time": "1.2-3.0",
+      "beats": [
+        "the shock reaction visibly builds and lands within this window",
+        "eyes widen",
+        "eyebrows lift",
+        "mouth opens slightly",
+        "one hand clearly comes up and covers part of her mouth",
+        "hold the shocked expression by the third second"
+      ]
+    },
+    {
+      "time": "3.0-4.2",
+      "beats": [
+        "only now she reaches toward the lens and grabs this same recording phone",
+        "fingers briefly cover part of the lens edge",
+        "the frame jolts because the recording phone is being picked up",
+        "the angle changes from resting to handheld"
+      ]
+    },
+    {
+      "time": "4.2-6.0",
+      "beats": [
+        "she keeps the shocked face while holding the phone",
+        "small handheld shake continues",
+        "the phone comes slightly closer to her face",
+        "tight close-up forms naturally because the phone is now in hand"
+      ]
+    },
+    {
+      "time": "6.0-8.0",
+      "beats": [
+        "she holds the phone in hand and stays in disbelief",
+        "hand can leave and return near mouth naturally",
+        "tiny raw handheld tremor remains visible",
+        "no dialogue, only natural room tone"
+      ]
+    }
+  ],
+  "priority_notes": [
+    "the hand-on-mouth gesture must read clearly on screen",
+    "the shock reaction must be fully visible by second 3",
+    "the pickup motion must happen after the reaction, not before",
+    "the audience must feel that the recording phone itself gets picked up"
+  ],
+  "audio": {
+    "room_tone": "natural room tone only",
+    "music": "none",
+    "dialogue": "none"
+  }
+}

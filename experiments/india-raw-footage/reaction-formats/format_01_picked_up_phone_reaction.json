@@ -1,0 +1,46 @@
+{
+  "id": "picked_up_phone_reaction",
+  "label": "Picked-Up Phone Reaction",
+  "best_use": "Strong hook format where the phone starts resting somewhere and is grabbed, creating immediate motion and realism.",
+  "ugc_principle": "The scroll stop comes from physical frame motion plus an instant facial transition.",
+  "camera_logic": {
+    "camera_role": "the camera is the phone",
+    "start_state": "phone is placed on a surface",
+    "pickup_behavior": "phone is grabbed and the frame physically lurches, tilts, or flips",
+    "framing": "settles into close face framing after pickup",
+    "face_position": "slightly off-center, usually right third or left third",
+    "movement_style": "abrupt pickup motion followed by imperfect handheld stabilization",
+    "reframe_rule": "if the face gets closer, it happens because the phone is physically moved closer"
+  },
+  "emotion_arc": [
+    "neutral or distracted",
+    "reads screen",
+    "freezes",
+    "shock or relief lands on the face"
+  ],
+  "scale_logic": {
+    "easy_variations": [
+      "cafe table",
+      "study desk",
+      "bed",
+      "kitchen counter",
+      "car cupholder"
+    ],
+    "swap_variables": [
+      "setting",
+      "pickup speed",
+      "expression intensity",
+      "face position",
+      "time of day"
+    ]
+  },
+  "prompt_skeleton": [
+    "THIS IS RAW PHONE-CAMERA FOOTAGE.",
+    "THE CAMERA IS THE PHONE.",
+    "The video begins with the phone [start state].",
+    "When the subject picks up the phone, THE FRAME PHYSICALLY MOVES.",
+    "The face settles into [framing] with the face on [face_position].",
+    "The subject reads something on the screen and the expression changes in a clear sequence.",
+    "No cinematic movement. Only real hand movement."
+  ]
+}

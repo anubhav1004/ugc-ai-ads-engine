@@ -133,14 +133,15 @@ def apply_hook(input_path: Path, hook: dict, out_dir: Path) -> Path:
 
 def send_to_slack(video_path: Path, text: str) -> None:
     print(f"  [slack] Sending {video_path.name} ...", flush=True)
-    with open(video_path, "rb") as f:
-        resp = requests.post(
-            SLACK_URL,
-            data={"channel_id": SLACK_CHANNEL},
-            files={"file": (video_path.name, f, "video/mp4")},
-        )
-    requests.post(SLACK_URL, data={"channel_id": SLACK_CHANNEL, "text": text})
-    print(f"  [slack] {'✓ Sent' if resp.ok else '✗ ' + resp.text[:80]}", flush=True)
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
+    result = subprocess.run([
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", text,
+        "--file", str(video_path),
+    ], capture_output=True, text=True)
+    resp = result.stdout.strip() or result.stderr.strip()
+    print(f"  [slack] {'✓ Sent' if result.returncode == 0 else '✗ ' + resp[:80]}", flush=True)
 
 
 def process_video(video_path: Path) -> None:

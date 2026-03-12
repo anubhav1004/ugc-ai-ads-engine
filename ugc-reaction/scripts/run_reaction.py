@@ -367,11 +367,12 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
 
 def send_to_slack(video_path: Path, label: str) -> None:
     print(f"[slack] Sending: {label}")
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     result = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", f"text=*[REACTION]* {label}",
-        "-F", f"file=@{video_path}",
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", f"*[REACTION]* {label}",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {result.stdout.strip() or result.stderr.strip()}")
 

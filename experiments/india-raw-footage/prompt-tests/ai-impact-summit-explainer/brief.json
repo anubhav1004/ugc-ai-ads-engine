@@ -1,0 +1,19 @@
+{
+  "id": "ai_impact_summit_explainer",
+  "market": "india",
+  "duration_seconds": 56,
+  "format": "selfie explainer / vox-pop hybrid",
+  "consistency_dependency": "low",
+  "product_role": "practical study AI, not hype AI",
+  "core_pain": "students hear AI hype but need actual study help",
+  "factual_context": {
+    "event": "India AI Impact Summit",
+    "location": "New Delhi",
+    "dates": "2026-02-19 to 2026-02-20"
+  },
+  "assembly": {
+    "body_clips": 6,
+    "clip_seconds": 8,
+    "locked_outro_required": true
+  }
+}

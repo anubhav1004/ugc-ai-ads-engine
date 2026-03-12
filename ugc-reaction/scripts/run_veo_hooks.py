@@ -234,11 +234,12 @@ def poll_and_download(op_name: str, hook_id: str) -> Path:
 
 def send_to_slack(video_path: Path, hook: dict) -> None:
     print(f"\n[3/3] Sending to Slack ...")
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     result = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", f"text=*[VEO HOOK]* {hook['id']} — {hook['title']}\nGemini nano-banana-pro character + Veo 3 video (9:16)",
-        "-F", f"file=@{video_path}",
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", f"*[VEO HOOK]* {hook['id']} — {hook['title']}\nGemini nano-banana-pro character + Veo 3 video (9:16)",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {result.stdout.strip() or result.stderr.strip()}")
 

@@ -1,0 +1,53 @@
+RAW FRONT PHONE CAMERA FOOTAGE, 9:16 vertical.
+
+STRICT PHYSICAL DEVICE MOTION TEST.
+
+THIS RECORDING IS THE PHONE ITSELF.
+THERE IS NO SECOND PHONE.
+THE FRONT CAMERA OF THIS SAME PHONE IS ALREADY RECORDING.
+
+The one thing that must happen clearly:
+THE PHONE GETS PHYSICALLY PICKED UP ON CAMERA.
+That means the recording frame itself must jolt, tilt, shift, and settle because the recording phone is being grabbed by hand.
+
+Do not cheat this.
+Do not keep the phone static.
+Do not simulate this with only face movement.
+
+Scene:
+Indian man in his early 20s in a plain room at night. Simple t-shirt. Plain wall. Ceiling fan. Open door. Ordinary chair. Nothing aesthetic.
+
+Starting state:
+- the phone is propped against something at desk level
+- front camera is ON
+- framing is chest-up
+- face slightly right of center
+
+Required physical motion:
+- within the first 1.5 seconds, his hand must enter frame and visibly grab THIS phone
+- as the hand grabs the phone, fingers partially cover part of the lens for a moment
+- the frame must physically jerk upward and tilt left or right
+- the angle must change because the phone is now in his hand, not still propped
+- after pickup, the phone settles into a closer face framing
+
+Reaction timing:
+- he notices something on THIS phone screen almost immediately
+- by second 3 or 4, the reaction must already land
+- after pickup, he brings the phone slightly closer while reading again
+
+Expression:
+- reads
+- freezes
+- eyes widen
+- mouth opens slightly
+- hand comes toward mouth or face
+- holds silent disbelief
+
+Audio:
+- natural room tone only
+- no music
+- no dialogue
+
+Important:
+The point of this clip is not just the face.
+The point is that the audience can FEEL that the recording phone itself was picked up.

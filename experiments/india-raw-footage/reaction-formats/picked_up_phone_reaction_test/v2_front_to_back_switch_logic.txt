@@ -1,0 +1,34 @@
+STRICT DEVICE LOGIC TEST.
+
+THIS RECORDING IS THE PHONE ITSELF.
+THERE IS NO SECOND PHONE.
+
+The clip starts on the FRONT CAMERA of the same phone.
+Mid-clip, the student taps and switches THIS SAME RECORDING PHONE to the BACK CAMERA.
+The perspective must change because the recording device changed lens state.
+
+Rules:
+- do NOT show another phone
+- front-camera section must feel like selfie footage
+- back-camera section must feel like the same physical phone now pointing outward
+- the transition must feel like a real front-to-back camera switch on the recording device
+
+Visual setup:
+- Indian student desk at night
+- books, notes, cheap lamp
+- 9:16 vertical
+- raw phone texture
+
+Action timeline:
+- 0-3s: front camera, tight face framing, he reads this phone screen and reacts
+- 3-4s: he taps the camera switch on THIS phone
+- 4-6s: view changes to back camera from THIS SAME PHONE, now seeing desk/books and the screen reflection context
+- 6-8s: he turns the phone back slightly toward himself or the desk while still using the same recording device
+
+Purpose:
+- validate lens-state logic, not just expression
+
+Audio:
+- room tone only
+- no music
+- no dialogue

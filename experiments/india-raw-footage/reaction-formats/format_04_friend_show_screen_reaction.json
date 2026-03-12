@@ -1,0 +1,43 @@
+{
+  "id": "friend_show_screen_reaction",
+  "label": "Friend Show Screen Reaction",
+  "best_use": "High-energy social proof format where the subject reacts and pulls someone else into the moment.",
+  "ugc_principle": "It feels native because people instinctively show surprising things to friends; the social motion makes the video spreadable.",
+  "camera_logic": {
+    "camera_role": "front-facing selfie phone held in hand",
+    "start_state": "subject is already holding the phone and reacting",
+    "pickup_behavior": "not pickup-focused; the key is the turn or reach toward a friend",
+    "framing": "mid close-up, wider than pure face reaction so the gesture reads",
+    "face_position": "subject starts on one side of frame, then reframes as they turn to call someone",
+    "movement_style": "quick handheld movement, slight swing, energetic reframing",
+    "reframe_rule": "the frame can widen or swing because the arm extends toward the friend"
+  },
+  "emotion_arc": [
+    "surprise",
+    "confirmation",
+    "social urgency",
+    "shared disbelief"
+  ],
+  "scale_logic": {
+    "easy_variations": [
+      "dorm room",
+      "common room",
+      "canteen",
+      "library table",
+      "classroom bench"
+    ],
+    "swap_variables": [
+      "friend on or off camera",
+      "pointing gesture",
+      "verbal callout",
+      "laugh vs stunned look"
+    ]
+  },
+  "prompt_skeleton": [
+    "RAW FRONT-CAM FOOTAGE, 9:16 vertical.",
+    "The subject is holding the phone and reads something surprising.",
+    "The frame swings or reframes as they call a friend or try to show the screen.",
+    "The reaction feels unplanned and social, not solo-testimonial polished.",
+    "Keep the face and the hand movement both visible enough to sell the urgency."
+  ]
+}

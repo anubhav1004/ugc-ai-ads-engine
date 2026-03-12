@@ -1,0 +1,22 @@
+RAW FRONT-CAM FOOTAGE, 9:16 vertical. Same adult Indian male student, age 18, in the same cramped Kota hostel room at around 1:30am. This is one continuous real phone recording, not cinematic.
+
+He is holding the phone in front-camera mode, close framing from chest up, slight natural handheld shake, low-light Android phone grain, ugly tube light mixed with one weak desk lamp.
+
+He looks stressed and sleep-deprived, then speaks naturally in Hinglish:
+"Bhai, kal test hai aur mujhe abhi bhi yeh chapter samajh nahi aa raha tha. Class mein doubt poochne mein ajeeb lagta hai. Aaj raat Professor Curious pe daala, aur pehli baar step by step samajh aaya."
+
+Performance:
+- first 2-3 seconds: panic, shame, frustration
+- next 3-4 seconds: relief starts to appear after saying Professor Curious
+- final beat: he exhales and looks calmer, like the panic has reduced
+
+Audio:
+- native spoken dialogue only
+- no background music
+- subtle fan hum, distant hostel noise, page rustle
+
+Constraints:
+- adult student, 18 years old
+- keep the exact same face identity and room world from the reference image
+- do not make it polished, cinematic, glamorous, or ad-like
+- must feel like a real student self-recording at night

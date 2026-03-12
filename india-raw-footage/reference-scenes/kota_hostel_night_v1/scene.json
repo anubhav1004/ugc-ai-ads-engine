@@ -1,0 +1,45 @@
+{
+  "id": "kota_hostel_night_v1",
+  "label": "Kota hostel room, raw late-night study reality",
+  "market": "india",
+  "scene_goal": "Create a believable first reference scene for recurring India student ads. The image must feel like real phone photography from a student's life, not AI concept art.",
+  "character_anchor": {
+    "subject": "17-18 year old Indian boy, class 12 science student in Kota",
+    "expression": "tired, stressed, trying to stay composed",
+    "pose": "sitting at a cramped study desk or on the bed edge, holding a phone or looking at notebook"
+  },
+  "environment_anchor": {
+    "location": "small rented hostel room in Kota, Rajasthan",
+    "time": "around 1:30am",
+    "details": [
+      "cheap study table",
+      "open physics and chemistry books",
+      "messy notebook pages with handwritten derivations",
+      "bed with crumpled blanket",
+      "budget backpack",
+      "charging cable",
+      "plastic water bottle",
+      "plain walls with minor wear"
+    ]
+  },
+  "camera_anchor": {
+    "device_feel": "real Android phone camera",
+    "shot_type": "casual documentary still",
+    "framing": "slightly imperfect, human-shot composition",
+    "quality": "subtle low-light noise, realistic texture, no cinematic polish"
+  },
+  "lighting_anchor": {
+    "primary": "harsh overhead tube light",
+    "secondary": "weak warm desk lamp",
+    "look": "mixed ugly practical lighting, believable hostel realism"
+  },
+  "avoid": [
+    "cinematic color grading",
+    "luxury room decor",
+    "glamour portrait styling",
+    "perfect facial symmetry",
+    "fashion photography",
+    "influencer bedroom look",
+    "hyper-clean composition"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "campaign_id": "kota_boy_confession_night_01",
+  "market": "india",
+  "product": "Professor Curious",
+  "target_duration_seconds": 20,
+  "target_aspect_ratios": ["9:16", "4:5", "16:9"],
+  "character_ref": "../../characters/kota_boy_v1/character.json",
+  "format_ref": "../../formats/kid_to_camera_confession.json",
+  "setting_ref": "../../settings/hostel_night_room.json",
+  "creative_intent": {
+    "audience": "class 11-12 science students, JEE/NEET pressure, Kota/hostel reality",
+    "pain": "too ashamed to ask doubts in class, late-night confusion, pressure from home",
+    "proof": "Professor Curious helps explain the doubt and keeps the student from spiraling",
+    "tone": "raw, confessional, intimate, credible"
+  },
+  "shot_duration_overrides": {
+    "shot_01": 3,
+    "shot_02": 5,
+    "shot_03": 3
+  },
+  "dialogue_seed": {
+    "language": "hinglish",
+    "hook_line": "Bhai, kal test hai aur mujhe abhi bhi yeh chapter samajh nahi aa raha tha.",
+    "body_line": "Class mein doubt poochne mein ajeeb lagta hai. Sab dekhte hain. Aaj raat Professor Curious pe daala, aur pehli baar step by step samajh aaya.",
+    "close_line": "Sach bolun toh panic band ho gaya. Ab kam se kam pata hai kya padhna hai."
+  },
+  "generation_preferences": {
+    "primary_video_model": "sora-2",
+    "fallback_video_model": "veo",
+    "native_audio": true,
+    "dialogue_delivery_priority": "max",
+    "master_aspect_ratio": "9:16"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "kid_to_camera_confession",
+  "label": "Kid to camera confession",
+  "format_goal": "A student directly addresses the phone camera with a raw, intimate confession that turns into a product rescue moment.",
+  "camera_grammar": {
+    "primary_device": "front-facing smartphone camera",
+    "feel": "captured moment, not ad shoot",
+    "allowed_moves": [
+      "small handheld sway",
+      "brief self-adjustment of phone angle",
+      "momentary glance away and back"
+    ],
+    "forbidden_moves": [
+      "cinematic dolly",
+      "professional rack focus",
+      "floating gimbal motion",
+      "stylized music-video framing"
+    ]
+  },
+  "conversation_pattern": {
+    "hook": "Open on emotional truth within the first 2 seconds.",
+    "body": "Student describes the real problem in plain Hinglish.",
+    "turn": "Student says what changed after using Professor Curious.",
+    "close": "End on relief or conviction, not hard sell."
+  },
+  "shot_plan": [
+    {
+      "shot_id": "shot_01",
+      "role": "hook",
+      "duration_seconds": 6,
+      "beat": "panic and honesty",
+      "camera_note": "front camera, face close, imperfect framing"
+    },
+    {
+      "shot_id": "shot_02",
+      "role": "body",
+      "duration_seconds": 8,
+      "beat": "specific struggle and product use",
+      "camera_note": "same room, same night, tiny shift in phone angle"
+    },
+    {
+      "shot_id": "shot_03",
+      "role": "close",
+      "duration_seconds": 6,
+      "beat": "relief and recommendation",
+      "camera_note": "same handheld session, calmer face, slight exhale"
+    }
+  ],
+  "creative_rules": [
+    "The footage must feel like a real student's phone recording.",
+    "Dialogue should sound spoken, not copywritten.",
+    "No overt brand-sell posture.",
+    "The product name must be audible at least once in the body or close."
+  ]
+}

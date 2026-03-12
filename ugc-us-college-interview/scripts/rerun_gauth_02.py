@@ -188,21 +188,19 @@ def generate_raw_clip(prompt: str, clip_id: str, out_path: Path) -> None:
 
 def send_to_slack(video_path: Path, label: str) -> None:
     print(f"    [slack] Sending {video_path.name} ...", flush=True)
-    with open(video_path, "rb") as f:
-        resp = requests.post(
-            SLACK_URL,
-            data={"channel_id": SLACK_CHANNEL},
-            files={"file": (video_path.name, f, "video/mp4")},
-        )
-    requests.post(SLACK_URL, data={
-        "channel_id": SLACK_CHANNEL,
-        "text": (
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
+    result = subprocess.run([
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", (
             f"🇺🇸 *{label}*\n"
             f"_Professor Curious vs Gauth — with logo overlays._\n"
             f"Gauth logo appears when Gauth mentioned → Professor Curious logo on the answer."
         ),
-    })
-    print(f"    [slack] {'✓ Sent' if resp.ok else '✗ Failed: ' + resp.text[:100]}", flush=True)
+        "--file", str(video_path),
+    ], capture_output=True, text=True)
+    resp = result.stdout.strip() or result.stderr.strip()
+    print(f"    [slack] {'✓ Sent' if result.returncode == 0 else '✗ Failed: ' + resp[:100]}", flush=True)
 
 
 def build_establishing_prompt(scene: dict) -> str:

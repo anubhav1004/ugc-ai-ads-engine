@@ -1,0 +1,14 @@
+{
+  "id": "doubt_mazak_street_interview",
+  "market": "india",
+  "duration_seconds": 56,
+  "format": "street interview",
+  "consistency_dependency": "low",
+  "product_role": "private, non-judgmental doubt solving",
+  "core_pain": "students are mocked when they ask doubts",
+  "assembly": {
+    "body_clips": 6,
+    "clip_seconds": 8,
+    "locked_outro_required": true
+  }
+}

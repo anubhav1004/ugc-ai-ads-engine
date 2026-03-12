@@ -28,13 +28,24 @@ SLACK_CHANNEL = "C0AHDH474LX"
 OUT_DIR = Path.home() / ".openclaw/workspace/output/ugc-reaction-experiments"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# ── Camera logic helper ───────────────────────────────────────────────────────
+
+REACTION_CAMERA_PRIMER = """CAMERA CONTROL RULES
+- THIS IS RAW PHONE-CAMERA FOOTAGE.
+- THE CAMERA IS THE PHONE ITSELF.
+- If the phone is face-down, face-up, propped, grabbed, flipped, lifted, or pulled closer, the frame must physically react.
+- Framing must feel human and imperfect, not centered and polished.
+- The phone can be moved closer to the face for a tighter expression; do not simulate zoom unless explicitly stated.
+- Reframing should come from hand movement, not invisible cinematic camera motion.
+- Keep the image like real phone capture: slight grain, casual autofocus behavior, small shake."""
+
 # ── Sora ───────────────────────────────────────────────────────────────────────
 
 def submit_sora(prompt: str, seconds: int = 8) -> str:
     resp = requests.post(
         f"{BASE_URL}/videos",
         headers={**HEADERS, "Content-Type": "application/json"},
-        json={"model": MODEL, "prompt": prompt, "size": "720x1280", "seconds": str(seconds)},
+        json={"model": MODEL, "prompt": f"{REACTION_CAMERA_PRIMER}\n\n{prompt}", "size": "720x1280", "seconds": str(seconds)},
         timeout=60,
     )
     if not resp.ok:
@@ -70,16 +81,17 @@ def download_sora(video_id: str, out_path: Path) -> Path:
     return out_path
 
 def send_to_slack(video_path: Path, exp: dict) -> None:
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     r = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", (
-            f"text=*[REACTION EXP]* `{exp['id']}`\n"
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", (
+            f"*[REACTION EXP]* `{exp['id']}`\n"
             f"*Setting:* {exp['setting']}\n"
             f"*Motion:* {exp['motion']}\n"
             f"*Expression:* {exp['expression']}"
         ),
-        "-F", f"file=@{video_path}",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     print(f"  [slack] {r.stdout.strip() or r.stderr.strip()}")
 

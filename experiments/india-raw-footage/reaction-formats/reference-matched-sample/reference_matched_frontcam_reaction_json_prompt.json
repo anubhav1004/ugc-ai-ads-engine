@@ -1,0 +1,95 @@
+{
+  "format": "raw_front_phone_camera_footage",
+  "aspect_ratio": "9:16",
+  "test_type": "strict_device_action",
+  "hard_rules": [
+    "this recording is the phone itself",
+    "there is no second phone anywhere",
+    "the front camera of this same phone is already recording",
+    "do not fake pickup with only face movement",
+    "do not keep the frame mostly static",
+    "do not show another phone in his hand"
+  ],
+  "goal": "The audience must clearly feel that the recording phone itself starts resting, gets physically picked up, and settles into handheld close-up while the reaction lands by second 3 to 4.",
+  "scene": {
+    "subject": "Indian man in his early 20s",
+    "setting": "plain room at night",
+    "wardrobe": "simple t-shirt",
+    "background_details": [
+      "plain wall",
+      "ceiling fan",
+      "open door",
+      "ordinary chair"
+    ],
+    "lighting": "weak tube light",
+    "style": "not aesthetic, ordinary room"
+  },
+  "camera": {
+    "lens_state": "front camera selfie footage only",
+    "look": [
+      "raw handheld phone look",
+      "no cinematic stabilization",
+      "no smooth camera rig motion",
+      "natural tiny exposure breathing is okay"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "0.0-0.8",
+      "beats": [
+        "the phone is resting, slightly low, propped on a desk",
+        "chest-up framing",
+        "he is looking at this phone screen"
+      ]
+    },
+    {
+      "time": "0.8-1.8",
+      "beats": [
+        "his hand comes directly toward the lens and grabs this phone",
+        "fingers briefly cover part of the lens and edge of frame",
+        "the frame immediately jolts upward",
+        "the horizon tilts slightly",
+        "framing shifts because the phone is no longer resting"
+      ]
+    },
+    {
+      "time": "1.8-3.0",
+      "beats": [
+        "the phone is now in his hand",
+        "the frame has small handheld shake",
+        "he raises the phone slightly closer to his face",
+        "framing becomes a tighter close-up because the phone is physically closer"
+      ]
+    },
+    {
+      "time": "3.0-4.0",
+      "beats": [
+        "the reaction lands now",
+        "eyes widen",
+        "eyebrows lift",
+        "mouth opens slightly",
+        "silent disbelief"
+      ]
+    },
+    {
+      "time": "4.0-8.0",
+      "beats": [
+        "he keeps holding this phone near his face",
+        "one hand moves toward his mouth or cheek",
+        "the frame continues tiny handheld tremor from the same phone in hand",
+        "hold the emotion naturally"
+      ]
+    }
+  ],
+  "priority_notes": [
+    "the pickup motion is more important than the acting",
+    "the lens occlusion from fingers must be visible for a brief moment",
+    "the shift from propped angle to handheld angle must be obvious",
+    "this should feel like real raw front camera footage from a phone being grabbed mid-recording"
+  ],
+  "audio": {
+    "room_tone": "natural room tone only",
+    "music": "none",
+    "dialogue": "none"
+  }
+}

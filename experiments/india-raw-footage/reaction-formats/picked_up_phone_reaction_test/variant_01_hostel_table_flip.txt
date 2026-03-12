@@ -1,0 +1,36 @@
+THIS IS RAW PHONE FRONT-CAMERA FOOTAGE, 9:16 vertical.
+THE CAMERA IS THE PHONE ITSELF.
+The phone begins face-down on a hostel study table. When the student flips and picks up the phone, THE FRAME PHYSICALLY FLIPS, LURCHES, AND SETTLES. No other camera exists.
+
+Setting:
+Small Kota hostel room at night. Ugly tube light and weak desk lamp. Open physics books, notebook, water bottle, charger cable. Real Indian student mess. No cinematic polish.
+
+Subject:
+Indian male student, 18 years old, tired face, dark circles, faded t-shirt, late-night study stress.
+
+Camera behavior:
+- 0-1s: darkness because phone is face-down
+- 1-2s: student flips phone face-up in one fast motion, frame spins and shakes
+- 2-3s: frame settles at arm's length
+- face ends up on the right third of frame, slightly imperfect crop, little headroom
+- no fake zoom; closeness comes only from the phone being moved closer
+
+Action:
+He reads something on the phone screen, freezes, then slowly brings the phone closer to his face.
+As the phone moves closer, the face becomes tighter in frame.
+
+Expression sequence:
+- tired and distracted
+- reading carefully
+- sudden stillness
+- eyes widen slightly
+- slow exhale
+- the face says: "wait, this actually makes sense"
+
+Audio:
+Only hostel ambience. No music. No dialogue.
+
+Constraints:
+- feels like accidental real phone recording
+- real autofocus micro-adjustment allowed
+- no cinematic stabilization

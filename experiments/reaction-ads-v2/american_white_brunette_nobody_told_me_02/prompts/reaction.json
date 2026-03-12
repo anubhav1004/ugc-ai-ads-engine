@@ -1,0 +1,84 @@
+{
+  "format": "raw_front_phone_camera_footage",
+  "aspect_ratio": "9:16",
+  "test_type": "stronger_shock_then_device_pickup",
+  "hard_rules": [
+    "this recording is the phone itself",
+    "there is no second phone anywhere",
+    "the front camera of this same phone is already recording",
+    "do not show another phone in her hand",
+    "do not delay the shock reaction past the third second",
+    "the hand-to-mouth gesture must be visible",
+    "the phone pickup motion must happen after the shock lands",
+    "no cinematic stabilization",
+    "no fake zoom"
+  ],
+  "goal": "Create raw front-camera footage where the subject reacts with a bigger, clearer shock by the third second: eyes much wider, eyebrows lifted higher, and mouth opening wider before one hand comes toward the mouth. Only after that she grabs and lifts the same recording phone so the frame physically shifts into a natural handheld pickup.",
+  "scene": {
+    "subject": "American brunette woman in her early 20s",
+    "appearance": "long dark brown hair",
+    "setting": "plain apartment bedroom at night",
+    "wardrobe": "simple neutral t-shirt",
+    "background_details": [
+      "plain wall",
+      "bed",
+      "dresser",
+      "slightly open door"
+    ],
+    "lighting": "soft practical room light, ordinary and unstyled",
+    "style": "real raw front phone camera footage, not aesthetic"
+  },
+  "camera": {
+    "lens_state": "front camera selfie footage only",
+    "look": [
+      "raw phone look",
+      "natural handheld imperfections",
+      "no smooth rig motion",
+      "tiny exposure breathing is okay"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "0.0-1.1",
+      "beats": [
+        "the phone is resting and already recording from the front camera",
+        "medium close framing",
+        "she reads something on this phone screen",
+        "minimal movement"
+      ]
+    },
+    {
+      "time": "1.1-3.0",
+      "beats": [
+        "the shock reaction clearly builds and lands within this window",
+        "eyes open much wider than before",
+        "eyebrows lift higher and stay raised",
+        "mouth opens noticeably wider in disbelief",
+        "the reaction should feel bigger and easier to read even on mute",
+        "one hand clearly comes up and covers part of her mouth only after the mouth opens wide",
+        "hold the wide-eyed, open-mouth shocked expression by the third second"
+      ]
+    },
+    {
+      "time": "3.0-4.0",
+      "beats": [
+        "only now she reaches toward the lens and grabs this same recording phone",
+        "fingers briefly cover part of the lens edge",
+        "the frame jolts slightly because the recording phone is being picked up",
+        "the angle changes from resting to handheld"
+      ]
+    }
+  ],
+  "priority_notes": [
+    "make the facial reaction stronger than previous versions",
+    "the mouth should open wider before the hand reaches the mouth",
+    "the eyes should read very wide and alert by second 3",
+    "the pickup motion must happen after the reaction, not before",
+    "the audience must feel that the recording phone itself gets picked up"
+  ],
+  "audio": {
+    "room_tone": "natural room tone only",
+    "music": "none",
+    "dialogue": "none"
+  }
+}

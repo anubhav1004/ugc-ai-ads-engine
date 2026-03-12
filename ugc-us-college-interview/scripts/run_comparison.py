@@ -467,17 +467,15 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
 
 def send_to_slack(video_path: Path, label: str, rival: str) -> None:
     print(f"    [slack] Sending {video_path.name} ...", flush=True)
-    with open(video_path, "rb") as f:
-        resp = requests.post(
-            SLACK_URL,
-            data={"channel_id": SLACK_CHANNEL},
-            files={"file": (video_path.name, f, "video/mp4")},
-        )
-    requests.post(SLACK_URL, data={
-        "channel_id": SLACK_CHANNEL,
-        "text": f"🇺🇸 *US Comparison — {label}*\n_Professor Curious vs {rival} — Elite campus students explain the difference._",
-    })
-    print(f"    [slack] {'✓ Sent' if resp.ok else '✗ Failed: ' + resp.text[:100]}", flush=True)
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
+    result = subprocess.run([
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", f"🇺🇸 *US Comparison — {label}*\n_Professor Curious vs {rival} — Elite campus students explain the difference._",
+        "--file", str(video_path),
+    ], capture_output=True, text=True)
+    resp = result.stdout.strip() or result.stderr.strip()
+    print(f"    [slack] {'✓ Sent' if result.returncode == 0 else '✗ Failed: ' + resp[:100]}", flush=True)
 
 def run_ad(ad: dict) -> None:
     scene   = ad["scene"]

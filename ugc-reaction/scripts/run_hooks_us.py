@@ -33,6 +33,54 @@ SLACK_CHANNEL = "C0AJSBJU1LK"   # experimental — change to C0AHDH474LX for app
 
 OUTPUT_BASE = Path.home() / ".openclaw" / "workspace" / "output" / "ugc-reaction-hooks-us"
 
+# ── Camera control system ─────────────────────────────────────────────────────
+
+DEFAULT_CAMERA = {
+    "camera_is_phone": True,
+    "lens": "front-facing selfie camera",
+    "recording_mode": "raw phone front-camera recording",
+    "framing": "tight chest-up to face-close framing",
+    "face_position": "face slightly off-center, usually right-of-frame, not perfectly centered",
+    "movement": "natural handheld sway, grip micro-shifts, imperfect reframing",
+    "pickup": "if the phone is picked up, the frame must physically lurch and move with the hand",
+    "zoom": "no fake digital zoom unless explicitly requested; closeness should come from the phone moving physically closer",
+    "look": "slight phone grain, casual compression, no cinematic stabilization",
+}
+
+
+def build_camera_block(camera: dict | None = None) -> str:
+    cam = dict(DEFAULT_CAMERA)
+    if camera:
+        cam.update(camera)
+
+    phone_logic = (
+        "THE CAMERA IS THE PHONE. "
+        "If the phone is held, lifted, grabbed, lowered, flipped, or pulled closer, "
+        "the frame itself must physically move with that action."
+        if cam["camera_is_phone"]
+        else "The recording is from a raw front-facing phone camera."
+    )
+
+    return f"""CAMERA LOGIC
+- {phone_logic}
+- Lens: {cam['lens']}
+- Recording mode: {cam['recording_mode']}
+- Framing: {cam['framing']}
+- Face position: {cam['face_position']}
+- Movement: {cam['movement']}
+- Pickup behavior: {cam['pickup']}
+- Zoom rule: {cam['zoom']}
+- Visual texture: {cam['look']}"""
+
+
+def build_full_prompt(hook: dict) -> str:
+    camera_block = build_camera_block(hook.get("camera"))
+    return f"""{hook['character']}
+
+{camera_block}
+
+{hook['prompt']}"""
+
 # ── Hook definitions ───────────────────────────────────────────────────────────
 
 HOOKS = [
@@ -41,6 +89,12 @@ HOOKS = [
         "id": "hook_01_jaw_drop",
         "title": "The Jaw Drop",
         "character": "American girl, 18-19, light skin, blonde hair in a messy bun, oversized grey college hoodie. Sitting at a dorm room desk under a warm desk lamp. Textbook open. Holds phone front-cam, 9:16 vertical, propped against books. Late night, fairy lights in background.",
+        "camera": {
+            "framing": "starts chest-up, then slightly tighter on the face as she leans in",
+            "face_position": "face on the right third of frame with a little headroom, not centered",
+            "movement": "phone starts propped with tiny desk vibration, then small hand-induced shift when she picks it up",
+            "pickup": "when she lifts the phone, the frame rises and settles, not a fake cut",
+        },
         "seconds": 12,
         "prompt": """RAW FRONT-CAM FOOTAGE, 9:16 vertical. Feels completely real — like a TikTok draft.
 
@@ -61,6 +115,12 @@ No performance. Pure genuine shock. The face does everything.""",
         "id": "hook_02_double_take",
         "title": "The Double-Take",
         "character": "American boy, 17-18, medium skin, dark curly hair, wearing a plain navy t-shirt. Sitting at a bedroom desk with a laptop open showing a practice test. Casual suburban bedroom — posters on wall, ring light in background. Holds phone front-cam.",
+        "camera": {
+            "framing": "starts medium close-up, then physically comes closer to the face during the double-take",
+            "face_position": "face initially right-of-frame; when he leans in, the nose and eyes fill more of the frame",
+            "movement": "small propped-phone shake at the desk, then a quick grab and tilt toward the face",
+            "pickup": "the frame tilts and tightens when the phone is pulled toward him",
+        },
         "seconds": 12,
         "prompt": """RAW FRONT-CAM FOOTAGE, 9:16 vertical. Casual, unscripted energy.
 
@@ -316,7 +376,7 @@ def download_video(video_id: str, out_path: Path) -> None:
     print(f"  [save]   {out_path.name} ({len(dl.content) // 1024} KB)", flush=True)
 
 def generate_hook(hook: dict, out_path: Path) -> None:
-    full_prompt = f"{hook['character']}\n\n{hook['prompt']}"
+    full_prompt = build_full_prompt(hook)
     video_id = submit_job(full_prompt, hook["id"], hook["seconds"])
     video_id = poll_job(video_id, hook["id"])
     download_video(video_id, out_path)
@@ -324,11 +384,12 @@ def generate_hook(hook: dict, out_path: Path) -> None:
 def send_to_slack(video_path: Path, hook: dict) -> None:
     label = f"Hook {hook['id']} — *{hook['title']}*"
     print(f"[slack] {label}", flush=True)
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
     result = subprocess.run([
-        "curl", "-s", "-X", "POST", SLACK_URL,
-        "-F", f"channel_id={SLACK_CHANNEL}",
-        "-F", f"text=*[US REACTION HOOK]* {label}\n_{hook['prompt'][:120].strip()}..._",
-        "-F", f"file=@{video_path}",
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", f"*[US REACTION HOOK]* {label}\n_{hook['prompt'][:120].strip()}..._",
+        "--file", str(video_path),
     ], capture_output=True, text=True)
     resp = result.stdout.strip() or result.stderr.strip()
     try:

@@ -1,0 +1,58 @@
+Generate a raw India-market phone video.
+
+Campaign: kota_boy_confession_night_01
+Market: india
+Product: Professor Curious
+Format: Kid to camera confession
+Shot: shot_01 (hook)
+Duration: 3 seconds
+
+SETTING
+Small rented hostel room in Kota, Rajasthan at around 1:30am. Harsh white tube light mixed with one weak study lamp. Bed is unmade. Physics and chemistry books are open. Water bottle, cheap backpack, charger cable, and scribbled notes are visible. The room should feel cramped, real, slightly messy, and lived in by a stressed class 12 student.
+
+CHARACTER LOCK
+- Label: Kota boy, class 12 science student
+- Age band: 17-18
+- Gender presentation: male
+- Skin tone: medium brown
+- Hair: short black hair, slightly messy, realistic student haircut
+- Build: slim, slightly tired posture
+- Wardrobe: faded dark t-shirt, cheap track pants, hostel-room casual
+
+PERFORMANCE LOCK
+- Speaking style: natural Hinglish, emotionally honest, not theatrical
+- Energy: low-energy but intense, sleep-deprived, sincere
+- Emotional beat: panic and honesty
+
+CAMERA LOCK
+- Style: real phone front camera
+- Framing: head and shoulders, slightly imperfect crop
+- Movement: tiny hand tremor, real handheld instability
+- Image quality: low-light grain, natural compression, no cinematic polish
+- Shot note: front camera, face close, imperfect framing
+
+CREATIVE INTENT
+- Audience: class 11-12 science students, JEE/NEET pressure, Kota/hostel reality
+- Pain: too ashamed to ask doubts in class, late-night confusion, pressure from home
+- Proof: Professor Curious helps explain the doubt and keeps the student from spiraling
+- Tone: raw, confessional, intimate, credible
+
+DIALOGUE
+The student speaks naturally in Hinglish to the camera:
+"Bhai, kal test hai aur mujhe abhi bhi yeh chapter samajh nahi aa raha tha."
+
+RAWNESS RULES
+- This must look like real phone footage, not an ad shoot.
+- Keep the room ordinary and believable.
+- Do not glamorize the student.
+- Do not make body language too polished.
+- Keep a local India student reality.
+
+AUDIO
+- Prefer native scene audio and spoken dialogue.
+- Keep background sound subtle: ceiling fan hum, distant traffic, faint hostel corridor noise, paper rustle.
+
+DIALOGUE DELIVERY RULE
+- Spoken delivery quality is critical.
+- The line must sound naturally said by a real Indian student, not recited.
+- Keep pauses, hesitations, and stress believable.

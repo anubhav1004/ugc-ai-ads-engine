@@ -1,0 +1,88 @@
+{
+  "format": "raw_phone_camera_table_angle_footage",
+  "aspect_ratio": "9:16",
+  "test_type": "side_table_reaction_then_post_pickup",
+  "hard_rules": [
+    "this recording is the phone itself",
+    "there is no second phone anywhere",
+    "do not show another phone in the frame",
+    "do not delay the shock reaction past the third second",
+    "the hand-to-mouth gesture must be visible",
+    "no cinematic stabilization",
+    "no fake zoom",
+    "do not generate a phone pickup inside the clip"
+  ],
+  "goal": "Create raw phone footage where the same recording phone is resting on a study table at a slight side angle. The subject is seated at the table, reacts only to what is visible on this recording phone, turns toward this same phone, and leans forward with a bigger, clearer shock by the third second. Do not attempt to generate the pickup inside the shot. The pickup of this exact recording phone will be added later in post, so the generated clip must stay visually continuous and must never imply any second phone.",
+  "scene": {
+    "subject": "American brunette woman in her early 20s",
+    "appearance": "long dark brown hair",
+    "setting": "small study table setup at night",
+    "wardrobe": "simple neutral t-shirt",
+    "background_details": [
+      "dark desk surface",
+      "open laptop near the phone",
+      "dim room behind her",
+      "faint furniture silhouette",
+      "ordinary bedroom or dorm details barely visible"
+    ],
+    "lighting": "the main light comes from the phone screen and nearby laptop screen, casting a cool soft glow on her face and hands; the rest of the room is dim with only a very faint warm ambient practical light in the background",
+    "style": "real raw phone footage from a table view, not aesthetic"
+  },
+  "camera": {
+    "look": [
+      "the recording device is the phone itself",
+      "phone is propped on the table at a slight side angle",
+      "raw phone look",
+      "natural perspective from a real table setup",
+      "no second phone",
+      "no cinematic stabilization"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "0.0-1.1",
+      "beats": [
+        "the same recording phone is resting on the table and already recording",
+        "the camera sees her from a slight side angle at the desk or table",
+        "she is looking directly at the screen of this same recording phone while seated",
+        "there is no other phone in her hands or anywhere on the table",
+        "minimal movement"
+      ]
+    },
+    {
+      "time": "1.1-3.0",
+      "beats": [
+        "she suddenly reacts to what she sees on the screen of this same recording phone",
+        "she turns more directly toward the recording phone",
+        "she leans forward toward this same phone on the table",
+        "eyes open much wider",
+        "eyebrows lift higher and stay raised",
+        "mouth opens noticeably wider in disbelief",
+        "one hand rises toward her mouth after the mouth opens wide",
+        "hold the wide-eyed, leaned-in shocked expression by the third second"
+      ]
+    },
+    {
+      "time": "3.0-4.0",
+      "beats": [
+        "stay in the same continuous side-table recording",
+        "keep the leaned-in shocked posture readable",
+        "small natural body movement is okay",
+        "do not attempt a pickup or camera transition inside generation",
+        "do not show or imply any second phone"
+      ]
+    }
+  ],
+  "priority_notes": [
+    "make the facial reaction strong and readable even on mute",
+    "the mouth should open wider before the hand reaches the mouth",
+    "the eyes should read very wide and alert by second 3",
+    "the audience must feel that the same recording phone is the only device in the shot",
+    "hold a visually stable continuous shot so post can add the pickup on the same frame"
+  ],
+  "audio": {
+    "room_tone": "natural room tone only",
+    "music": "none",
+    "dialogue": "none"
+  }
+}

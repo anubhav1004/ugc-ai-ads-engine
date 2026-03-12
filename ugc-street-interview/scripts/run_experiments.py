@@ -461,23 +461,18 @@ def stitch_clips(clip_paths: list, output_path: Path) -> None:
 
 def send_to_slack(video_path: Path, label: str, exp_id: str) -> None:
     print(f"    [slack] Sending {video_path.name} ...", flush=True)
-    with open(video_path, "rb") as f:
-        resp = requests.post(
-            SLACK_URL,
-            data={"channel_id": SLACK_CHANNEL},
-            files={"file": (video_path.name, f, "video/mp4")},
-        )
-    extra = requests.post(
-        SLACK_URL,
-        data={
-            "channel_id": SLACK_CHANNEL,
-            "text": f"🎬 *{label}* (`{exp_id}`)\nProduct: {PRODUCT} | Scene: Kota | {SECONDS}s × 5 clips = ~40s",
-        },
-    )
-    if resp.ok:
+    helper = Path(__file__).resolve().parents[2] / "common" / "send_slack.py"
+    result = subprocess.run([
+        "python3", str(helper),
+        "--channel-id", SLACK_CHANNEL,
+        "--text", f"🎬 *{label}* (`{exp_id}`)\nProduct: {PRODUCT} | Scene: Kota | {SECONDS}s × 5 clips = ~40s",
+        "--file", str(video_path),
+    ], capture_output=True, text=True)
+    if result.returncode == 0:
         print(f"    [slack] ✓ Sent", flush=True)
     else:
-        print(f"    [slack] ✗ Failed: {resp.text[:200]}", flush=True)
+        resp = result.stdout.strip() or result.stderr.strip()
+        print(f"    [slack] ✗ Failed: {resp[:200]}", flush=True)
 
 # ── Run one experiment ─────────────────────────────────────────────────────────
 

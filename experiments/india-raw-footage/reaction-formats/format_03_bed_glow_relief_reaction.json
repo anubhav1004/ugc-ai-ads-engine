@@ -1,0 +1,42 @@
+{
+  "id": "bed_glow_relief_reaction",
+  "label": "Bed Glow Relief Reaction",
+  "best_use": "Late-night exam panic or secret relief format where the phone screen glow drives the mood.",
+  "ugc_principle": "Low-light intimacy makes the reaction feel private, confessional, and highly native to short-form feeds.",
+  "camera_logic": {
+    "camera_role": "front-facing phone camera held above or in front of the face while lying in bed",
+    "start_state": "subject is already holding the phone in low light",
+    "pickup_behavior": "not about pickup; about subtle repositioning in hand",
+    "framing": "tight face framing with strong phone glow",
+    "face_position": "center or slightly low-center works here",
+    "movement_style": "slow drift, tired hand sway, small tilt when sitting up or lying back down",
+    "reframe_rule": "movement should feel sleepy and intimate, never polished"
+  },
+  "emotion_arc": [
+    "exhaustion",
+    "careful reading",
+    "realization",
+    "relief or whispered line"
+  ],
+  "scale_logic": {
+    "easy_variations": [
+      "dark hostel room",
+      "shared bedroom at night",
+      "morning under duvet",
+      "pre-exam 2am panic"
+    ],
+    "swap_variables": [
+      "glow intensity",
+      "whisper vs silent reaction",
+      "sits up vs lies back down",
+      "panic level"
+    ]
+  },
+  "prompt_skeleton": [
+    "RAW FRONT-CAM FOOTAGE in a dark room.",
+    "The phone screen is the main light source on the face.",
+    "The subject is tired and reading in silence or whispering softly.",
+    "A visible expression shift happens on the face without overacting.",
+    "The phone drifts slightly because the hand is tired."
+  ]
+}

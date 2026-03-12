@@ -1,0 +1,42 @@
+{
+  "id": "kota_boy_v1",
+  "label": "Kota boy, class 12 science student",
+  "age_band": "17-18",
+  "market": "india",
+  "language": "hinglish",
+  "identity_lock": {
+    "gender_presentation": "male",
+    "skin_tone": "medium brown",
+    "hair": "short black hair, slightly messy, realistic student haircut",
+    "build": "slim, slightly tired posture",
+    "wardrobe": "faded dark t-shirt, cheap track pants, hostel-room casual",
+    "props": [
+      "budget Android phone",
+      "open physics notebook",
+      "pen in hand",
+      "study lamp",
+      "messy bed"
+    ]
+  },
+  "performance_lock": {
+    "speaking_style": "natural Hinglish, emotionally honest, not theatrical",
+    "energy": "low-energy but intense, sleep-deprived, sincere",
+    "expression_range": [
+      "frustrated",
+      "ashamed",
+      "relieved",
+      "quietly hopeful"
+    ]
+  },
+  "camera_lock": {
+    "style": "real phone front camera",
+    "framing": "head and shoulders, slightly imperfect crop",
+    "movement": "tiny hand tremor, real handheld instability",
+    "image_quality": "low-light grain, natural compression, no cinematic polish"
+  },
+  "safety_notes": [
+    "Do not make him look like a professional actor.",
+    "Do not over-style clothing or skin.",
+    "Keep the room ordinary, rented-hostel realistic, not aesthetic."
+  ]
+}

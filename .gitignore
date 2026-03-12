@@ -3,6 +3,7 @@ output/
 *.mov
 __pycache__/
 *.pyc
+.DS_Store
 .env
 manifest.json
 concat_list.txt

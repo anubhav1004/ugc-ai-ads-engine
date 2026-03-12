@@ -1,0 +1,17 @@
+{
+  "id": "hostel_night_room",
+  "label": "Kota hostel room at night",
+  "setting_prompt": "Small rented hostel room in Kota, Rajasthan at around 1:30am. Harsh white tube light mixed with one weak study lamp. Bed is unmade. Physics and chemistry books are open. Water bottle, cheap backpack, charger cable, and scribbled notes are visible. The room should feel cramped, real, slightly messy, and lived in by a stressed class 12 student.",
+  "ambient_audio": [
+    "ceiling fan hum",
+    "distant traffic",
+    "faint hostel corridor noise",
+    "paper rustle"
+  ],
+  "visual_rules": [
+    "No luxury decor.",
+    "No polished studio lighting.",
+    "No exaggerated dramatic shadows.",
+    "Keep the realism ordinary and local."
+  ]
+}

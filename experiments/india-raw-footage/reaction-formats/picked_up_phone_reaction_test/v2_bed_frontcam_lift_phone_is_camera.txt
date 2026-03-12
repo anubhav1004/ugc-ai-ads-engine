@@ -1,0 +1,37 @@
+STRICT DEVICE LOGIC TEST.
+
+THIS RECORDING IS THE PHONE ITSELF.
+THERE IS NO SECOND PHONE.
+THE FRONT CAMERA OF THIS SAME PHONE IS ALREADY RECORDING.
+
+The phone begins lying face-up on the bed near the student's pillow.
+When the student lifts the phone, the frame itself must rise, tilt, and shake because the recording device is being moved by his hand.
+
+Do not show another phone anywhere.
+Do not show a person looking at a separate phone.
+
+Visual setup:
+- 9:16 vertical
+- raw front-camera selfie look
+- dark hostel room / bedroom at night
+- weak room light plus phone screen glow
+- Indian male student, 18, sleepy, stressed, exam-night feel
+
+Starting frame:
+- the recording phone is on the bed looking slightly upward toward ceiling and part of his face
+- as he picks it up, the frame rotates and settles above his face
+
+Action timeline:
+- 0-2s: he notices THIS phone screen while half-awake
+- 2-3s: he grabs THIS phone; frame drags and lifts with his hand
+- 3-5s: the phone is now in front of his face; he reads the screen carefully
+- 5-7s: he pulls THIS phone closer to re-read; frame tightens because the device moved
+- 7-8s: sleepy confusion turns into a quiet relief expression
+
+Audio:
+- bed rustle
+- fan hum
+- one sharp inhale
+- no dialogue
+
+This should feel like the same phone is recording and being moved, not like another phone exists.
