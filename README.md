@@ -12,6 +12,7 @@ It is where we keep:
 - reusable generation pipelines
 
 If you are new here, open:
+- `CREATIVE_DASHBOARD.md`
 - `START_HERE.md`
 - `experiments/LATEST.md`
 - `research/README.md`

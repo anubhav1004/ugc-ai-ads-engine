@@ -11,6 +11,9 @@ It is the working studio for Professor Curious ad creation:
 
 If you are non-technical, start with these files.
 
+## Best front door
+- `CREATIVE_DASHBOARD.md`
+
 ## If you want to quickly understand the repo
 - `README.md`
 
